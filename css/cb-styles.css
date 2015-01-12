@@ -1,0 +1,161 @@
+/* =======================================
+   codebreaker base styles
+======================================= */
+
+@import url(http://fonts.googleapis.com/css?family=VT323);
+
+/* ---------------------------------------
+   --color palette --
+   play area:   #fef4b1 (yellow)
+   info text:   #aa2fac (violet)
+   background:  #dadada (grey)
+   stats bg:    #85d923 (green)
+   stats txt:   #020600 (black)
+
+   --size matrix--
+   0 4 8 12 16 20 24 28 32 36 40 44 48
+   52 56 60 64 68 72 76 80 84 88 92 96
+   100 104 108 112 116 120 124 128 132
+   136 140 144 148 152 156 160 164 168
+   172 176 180 184 188 192 196 200 204
+   208 212 216 220 224 228 232 236 240
+   244 248 252 256 260 264 268 272 276
+   280 284 288 292 296 300 304 308 312
+   316 320 324 328 332 336 340 344 348
+   352 356 360 364 368 372 376 380 384
+   388 392 396 400 404 408 412 416 420
+   424 428 432 436 440 444 448 452 456
+   460 464 468 472 476 480 484 488 492
+   496 500 504 508 512 516 520 524 528
+   532 536 540 544 548 552 556 560 564
+   568 572 576 580 584 588 592 596 600
+   604 608 612 616 620 624 628 632 636
+   640 644 648 652 656 660 664 668 672
+   676 680 684 688 692 696 700
+--------------------------------------- */
+
+/* ---------------------------------------
+   global
+--------------------------------------- */
+* {
+  border: 0;
+  border-collapse: collapse;
+  background-repeat: no-repeat;
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  text-decoration: none;
+  vertical-align: top;
+}
+
+/* ---------------------------------------
+   layout
+--------------------------------------- */
+body {
+  background-color: #dadada;
+  -webkit-text-size-adjust:none;
+}
+
+#page {
+  background-color: #fef4b1;
+  background-image: url(../img/border.png);
+  cursor: url(../img/block.gif), auto;
+  height: 700px;
+  margin: 32px auto 0 auto;
+  width: 600px;
+}
+
+header {
+  height: 52px;
+  width: 600px;
+}
+
+#main {
+  height: 596px;
+  width: 600px;
+}
+
+footer {
+  height: 52px;
+  width: 600px;
+}
+
+#menu {
+  text-align: center;
+}
+
+#content {
+  padding: 0 24px 0 24px;
+}
+
+/* ---------------------------------------
+   typography
+--------------------------------------- */
+p, ul, li, label, input {
+  color: #aa2fac;
+  font: 48px/48px VT323;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.ctr {
+  text-align: center;
+}
+
+.smaller-type p {
+  color: #aa2fac;
+  font: 20px/20px VT323;
+  margin-bottom: 12px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+p.flamer {
+  animation: flame 4s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  -webkit-animation: flame 4s;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-play-state: running;
+  color: #aa2fac;
+}
+  @keyframes flame {
+    0%    {color: #aa2fac;}
+    25%   {color: #85d923;}
+    50%   {color: #00ffff;}
+    75%   {color: #ff00ff;}
+    100%  {color: #ffff00;}
+  }
+
+  @-webkit-keyframes flame {
+    0%    {color: #aa2fac;}
+    25%   {color: #85d923;}
+    50%   {color: #00ffff;}
+    75%   {color: #ff00ff;}
+    100%  {color: #ffff00;}
+  }
+
+/* ---------------------------------------
+   form fields
+--------------------------------------- */
+input {
+  background-color: #fef4b1;
+  cursor: url(../img/block.gif), auto;
+  width: 144px;
+}
+
+/* ---------------------------------------
+   graphical
+--------------------------------------- */
+.button {
+  border-top: 4px solid #aa2fac;
+  border-right: 2px solid #aa2fac;
+  border-left: 2px solid #aa2fac;
+  border-bottom: 4px solid #aa2fac;
+  cursor: url(../img/block.gif), auto;
+  display: inline-block;
+  padding: 4px 8px 4px 4px;
+}

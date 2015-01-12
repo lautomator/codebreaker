@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--//<link rel="stylesheet" type="text/css" href="css/cb-styles.css" />//-->
+    <title>CODEBREAKER</title>
+  </head>
+
+  <body>
+      <!--// page begins //-->
+      <div id="page">
+
+        <header>
+          <p class="ctr">codebreaker<p>
+        </header>
+
+        <!--// main //-->
+        <div id="main">
+          <h1>instructions</h1>
+          <p>try to guess three numbers within 10 guesses.
+            if you guess the numbers, you have cracked the code.</p>
+
+          <!--// game interface begins //-->
+          <div id="game">
+
+            <form action="#" id="player_input">
+                <p>
+                  <input autofocus id="player_guess" maxlength="3" type="text">
+                  <input type="submit" value="guess">
+                </p>
+            </form>
+
+          </div><!--// game ends //-->
+
+        </div><!--// main ends //-->
+
+        <!--// footer //-->
+        <footer>
+          <p class="ctr">&copy;&nbsp;2014&nbsp;YOMAMA</p>
+        </footer>
+
+      </div><!--// page ends //-->
+
+      <script src="js/cb-game.js"></script>
+
+      <script type="text/javascript">
+      var game_params = {
+          skillLevel: 3,
+          players: 1
+      };
+
+      var html_targets = {
+          submitGuess: document.getElementsByTagName("form")[0],
+          playerGuess: document.getElementById('player_guess'),
+          gameFeedback: document.getElementById('game')
+      };
+
+      guessing_game(game_params, html_targets);
+      </script>
+
+  </body>
+</html>
