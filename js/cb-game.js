@@ -6,7 +6,9 @@ var guessing_game = function (params, targets) {
 
 // validates the game parameters:
 
-    var check_params = function (gameopts) {
+    var counter = 0,
+
+        check_params = function (gameopts) {
 
             var err = '';
 
@@ -47,14 +49,28 @@ var guessing_game = function (params, targets) {
                 }
             }
 
-// Join the list into a string.
-
             return solutions.join('');
         },
 
-// Set a solution for this game
+// Set a solution for this game:
 
         solution = set_solution(params.skillLevel),
+
+// method to validate a guess:
+        validate_guess = function () {
+
+            var guess = targets.playerGuess.value,
+                ok = true;
+
+            if (!guess.match(/[0-9]{3}/)
+                    || isNaN(guess)
+                    || guess === '') {
+
+                ok = false;
+            }
+
+            return ok;
+        },
 
 // method to evaluate a guess:
 
@@ -63,40 +79,68 @@ var guessing_game = function (params, targets) {
             var guess = targets.playerGuess.value,
                 feedback = targets.gameFeedback,
                 p = document.createElement("p"),
-                error = '',
                 response = '',
-                status = '',
-                counter = 0;
+                status = '';
 
 // A guess must be n=skillLevel numbers and must not be empty.
 
             if (!guess.match(/[0-9]{3}/) || guess === '') {
-                error = 'Enter 3 numbers (0-9) only.';
-            }
-            if (guess === solution) {
+                response = 'Enter 3 numbers (0-9) only.';
+            } else if (guess === solution) {
                 response = 'You guessed it!';
             } else {
-
-// TODO: the feedback returned to the player must
-// indicate the status of the  guess.                
 
                 response = guess;
             }
 
             status = document.createTextNode(response);
-
             p.appendChild(status);
-
             feedback.appendChild(p);
+            targets.submitGuess.reset();
 
             return false;
+        },
+
+// method to handle the sequence of game play:
+
+        init = function () {            
+
+            console.log(counter);
+
+            /*
+            if (validate_guess()) {
+                console.log('a valid guess');
+                process_guess();
+            } else {
+                console.log('not valid');
+            }*/
+
+            // TODO:
+            // check for valid guess
+            // if so, process guess
+            // return response
+            // count valid guesses
+
+            counter += 1;
+
+            return counter;
+
         };
 
     check_params(params);
 
-    targets.submitGuess.onsubmit = process_guess;
-
-// for debugging -----------------------
+    // for debugging -----------------------
     console.log(solution);
-// -------------------------------------
+    // -------------------------------------
+
+    if (counter < 5) {
+
+        targets.submitGuess.onsubmit = init;
+    
+    } else {
+        
+        console.log('this is what you get');
+    }
+    
+
 };
