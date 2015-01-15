@@ -1,7 +1,3 @@
-// This is a preliminary study for CodeBreaker.
-
-// wrapper for the entire game
-
 var guessing_game = function (params, targets) {
 
     var turns = params.guesses,
