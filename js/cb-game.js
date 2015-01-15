@@ -9,16 +9,24 @@ var guessing_game = function (params, targets) {
             var err = '';
 
             if (!gameopts.skillLevel) {
+
                 err += " missing skill level";
+
             }
             if (!gameopts.players) {
+
                 err += " missing number of players";
+
             }
             if (!gameopts.guesses) {
+
                 err += " missing number of guesses";
+
             }
             if (err) {
+
                 throw "Invalid game configuration: " + err;
+
             }
         },
 
@@ -34,17 +42,23 @@ var guessing_game = function (params, targets) {
                 i;
 
             while (solutions.length < skill) {
+
                 randomnumber = Math.floor(Math.random() * 10);
                 found = false;
 
                 for (i = 0; i < solutions.length; i += 1) {
+
                     if (solutions[i] === randomnumber) {
+
                         found = true;
                         break;
+
                     }
                 }
                 if (!found) {
+
                     solutions[solutions.length] = randomnumber;
+
                 }
             }
 
@@ -57,14 +71,15 @@ var guessing_game = function (params, targets) {
 
 // method to validate a guess:
 
-        validate_guess = function () {
+        validate_guess = function (aguess) {
 
-            var guess = targets.playerGuess.value,
-                ok = true;
+            var ok = true;
 
-            if (!guess.match(/[0-9]{3}/)
-                    || isNaN(guess)
-                    || guess === '') {
+// A guess must be 3 numbers and must not be empty.
+
+            if (!aguess.match(/[0-9]{3}/)
+                    || isNaN(aguess)
+                    || aguess === '') {
 
                 ok = false;
             }
@@ -72,7 +87,7 @@ var guessing_game = function (params, targets) {
             return ok;
         },
 
-// method to evaluate a guess:
+// method to process a valid guess, return a response, and determine a win:
 
         process_guess = function () {
 
@@ -83,16 +98,23 @@ var guessing_game = function (params, targets) {
                 status = '',
                 win = false;
 
-// A guess must be n=skillLevel numbers and must not be empty.
+// check to verify a valid guess has been entered:
 
-            if (!guess.match(/[0-9]{3}/) || guess === '') {
+            if (!validate_guess(guess)) {
+
                 response = 'Enter 3 numbers (0-9) only.';
+                console.log('guess is', validate_guess(guess));
+
             } else if (guess === solution) {
+
                 response = 'You WIN!';
                 win = true;
+                console.log('guess is', validate_guess(guess));
+
             } else {
 
                 response = guess;
+                console.log('guess is', validate_guess(guess));
             }
 
             status = document.createTextNode(response);
@@ -103,7 +125,7 @@ var guessing_game = function (params, targets) {
             return win;
         },
 
-// method to handle the sequence of playing the game:
+// method to handle the sequence of game events:
 
         init = function () {
 
@@ -116,13 +138,18 @@ var guessing_game = function (params, targets) {
             turns -= 1;
 
             if (turns === 0 && !win) {
+
                 console.log('you have made 10 guesses and you lose.');
                 containerEl.remove(rmForm);
+
             }
             if (win) {
+
                 console.log('you WIN!');
                 containerEl.remove(rmForm);
+
             }
+
             /*
             if (validate_guess()) {
                 console.log('a valid guess');
