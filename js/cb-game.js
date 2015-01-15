@@ -4,9 +4,9 @@
 
 var guessing_game = function (params, targets) {
 
-// validates the game parameters:
+    var turns = params.guesses,
 
-    var counter = 0,
+// validates the game parameters:
 
         check_params = function (gameopts) {
 
@@ -18,6 +18,9 @@ var guessing_game = function (params, targets) {
             if (!gameopts.players) {
                 err += " missing number of players";
             }
+            if (!gameopts.guesses) {
+                err += " missing number of guesses";
+            }
             if (err) {
                 throw "Invalid game configuration: " + err;
             }
@@ -27,7 +30,7 @@ var guessing_game = function (params, targets) {
 
         set_solution = function (skill) {
 
-// generates a solution: n=skillLevel unique random numbers.
+// generates a solution: 3 unique random numbers.
 
             var randomnumber,
                 found = false,
@@ -57,6 +60,7 @@ var guessing_game = function (params, targets) {
         solution = set_solution(params.skillLevel),
 
 // method to validate a guess:
+
         validate_guess = function () {
 
             var guess = targets.playerGuess.value,
@@ -80,14 +84,16 @@ var guessing_game = function (params, targets) {
                 feedback = targets.gameFeedback,
                 p = document.createElement("p"),
                 response = '',
-                status = '';
+                status = '',
+                win = false;
 
 // A guess must be n=skillLevel numbers and must not be empty.
 
             if (!guess.match(/[0-9]{3}/) || guess === '') {
                 response = 'Enter 3 numbers (0-9) only.';
             } else if (guess === solution) {
-                response = 'You guessed it!';
+                response = 'You WIN!';
+                win = true;
             } else {
 
                 response = guess;
@@ -98,15 +104,29 @@ var guessing_game = function (params, targets) {
             feedback.appendChild(p);
             targets.submitGuess.reset();
 
-            return false;
+            return win;
         },
 
-// method to handle the sequence of game play:
+// method to handle the sequence of playing the game:
 
-        init = function () {            
+        init = function () {
 
-            console.log(counter);
+            var rmForm = targets.submitGuess,
+                containerEl = rmForm.parentNode,
+                win = process_guess();
 
+            console.log('you have', turns - 1, 'turns left.');
+
+            turns -= 1;
+
+            if (turns === 0 && !win) {
+                console.log('you have made 10 guesses and you lose.');
+                containerEl.remove(rmForm);
+            }
+            if (win) {
+                console.log('you WIN!');
+                containerEl.remove(rmForm);
+            }
             /*
             if (validate_guess()) {
                 console.log('a valid guess');
@@ -121,10 +141,6 @@ var guessing_game = function (params, targets) {
             // return response
             // count valid guesses
 
-            counter += 1;
-
-            return counter;
-
         };
 
     check_params(params);
@@ -133,14 +149,6 @@ var guessing_game = function (params, targets) {
     console.log(solution);
     // -------------------------------------
 
-    if (counter < 5) {
-
-        targets.submitGuess.onsubmit = init;
-    
-    } else {
-        
-        console.log('this is what you get');
-    }
-    
+    targets.submitGuess.onsubmit = init;
 
 };
