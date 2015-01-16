@@ -96,14 +96,19 @@ var codebreaker = function (params, targets) {
             var results = ['-', '-', '-'],
                 guess_values = [],
                 sol_values = [],
-                index = 0,
-                sol = 0;
+                val = 0,
+                sol = 0,
+                fdback = '';
 
 // populates guess_values with the response (guess)
 
-            for (index in resp) {
+            for (val in resp) {
 
-                guess_values.push(resp[index]);
+                if (resp.hasOwnProperty(val)) {
+
+                    guess_values.push(resp[val]);
+
+                }
 
             }
 
@@ -111,25 +116,34 @@ var codebreaker = function (params, targets) {
 
             for (sol in solution) {
 
-                sol_values.push(solution[sol]);
+                if (solution.hasOwnProperty(sol)) {
 
+                    sol_values.push(solution[sol]);
+
+                }
             }
 
 // parse guess and solution values and prepare results
 
-            for (index in guess_values) {
+            for (val in guess_values) {
 
-                for (sol in sol_values) {
+                if (guess_values.hasOwnProperty(val)) {
 
-                    if (index === sol) {
+                    for (sol in sol_values) {
 
-                        results[index[0]] = '+';
+                        if (sol_values.hasOwnProperty(sol)) {
 
-                    }
-                    if (index[0] !== sol[0] && index[1] === sol[1]) {
+                            if (val === sol) {
 
-                        results[index[0]] = '*';
+                                results[val[0]] = '+';
 
+                            } else if (val[0] !== sol[0]
+                                    && val[1] === sol[1]) {
+
+                                results[val[0]] = '*';
+
+                            }
+                        }
                     }
                 }
             }
@@ -148,7 +162,6 @@ var codebreaker = function (params, targets) {
                 feedback = targets.gameFeedback,
                 p = document.createElement("p"),
                 response = '',
-                flag = '',
                 status = '',
                 win = false;
 
@@ -166,8 +179,7 @@ var codebreaker = function (params, targets) {
 
             } else {
 
-                flag = guess;
-                response = get_flag(response);
+                response = get_flag(guess);
 
             }
 
