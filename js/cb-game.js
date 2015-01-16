@@ -88,7 +88,59 @@ var codebreaker = function (params, targets) {
             return ok;
         },
 
-// method to process a valid guess, return a response, and determine a win:
+// method to generate a flag (displayed feedback to the player):
+// See the instructions to decipher the meaning of the flags.
+
+        get_flag = function (resp) {
+
+            var results = ['-', '-', '-'],
+                guess_values = [],
+                sol_values = [],
+                index = 0,
+                sol = 0;
+
+// populates guess_values with the response (guess)
+
+            for (index in resp) {
+
+                guess_values.push(resp[index])
+
+            }
+
+// populates sol_values with this game's solution
+
+            for (sol in solution) {
+
+                sol_values.pish(solution[sol]);
+
+            }
+
+// parse guess and solution values and prepare results
+
+            for (index in guess_values) {
+
+                for (sol in sol_values) {
+
+                    if (index === sol) {
+
+                        results[index[0]] = '+'
+
+                    }
+                    if (index[0] !== sol[0] && index[1] === sol[1]) {
+
+                        results[index[0]] = '*'
+
+                    }
+                }
+            }
+
+            fdback = results.join('');
+
+            return fdback;
+
+        },
+
+// method to process a valid guess, generate a response, and return a win:
 
         process_guess = function () {
 
@@ -96,6 +148,7 @@ var codebreaker = function (params, targets) {
                 feedback = targets.gameFeedback,
                 p = document.createElement("p"),
                 response = '',
+                flag = '',
                 status = '',
                 win = false;
 
@@ -113,7 +166,8 @@ var codebreaker = function (params, targets) {
 
             } else {
 
-                response = guess;
+                flag = guess;
+                response = get_flag(response);
 
             }
 
