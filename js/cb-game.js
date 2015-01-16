@@ -103,7 +103,7 @@ var codebreaker = function (params, targets) {
 
             for (index in resp) {
 
-                guess_values.push(resp[index])
+                guess_values.push(resp[index]);
 
             }
 
@@ -111,7 +111,7 @@ var codebreaker = function (params, targets) {
 
             for (sol in solution) {
 
-                sol_values.pish(solution[sol]);
+                sol_values.push(solution[sol]);
 
             }
 
@@ -123,12 +123,12 @@ var codebreaker = function (params, targets) {
 
                     if (index === sol) {
 
-                        results[index[0]] = '+'
+                        results[index[0]] = '+';
 
                     }
                     if (index[0] !== sol[0] && index[1] === sol[1]) {
 
-                        results[index[0]] = '*'
+                        results[index[0]] = '*';
 
                     }
                 }
