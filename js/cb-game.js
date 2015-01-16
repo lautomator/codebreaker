@@ -1,4 +1,4 @@
-var guessing_game = function (params, targets) {
+var codebreaker = function (params, targets) {
 
     var turns = params.guesses,
 
@@ -82,6 +82,7 @@ var guessing_game = function (params, targets) {
                     || aguess === '') {
 
                 ok = false;
+
             }
 
             return ok;
@@ -103,18 +104,17 @@ var guessing_game = function (params, targets) {
             if (!validate_guess(guess)) {
 
                 response = 'Enter 3 numbers (0-9) only.';
-                console.log('guess is', validate_guess(guess));
+                turns += 1;
 
             } else if (guess === solution) {
 
                 response = 'You WIN!';
                 win = true;
-                console.log('guess is', validate_guess(guess));
 
             } else {
 
                 response = guess;
-                console.log('guess is', validate_guess(guess));
+
             }
 
             status = document.createTextNode(response);
@@ -129,7 +129,7 @@ var guessing_game = function (params, targets) {
 
         init = function () {
 
-            var rmForm = targets.submitGuess,
+            var rmForm = targets.playerGuess,
                 containerEl = rmForm.parentNode,
                 win = process_guess();
 
@@ -139,31 +139,15 @@ var guessing_game = function (params, targets) {
 
             if (turns === 0 && !win) {
 
-                console.log('you have made 10 guesses and you lose.');
                 containerEl.remove(rmForm);
 
             }
             if (win) {
 
-                console.log('you WIN!');
+                console.log('score =', turns);
                 containerEl.remove(rmForm);
 
             }
-
-            /*
-            if (validate_guess()) {
-                console.log('a valid guess');
-                process_guess();
-            } else {
-                console.log('not valid');
-            }*/
-
-            // TODO:
-            // check for valid guess
-            // if so, process guess
-            // return response
-            // count valid guesses
-
         };
 
     check_params(params);
