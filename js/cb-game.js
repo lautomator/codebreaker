@@ -31,10 +31,9 @@ var codebreaker = function (params, targets) {
         },
 
 // method to return the solution of a game:
+// generates a solution: 3 unique random numbers.
 
         set_solution = function (skill) {
-
-// generates a solution: 3 unique random numbers.
 
             var randomnumber,
                 found = false,
@@ -96,17 +95,16 @@ var codebreaker = function (params, targets) {
             var results = ['-', '-', '-'],
                 guess_values = [],
                 sol_values = [],
-                val = 0,
-                sol = 0,
+                index = 0,
                 fdback = '';
 
 // populates guess_values with the response (guess)
 
-            for (val in resp) {
+            for (index in resp) {
 
-                if (resp.hasOwnProperty(val)) {
+                if (resp.hasOwnProperty(index)) {
 
-                    guess_values.push(resp[val]);
+                    guess_values.push(resp[index]);
 
                 }
 
@@ -114,39 +112,42 @@ var codebreaker = function (params, targets) {
 
 // populates sol_values with this game's solution
 
-            for (sol in solution) {
+            for (index in solution) {
 
-                if (solution.hasOwnProperty(sol)) {
+                if (solution.hasOwnProperty(index)) {
 
-                    sol_values.push(solution[sol]);
+                    sol_values.push(solution[index]);
 
                 }
             }
 
 // parse guess and solution values and prepare results
 
-            for (val in guess_values) {
+            for (index in guess_values) {
 
-                if (guess_values.hasOwnProperty(val)) {
+                if (guess_values.hasOwnProperty(index)) {
 
-                    for (sol in sol_values) {
+                    for (index in sol_values) {
 
-                        if (sol_values.hasOwnProperty(sol)) {
+                        if (sol_values.hasOwnProperty(index)) {
 
-                            if (val === sol) {
+                            if (guess_values[index] === sol_values[index]) {
 
-                                results[val[0]] = '+';
+                                results[index] = '+';
 
-                            } else if (val[0] !== sol[0]
-                                    && val[1] === sol[1]) {
+                            } else if (guess_values[index] === sol_values[0]
+                                    || guess_values[index] === sol_values[1]
+                                    || guess_values[index] === sol_values[2]) {
 
-                                results[val[0]] = '*';
+                                results[index] = '*';
 
                             }
                         }
                     }
                 }
             }
+
+            results.sort();
 
             fdback = results.join('');
 
@@ -174,7 +175,8 @@ var codebreaker = function (params, targets) {
 
             } else if (guess === solution) {
 
-                response = 'You WIN!';
+                response = 'You WIN! ';
+                response += 'Score = ' + turns;
                 win = true;
 
             } else {
@@ -210,7 +212,7 @@ var codebreaker = function (params, targets) {
             }
             if (win) {
 
-                console.log('score =', turns);
+                console.log('score =', turns + 1);
                 containerEl.remove(rmForm);
 
             }
