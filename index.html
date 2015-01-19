@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<link rel="stylesheet" type="text/css" href="css/cb-styles.css" />-->
+    <link rel="stylesheet" type="text/css" href="css/cb-styles.css" />
     <title>CODEBREAKER</title>
   </head>
 
@@ -12,21 +12,19 @@
       <div id="page">
 
         <header>
-          <p class="ctr">codebreaker<p>
+          <p class="ctr flamer">codebreaker<p>
         </header>
 
         <!--// main //-->
         <div id="main">
-          <h1>instructions</h1>
-          <p>try to guess three numbers within 10 guesses.
-            if you guess the numbers, you have cracked the code.</p>
-
+          
           <!--// instructions //-->
           <div id="instructions">
+            <h1>instructions<br>------------</h1>
             <p>This game is based on the classic Atari 2600 game of the same
-            title. The object of the game is for the player to guess 3
-            numbers between 0 and 9 in the correct order. If the player
-            makes a valid guess, a flag is raised. Flags indicate one
+            title. The object of the game is to guess 3
+            numbers between 0 and 9 in the correct order. If you
+            make a valid guess, a flag is raised. Flags indicate one
             of three things:</p>
 
             <ul>
@@ -56,7 +54,7 @@
           <!--// game interface begins //-->
           <div id="game">
 
-            <form action="#" id="player_input">
+            <form action="#game" id="player_input">
                 <p>
                   <input autofocus id="player_guess" maxlength="3" type="text">
                   <input type="submit" value="guess">

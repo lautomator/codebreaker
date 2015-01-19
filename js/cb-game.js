@@ -181,7 +181,8 @@ var codebreaker = function (params, targets) {
 
             } else {
 
-                response = get_flag(guess);
+                response = guess + ' --> ';
+                response += get_flag(guess);
 
             }
 
@@ -212,7 +213,6 @@ var codebreaker = function (params, targets) {
             }
             if (win) {
 
-                console.log('score =', turns + 1);
                 containerEl.remove(rmForm);
 
             }

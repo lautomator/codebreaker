@@ -43,7 +43,6 @@
   background-repeat: no-repeat;
   list-style: none;
   margin: 0;
-  overflow: hidden;
   padding: 0;
   text-decoration: none;
   vertical-align: top;
@@ -59,26 +58,26 @@ body {
 
 #page {
   background-color: #fef4b1;
-  background-image: url(../img/border.png);
-  cursor: url(../img/block.gif), auto;
-  height: 700px;
+  border-radius: 24px;
+  min-height: 700px;
   margin: 32px auto 0 auto;
-  width: 600px;
+  width: 75%;
 }
 
 header {
   height: 52px;
-  width: 600px;
+  width: 75%;
 }
 
 #main {
-  height: 596px;
-  width: 600px;
+  min-height: 596px;
+  padding: 20px;
+  width: 75%;
 }
 
 footer {
   height: 52px;
-  width: 600px;
+  width: 75%;
 }
 
 #menu {
@@ -92,7 +91,7 @@ footer {
 /* ---------------------------------------
    typography
 --------------------------------------- */
-p, ul, li, label, input {
+p, ul, li, label, input, h1 {
   color: #aa2fac;
   font: 48px/48px VT323;
   text-align: left;
@@ -143,7 +142,7 @@ p.flamer {
 --------------------------------------- */
 input {
   background-color: #fef4b1;
-  cursor: url(../img/block.gif), auto;
+  border: solid 2px #aa2fac;
   width: 144px;
 }
 
@@ -155,7 +154,6 @@ input {
   border-right: 2px solid #aa2fac;
   border-left: 2px solid #aa2fac;
   border-bottom: 4px solid #aa2fac;
-  cursor: url(../img/block.gif), auto;
   display: inline-block;
   padding: 4px 8px 4px 4px;
 }
