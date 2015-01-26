@@ -92,7 +92,7 @@ var codebreaker = function (params, targets) {
 
         get_flag = function (resp) {
 
-            var results = ['-', '-', '-'],
+            var results = [],
                 guess_values = [],
                 sol_values = [],
                 index = 0,
@@ -140,6 +140,10 @@ var codebreaker = function (params, targets) {
                                     || guess_values[index] === sol_values[2]) {
 
                                 results[index] = '*';
+
+                            } else {
+
+                                results[index] = '-';
 
                             }
                         }
@@ -206,12 +210,7 @@ var codebreaker = function (params, targets) {
 
             turns -= 1;
 
-            if (turns === 0 && !win) {
-
-                containerEl.remove(rmForm);
-
-            }
-            if (win) {
+            if ((turns === 0 && !win) || win) {
 
                 containerEl.remove(rmForm);
 
