@@ -30,6 +30,32 @@ var codebreaker = function (params, targets) {
             }
         },
 
+// get the game rules:
+        get_rules = function () {
+
+            var rules = targets.gameRules;
+
+            if (rules.getAttribute('class') === 'hide') {
+
+                rules.setAttribute('class', 'show');
+
+            } else {
+
+                rules.setAttribute('class', 'hide');
+
+            }
+        },
+
+// get the game console:
+
+        get_game = function () {
+
+            var game = targets.gameFeedback;
+
+            game.setAttribute('class', 'show');
+
+        },
+
 // method to return the solution of a game:
 // generates a solution: 3 unique random numbers.
 
@@ -167,6 +193,8 @@ var codebreaker = function (params, targets) {
                 feedback = targets.gameFeedback,
                 p = document.createElement("p"),
                 response = '',
+                message = '',
+                score = '',
                 status = '',
                 win = false;
 
@@ -179,9 +207,17 @@ var codebreaker = function (params, targets) {
 
             } else if (guess === solution) {
 
-                response = 'You WIN! ';
-                response += 'Score = ' + turns;
+                response = guess + ' --> ';
+                response += get_flag(guess);
+                message = 'You WIN!';
+                score = 'Score = ' + turns;
                 win = true;
+
+            } else if (turns === 1) {
+
+                response = guess + ' --> ';
+                response += get_flag(guess);
+                message = 'You have run out of guesses.';
 
             } else {
 
@@ -190,7 +226,7 @@ var codebreaker = function (params, targets) {
 
             }
 
-            status = document.createTextNode(response);
+            status = document.createTextNode(response + message + score);
             p.appendChild(status);
             feedback.appendChild(p);
             targets.submitGuess.reset();
@@ -203,16 +239,14 @@ var codebreaker = function (params, targets) {
         init = function () {
 
             var rmForm = targets.playerGuess,
-                containerEl = rmForm.parentNode,
+                formrEl = rmForm.parentNode,
                 win = process_guess();
-
-            console.log('you have', turns - 1, 'turns left.');
 
             turns -= 1;
 
             if ((turns === 0 && !win) || win) {
 
-                containerEl.remove(rmForm);
+                formrEl.remove(rmForm);
 
             }
         };
@@ -222,6 +256,12 @@ var codebreaker = function (params, targets) {
     // for debugging -----------------------
     console.log(solution);
     // -------------------------------------
+
+// primary click events:
+
+    targets.showRules.onclick = get_rules;
+
+    targets.playGame.onclick = get_game;
 
     targets.submitGuess.onsubmit = init;
 

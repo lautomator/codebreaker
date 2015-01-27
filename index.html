@@ -22,7 +22,7 @@
           <input type="button" id="game_play" value="play">
 
           <!--// instructions //-->
-          <div id="rules">
+          <div id="rules" class="hide">
             <h1>game rules<br>------------</h1>
             <p>This game is based on the classic Atari 2600 game of the same
             title. The object of the game is to guess 3
@@ -55,7 +55,7 @@
           </div>
 
           <!--// game interface begins //-->
-          <div id="game">
+          <div id="game" class="hide">
 
             <form action="#game" id="player_input">
                 <p>
@@ -67,11 +67,6 @@
           </div><!--// game ends //-->
 
         </div><!--// main ends //-->
-
-        <!--// footer //-->
-        <footer>
-          <p class="ctr">&copy;&nbsp;2014&nbsp;YOMAMA</p>
-        </footer>
 
       </div><!--// page ends //-->
 
@@ -86,9 +81,12 @@
       };
 
       var html_targets = {
-          submitGuess: document.getElementsByTagName("form")[0],
-          playerGuess: document.getElementById('player_guess'),
-          gameFeedback: document.getElementById('game')
+          submitGuess:  document.getElementsByTagName("form")[0],
+          playerGuess:  document.getElementById('player_guess'),
+          gameFeedback: document.getElementById('game'),
+          gameRules:    document.getElementById('rules'),
+          showRules:    document.getElementById('game_rules'),
+          playGame:     document.getElementById('game_play')
       };
 
       codebreaker(game_params, html_targets);

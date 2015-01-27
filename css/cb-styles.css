@@ -38,7 +38,7 @@ body {
 #page {
   background-color: #fef4b1;
   min-height: 700px;
-  margin: 32px auto 0 auto;
+  margin: 0 auto 0 auto;
   width: 700px;
 }
 
@@ -136,4 +136,12 @@ input {
   border-bottom: 4px solid #aa2fac;
   display: inline-block;
   padding: 4px 8px 4px 4px;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.show {
+  visibility: visible;
 }
