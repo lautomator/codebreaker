@@ -2,7 +2,7 @@ var codebreaker = function (params, targets) {
 
     var turns = params.guesses,
 
-// validates the game parameters:
+// validates the primary game parameters:
 
         check_params = function (gameopts) {
 
@@ -257,7 +257,7 @@ var codebreaker = function (params, targets) {
     console.log(solution);
     // -------------------------------------
 
-// primary click events:
+// primary click/touch events:
 
     targets.showRules.onclick = get_rules;
 

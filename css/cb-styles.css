@@ -139,9 +139,11 @@ input {
 }
 
 .hide {
+  height: 0;
   visibility: hidden;
 }
 
 .show {
+  min-height: 44px;
   visibility: visible;
 }
