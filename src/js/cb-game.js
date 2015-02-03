@@ -259,9 +259,9 @@ var codebreaker = function (params, targets) {
 
 // primary click/touch events:
 
-    targets.showRules.onclick = get_rules;
+    // targets.showRules.onclick = get_rules;
 
-    targets.playGame.onclick = get_game;
+    // targets.playGame.onclick = get_game;
 
     targets.submitGuess.onsubmit = init;
 
