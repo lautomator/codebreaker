@@ -1,6 +1,5 @@
-codebreaker js version
-======================
-This is a javascript-powered version of the game with a front-end interface.
+codebreaker
+===========
 
 ###instructions
 
