@@ -3,9 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--// TODO: styles in progress
     <link rel="stylesheet" type="text/css" href="css/cb-styles.css" />
-    //-->
+
     <title>CODEBREAKER</title>
   </head>
 
@@ -19,11 +18,6 @@
 
         <!--// main //-->
         <div id="main">
-
-          <!--//
-          <input type="button" id="game_rules" value="rules">
-          <input type="button" id="game_play" value="play">
-          //-->
 
           <!--// instructions //-->
           <div id="rules" class="hide">
@@ -59,18 +53,28 @@
           </div>
 
           <!--// game interface begins //-->
-          <div id="game" class="hide">
+          <div id="game">
 
             <form action="#game" id="player_input">
                 <p>
                   <input autofocus id="player_guess" maxlength="3" type="text">
                   <input type="submit" value="guess">
+                  <input type="button" id="play_again" value="play again?"
+                    class="hide">
                 </p>
             </form>
 
           </div><!--// game ends //-->
 
         </div><!--// main ends //-->
+
+        <!--// footer //-->
+        <footer>
+
+          <input type="button" id="info" value="info">
+          <input type="button" id="src" value="src">
+
+        </footer>
 
       </div><!--// page ends //-->
 
@@ -89,8 +93,10 @@
           playerGuess:  document.getElementById('player_guess'),
           gameFeedback: document.getElementById('game'),
           gameRules:    document.getElementById('rules'),
-          showRules:    document.getElementById('game_rules'),
-          playGame:     document.getElementById('game_play')
+          gameInfo:     document.getElementById('info'),
+          gameSrc:      document.getElementById('src'),
+          playAgain:    document.getElementById('play_again'),
+          cb_src:       'https://github.com/lautomator/codebreaker'
       };
 
       codebreaker(game_params, html_targets);

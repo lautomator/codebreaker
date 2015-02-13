@@ -26,34 +26,7 @@ var codebreaker = function (params, targets) {
             if (err) {
 
                 throw "Invalid game configuration: " + err;
-
             }
-        },
-
-// get the game rules:
-        get_rules = function () {
-
-            var rules = targets.gameRules;
-
-            if (rules.getAttribute('class') === 'hide') {
-
-                rules.setAttribute('class', 'show');
-
-            } else {
-
-                rules.setAttribute('class', 'hide');
-
-            }
-        },
-
-// get the game console:
-
-        get_game = function () {
-
-            var game = targets.gameFeedback;
-
-            game.setAttribute('class', 'show');
-
         },
 
 // method to return the solution of a game:
@@ -93,6 +66,31 @@ var codebreaker = function (params, targets) {
 // Set a solution for this game:
 
         solution = set_solution(params.skillLevel),
+
+// get the game rules:
+        get_rules = function () {
+
+            var rules = targets.gameRules;
+
+            if (rules.getAttribute('class') === 'hide') {
+
+                rules.setAttribute('class', 'show');
+
+            } else {
+
+                rules.setAttribute('class', 'hide');
+            }
+        },
+
+// redirect to the game source code GitHub page
+
+        src_redirect = function () {
+
+            var url = targets.cb_src;
+
+            window.location.assign(url);
+
+        }
 
 // method to validate a guess:
 
@@ -182,7 +180,6 @@ var codebreaker = function (params, targets) {
             fdback = results.join('');
 
             return fdback;
-
         },
 
 // method to process a valid guess, generate a response, and return a win:
@@ -218,6 +215,7 @@ var codebreaker = function (params, targets) {
                 response = guess + ' --> ';
                 response += get_flag(guess);
                 message = 'You have run out of guesses.';
+                message += 'Solution: ' + solution
 
             } else {
 
@@ -247,8 +245,14 @@ var codebreaker = function (params, targets) {
             if ((turns === 0 && !win) || win) {
 
                 formrEl.remove(rmForm);
-
             }
+        },
+
+// play again
+
+        replay = function () {
+
+            window.location.reload();
         };
 
     check_params(params);
@@ -259,10 +263,9 @@ var codebreaker = function (params, targets) {
 
 // primary click/touch events:
 
-    // targets.showRules.onclick = get_rules;
-
-    // targets.playGame.onclick = get_game;
-
     targets.submitGuess.onsubmit = init;
+    targets.playAgain.onclick = replay;
+    targets.gameInfo.onclick = get_rules;
+    targets.gameSrc.onclick = src_redirect;
 
 };
