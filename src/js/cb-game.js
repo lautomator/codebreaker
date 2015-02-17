@@ -90,7 +90,7 @@ var codebreaker = function (params, targets) {
 
             window.location.assign(url);
 
-        }
+        },
 
 // method to validate a guess:
 
@@ -215,7 +215,7 @@ var codebreaker = function (params, targets) {
                 response = guess + ' --> ';
                 response += get_flag(guess);
                 message = 'You have run out of guesses.';
-                message += 'Solution: ' + solution
+                message += 'Solution: ' + solution;
 
             } else {
 
@@ -238,13 +238,15 @@ var codebreaker = function (params, targets) {
 
             var rmForm = targets.playerGuess,
                 formrEl = rmForm.parentNode,
-                win = process_guess();
+                win = process_guess(),
+                replay = targets.playAgain;
 
             turns -= 1;
 
             if ((turns === 0 && !win) || win) {
 
                 formrEl.remove(rmForm);
+                replay.setAttribute('class', 'show');
             }
         },
 
