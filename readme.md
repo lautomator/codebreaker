@@ -33,4 +33,6 @@ to their correct positions or 10 guesses have been taken.
 
 This version can be run from any web browser. Download the source and open the ```index.html``` page in a browser.
 
+**Screen shots to come **
+
 Special thanks to [Sam Halperin](https://github.com/shalperin) for several code reviews and direction. 
