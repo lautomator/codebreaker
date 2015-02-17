@@ -1,6 +1,8 @@
 codebreaker
 ===========
 
+This is GUI version of the game.
+
 ###instructions
 
 This game is based on the classic Atari 2600 game of the same
@@ -30,3 +32,5 @@ The game play ends when all of the numbers have been matched
 to their correct positions or 10 guesses have been taken.
 
 This version can be run from any web browser. Download the source and open the ```index.html``` page in a browser.
+
+Special thanks to [Sam Halperin](https://github.com/shalperin) for several code reviews and direction. 
