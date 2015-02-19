@@ -40,7 +40,7 @@ body {
   border-radius: 5px;
   height: 658px;
   margin: 44px auto 44px; auto;
-  overflow: visible;
+  overflow: hidden;
   width: 723px;
 }
 
@@ -70,14 +70,32 @@ header {
   width: 295px;
 }
 
-#console_readout {
+#console {
   background-color: #fff;
   left: 339px;
   height: 465px;
   position: relative;
   bottom: 465px;
   width: 295px;
+}
 
+#console_readout {
+  background-color: #3e7795;
+  left: 8px;
+  height: 449px;
+  position: relative;
+  top: 8px;
+  width: 279px;
+}
+
+#console_messages {
+  /*background-color: magenta;*/
+  float: left;
+  height: 23px;
+  left: 0;
+  position: relative;
+  top: 320px;
+  width: 279px;
 }
 
 #rules {

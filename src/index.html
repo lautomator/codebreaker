@@ -9,14 +9,14 @@
   </head>
 
   <body>
-      <!--// page begins //-->
+      <!-- page begins -->
       <div id="page">
 
         <header>
           <h1>Codebreaker</h1>
         </header>
 
-        <!--// instructions panel //-->
+        <!-- instructions panel -->
          <div id="rules" class="hide">
           <div id="info_exit">x</div>
           <h2>Game Rules</h2>
@@ -48,21 +48,28 @@
           <p>The game play ends when all of the numbers have been matched
           to their correct positions or 10 guesses have been taken.
           </p>
-        </div><!--// instructions panel ends //-->
+        </div><!-- instructions panel ends -->
 
 
-        <!--// main //-->
+        <!-- main -->
         <div id="main">
 
           <div id="keypad">
             <!-- keypad here -->
           </div>
 
-          <div id="console_readout">
-            <!-- console readout here -->
-          </div>
+          <div id="console">
 
-          <!--// game interface begins //-->
+            <!-- the recorded guesses -->
+            <div id="console_readout">
+
+              <!-- display messages to player: win, lose, invalid -->
+              <div id="console_messages"></div>
+
+            </div><!-- readout ends -->
+          </div><!-- console ends -->
+
+          <!-- game interface begins -->
 <!--           <div id="game">
 
             <form action="#game" id="player_input">
@@ -72,18 +79,18 @@
                 </p>
             </form>
 
-          </div> --><!--// game ends //-->
+          </div> --><!-- game ends -->
 
-        </div><!--// main ends //-->
+        </div><!-- main ends -->
 
-        <!--// footer //-->
+        <!-- footer -->
         <footer>
           <div id="info">Information</div>
           <div id="src">Source Code</div>
           <div id="play_again" class="hide">Play Again?</div>
-        </footer><!--// footer ends //-->
+        </footer><!-- footer ends -->
 
-      </div><!--// page ends //-->
+      </div><!-- page ends -->
 
       <script src="js/cb-game.js"></script>
 
