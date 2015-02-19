@@ -47,100 +47,64 @@ header {
   background-image: url(../img/cb_header.png);
   background-position: 355px 15px;
   height: 66px;
-  text-indent: -99999px;
+  text-indent: -9999px;
   width: 723px;
 }
 
 #main {
-/*  min-height: 596px;
-  padding: 0 40px 20px 40px;
-  width: 620px;*/
+  background-color: magenta;
+  opacity: .1;
+
+  left: 44px;
+  height: 465px;
+  position: relative;
+  top: 44px;
+  width: 635px;
 }
 
 footer {
-/*  height: 52px;
-  width: 700px;*/
-}
-
-#menu {
-/*  text-align: center;*/
-}
-
-#content {
-/*  padding: 0 24px 0 24px;*/
+  background-color: #59aad5;
+  height: 40px;
+  left: 0;
+  position: relative;
+  text-indent: -9999px;
+  top: 88px;
+  width: 723px;
 }
 
 /* ---------------------------------------
-   typography
+   buttons
 --------------------------------------- */
-p, ul, li, label, input, h1 {
-/*  color: #aa2fac;
-  font: 48px/48px VT323;
-  text-align: left;
-  text-transform: uppercase;*/
+#info {
+  background-image: url(../img/cb_ftr_info.png);
+  background-position: 10px 8px;
+  float: left;
+  height: 40px;
+  width: 70px;
 }
 
-.ctr {
-/*  text-align: center;*/
+#src {
+  background-image: url(../img/cb_ftr_src.png);
+  background-position: 14px 14px;
+  float: left;
+  height: 40px;
+  margin-left: 45px;
+  width: 70px;
 }
 
-.smaller-type p {
-/*  color: #aa2fac;
-  font: 20px/20px VT323;
-  margin-bottom: 12px;
-  text-align: left;
-  text-transform: uppercase;*/
+#play_again {
+  background-image: url(../img/cb_ftr_play.png);
+  background-position: 14px 8px;
+  float: left;
+  height: 40px;
+  margin-left: 45px;
+  width: 180px;
 }
 
-p.flamer {
-/*  animation: flame 4s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation-play-state: running;
-  -webkit-animation: flame 4s;
-  -webkit-animation-direction: alternate;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-play-state: running;
-  color: #aa2fac;*/
-}
-/*  @keyframes flame {
-    0%    {color: #aa2fac;}
-    25%   {color: #85d923;}
-    50%   {color: #00ffff;}
-    75%   {color: #ff00ff;}
-    100%  {color: #ffff00;}
-  }
-
-  @-webkit-keyframes flame {
-    0%    {color: #aa2fac;}
-    25%   {color: #85d923;}
-    50%   {color: #00ffff;}
-    75%   {color: #ff00ff;}
-    100%  {color: #ffff00;}
-  }*/
 
 /* ---------------------------------------
-   form fields
+   interactive
 --------------------------------------- */
-input {
-/*  background-color: #fef4b1;
-  border: solid 2px #aa2fac;
-  text-align: center;
-  width: 144px;*/
-}
-
-/* ---------------------------------------
-   graphical
---------------------------------------- */
-.button {
-/*  border-top: 4px solid #aa2fac;
-  border-right: 2px solid #aa2fac;
-  border-left: 2px solid #aa2fac;
-  border-bottom: 4px solid #aa2fac;
-  display: inline-block;
-  padding: 4px 8px 4px 4px;*/
-}
-
 .hide {
   height: 0;
   visibility: hidden;

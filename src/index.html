@@ -67,14 +67,11 @@
         </div><!--// main ends //-->
 
         <!--// footer //-->
-<!--         <footer>
-
-          <input type="button" id="info" value="info">
-          <input type="button" id="src" value="src">
-          <input type="button" id="play_again" value="play again?"
-            class="hide">
-
-        </footer> -->
+        <footer>
+          <div id="info">info</div>
+          <div id="src">src</div>
+          <div id="play_again" class="hide">play again?</div>
+        </footer><!--// footer ends //-->
 
       </div><!--// page ends //-->
 
@@ -82,24 +79,24 @@
 
       <script type="text/javascript">
 
-      var game_params = {
-          skillLevel: 3,
-          players: 1,
-          guesses: 10
-      };
+      // var game_params = {
+      //     skillLevel: 3,
+      //     players: 1,
+      //     guesses: 10
+      // };
 
-      var html_targets = {
-          submitGuess:  document.getElementsByTagName("form")[0],
-          playerGuess:  document.getElementById('player_guess'),
-          gameFeedback: document.getElementById('game'),
-          gameRules:    document.getElementById('rules'),
-          gameInfo:     document.getElementById('info'),
-          gameSrc:      document.getElementById('src'),
-          playAgain:    document.getElementById('play_again'),
-          cb_src:       'https://github.com/lautomator/codebreaker'
-      };
+      // var html_targets = {
+      //     submitGuess:  document.getElementsByTagName("form")[0],
+      //     playerGuess:  document.getElementById('player_guess'),
+      //     gameFeedback: document.getElementById('game'),
+      //     gameRules:    document.getElementById('rules'),
+      //     gameInfo:     document.getElementById('info'),
+      //     gameSrc:      document.getElementById('src'),
+      //     playAgain:    document.getElementById('play_again'),
+      //     cb_src:       'https://github.com/lautomator/codebreaker'
+      // };
 
-      codebreaker(game_params, html_targets);
+      // codebreaker(game_params, html_targets);
 
       </script>
 
