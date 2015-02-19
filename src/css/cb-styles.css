@@ -52,14 +52,18 @@ header {
 }
 
 #main {
-  background-color: magenta;
-  opacity: .1;
+/*  background-color: magenta;
+  opacity: .1;*/
 
   left: 44px;
   height: 465px;
   position: relative;
   top: 44px;
   width: 635px;
+}
+
+#rules {
+  text-indent: -9999px;
 }
 
 footer {
