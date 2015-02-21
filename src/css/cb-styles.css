@@ -14,7 +14,7 @@
 /* ==================================== */
 /* FOR DEVELOPMENT ONLY */
 
-* { visibility: visible !important; }
+/** { visibility: visible !important; }
 
 body {
   background-color:  #cbcbcb !important;
@@ -23,7 +23,7 @@ body {
 
 #page { overflow: visible !important; }
 
-#rules, #info_exit { visibility: hidden !important;}
+#rules, #info_exit { visibility: hidden !important; }*/
 
 /* ==================================== */
 
@@ -45,7 +45,7 @@ body {
    layout
 --------------------------------------- */
 body {
-  background-image: url(../img/cb_bg_dots.jpg);
+  background-image: url(../img/cb_bg_2ca1b34.jpg);
   background-repeat: repeat;
 }
 
@@ -127,7 +127,6 @@ footer {
 }
 
 #digits {
-  bottom: 547px;
   display: inline-table;
   left: 5px;
   height: 455px;
@@ -218,12 +217,55 @@ footer {
 }
 
 #console_messages {
-  background-color: magenta;
+  background-image: url(../img/cb_msg_win.png);
   height: 23px;
-  left: 0;
+  left: 20px;
   position: relative;
-  top: 403px;
-  width: 279px;
+  top: 40px;
+  width: 239px;
+}
+
+#guesses_entered {
+  display: inline-table;
+  left: 20px;
+  height: 366px;
+  position: relative;
+  text-indent: -9999px;
+  top: 20px;
+  width: 239px;
+}
+
+/*#guesses_entered td,
+#console_messages {
+  border: solid 1px magenta;
+}
+*/
+#guesses_entered td.digit_entered {
+  background-image: url(../img/cb_key_0.png);
+  background-position: 0 3px;
+  background-size: 16px 23px;
+  height: 23px;
+  width: 18px;
+}
+
+#guesses_entered td.gutter {
+  height: 23px;
+  width: 24px;
+}
+
+#guesses_entered td.arrow {
+  background-image: url(../img/cb_arrow.png);
+  background-position: 3px 6px;
+  height: 23px;
+  width: 28px;
+}
+
+#guesses_entered td.flag_returned {
+  background-image: url(../img/cb_status_ast.png);
+  background-position: 3px 6px;
+  background-size: 16px;
+  height: 23px;
+  width: 18px;
 }
 
 /* ---------------------------------------
@@ -259,3 +301,10 @@ footer {
   visibility: hidden;
   width: 180px;
 }
+
+/* ---------------------------------------
+   dynamic
+--------------------------------------- */
+.show { visibility: visible; }
+
+.hide { visibility: hidden; }
