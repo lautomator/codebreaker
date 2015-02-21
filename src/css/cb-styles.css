@@ -23,7 +23,6 @@ body {
 
 #page { overflow: visible !important; }
 
-/*hide the instructions*/
 #rules, #info_exit { visibility: hidden !important;}
 
 /* ==================================== */
@@ -140,7 +139,7 @@ footer {
 #digits td {
   background-position: 30px 25px;
   border: solid 3px #fff;
-  /*text-indent: -9999px;*/
+  text-indent: -9999px;
   width: 33%;
 }
 
@@ -178,19 +177,18 @@ footer {
 
 #digits_entered {
   height: 37px;
-  left: 138px;
+  left: 118px;
   position: relative;
   top: 27px;
-  width: 108px;
+  width: 125px;
 }
 
-#digits_entered li {
-  display: inline-block;
+#digits_entered td {
+  background-position: 16px 0 !important;
+  border: none;
   height: 37px;
   width: 26px;
 }
-
-#pos_one, #pos_two { margin-right: 10px; }
 
 #pos_one { background-image: url(../img/cb_key_1.png); }
 
