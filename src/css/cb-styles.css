@@ -13,7 +13,7 @@
 
 /* ==================================== */
 /* FOR DEVELOPMENT ONLY */
-/*
+
 * { visibility: visible !important; }
 
 body {
@@ -22,7 +22,10 @@ body {
 }
 
 #page { overflow: visible !important; }
-*/
+
+/*hide the instructions*/
+#rules, #info_exit { visibility: hidden !important;}
+
 /* ==================================== */
 
 /* ---------------------------------------
@@ -137,7 +140,7 @@ footer {
 #digits td {
   background-position: 30px 25px;
   border: solid 3px #fff;
-  text-indent: -9999px;
+  /*text-indent: -9999px;*/
   width: 33%;
 }
 
@@ -167,6 +170,33 @@ footer {
 #seven  { background-image: url(../img/cb_key_7.png); }
 #eight  { background-image: url(../img/cb_key_8.png); }
 #nine   { background-image: url(../img/cb_key_9.png); }
+
+#keys_readout {
+  background-color: #3e7795;
+  height: 91px;
+}
+
+#digits_entered {
+  height: 37px;
+  left: 138px;
+  position: relative;
+  top: 27px;
+  width: 108px;
+}
+
+#digits_entered li {
+  display: inline-block;
+  height: 37px;
+  width: 26px;
+}
+
+#pos_one, #pos_two { margin-right: 10px; }
+
+#pos_one { background-image: url(../img/cb_key_1.png); }
+
+#pos_two { background-image: url(../img/cb_key_2.png); }
+
+#pos_three { background-image: url(../img/cb_key_3.png); }
 
 /* ---------------------------------------
    console
