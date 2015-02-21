@@ -11,6 +11,20 @@
    dark green :  #3e9549
 --------------------------------------- */
 
+/* ==================================== */
+/* FOR DEVELOPMENT ONLY */
+/*
+* { visibility: visible !important; }
+
+body {
+  background-color:  #cbcbcb !important;
+  background-image: none !important;
+}
+
+#page { overflow: visible !important; }
+*/
+/* ==================================== */
+
 /* ---------------------------------------
    global
 --------------------------------------- */
@@ -28,7 +42,10 @@
 /* ---------------------------------------
    layout
 --------------------------------------- */
-body { background-color: #cbcbcb; }
+body {
+  background-image: url(../img/cb_bg_dots.jpg);
+  background-repeat: repeat;
+}
 
 #page {
   background-color: #ecf0d5;
@@ -37,7 +54,7 @@ body { background-color: #cbcbcb; }
   border-radius: 5px;
   height: 658px;
   margin: 44px auto 44px; auto;
-  overflow: visible;
+  overflow: hidden;
   width: 723px;
 }
 
@@ -56,22 +73,64 @@ header {
   position: relative;
   top: 44px;
   width: 635px;
-  z-index: 10;
 }
 
-/* the keypad ---------- */
+footer {
+  background-color: #59aad5;
+  bottom: 465px;
+  height: 40px;
+  left: 0;
+  position: relative;
+  text-indent: -9999px;
+  width: 723px;
+}
+
+/* ---------------------------------------
+   info / game rules
+--------------------------------------- */
+#rules {
+  background-color: #000;
+  background-image: url(../img/cb_instructions.png);
+  background-position: 10px 30px;
+  bottom: 465px;
+  height: 542px;
+  left: 0;
+  margin: 5px;
+  opacity: .85;
+  position: relative;
+  text-indent: -9999px;
+  visibility: hidden;
+  width: 713px;
+  z-index: 99;
+}
+
+#info_exit {
+  background-image: url(../img/cb_button_x.png);
+  float: right;
+  height: 23px;
+  margin: 4px;
+  text-indent: -9999px;
+  width: 23px
+}
+
+/* ---------------------------------------
+   keypad
+--------------------------------------- */
 #keypad {
   background-color: #fff;
   height: 465px;
+  left: 0;
+  position: relative;
   width: 295px;
 }
 
-#keys
 #digits {
   bottom: 547px;
+  display: inline-table;
   left: 5px;
   height: 455px;
   position: relative;
+  top: 5px;
   width: 285px;
 }
 
@@ -96,21 +155,22 @@ header {
   background-position: 28px 35px;
 }
 
-#enter { background-image: url(../img/cb_key_ret.png); }
-#clear { background-image: url(../img/cb_key_C.png); }
-#zero { background-image: url(../img/cb_key_0.png); }
-#one { background-image: url(../img/cb_key_1.png); }
-#two { background-image: url(../img/cb_key_2.png); }
-#three { background-image: url(../img/cb_key_3.png); }
-#four { background-image: url(../img/cb_key_4.png); }
-#five { background-image: url(../img/cb_key_5.png); }
-#six { background-image: url(../img/cb_key_6.png); }
-#seven { background-image: url(../img/cb_key_7.png); }
-#eight { background-image: url(../img/cb_key_8.png); }
-#nine { background-image: url(../img/cb_key_9.png); }
-/*---------------------- */
+#enter  { background-image: url(../img/cb_key_ret.png); }
+#clear  { background-image: url(../img/cb_key_C.png); }
+#zero   { background-image: url(../img/cb_key_0.png); }
+#one    { background-image: url(../img/cb_key_1.png); }
+#two    { background-image: url(../img/cb_key_2.png); }
+#three  { background-image: url(../img/cb_key_3.png); }
+#four   { background-image: url(../img/cb_key_4.png); }
+#five   { background-image: url(../img/cb_key_5.png); }
+#six    { background-image: url(../img/cb_key_6.png); }
+#seven  { background-image: url(../img/cb_key_7.png); }
+#eight  { background-image: url(../img/cb_key_8.png); }
+#nine   { background-image: url(../img/cb_key_9.png); }
 
-/* the console --------- */
+/* ---------------------------------------
+   console
+--------------------------------------- */
 #console {
   background-color: #fff;
   left: 339px;
@@ -130,68 +190,33 @@ header {
 }
 
 #console_messages {
-  /*background-color: magenta;*/
-  float: left;
+  background-color: magenta;
   height: 23px;
   left: 0;
   position: relative;
-  top: 320px;
+  top: 403px;
   width: 279px;
-}
-/*---------------------- */
-
-#rules {
-  background-color: #000;
-  background-image: url(../img/cb_instructions.png);
-  background-position: 10px 30px;
-  float: left;
-  height: 542px;
-  margin: 5px;
-  opacity: .6;
-  text-indent: -9999px;
-  width: 713px;
-  z-index: 20;
-}
-
-footer {
-  background-color: #59aad5;
-  height: 40px;
-  left: 0;
-  position: relative;
-  text-indent: -9999px;
-  top: 87px;
-  width: 723px;
 }
 
 /* ---------------------------------------
-   buttons
+   footer buttons
 --------------------------------------- */
 #info {
   background-image: url(../img/cb_ftr_info.png);
   background-position: 10px 8px;
-  bottom: 87px;
-  float: left;
   height: 40px;
+  left: 0;
   position: relative;
+  top: 0;
   width: 70px;
-}
-
-#info_exit {
-  background-image: url(../img/cb_button_x.png);
-  float: right;
-  height: 23px;
-  margin: 4px;
-  text-indent: -9999px;
-  width: 23px
 }
 
 #src {
   background-image: url(../img/cb_ftr_src.png);
   background-position: 14px 14px;
-  bottom: 87px;
-  float: left;
+  bottom: 40px;
   height: 40px;
-  margin-left: 45px;
+  margin-left: 80px;
   position: relative;
   width: 70px;
 }
@@ -199,17 +224,10 @@ footer {
 #play_again {
   background-image: url(../img/cb_ftr_play.png);
   background-position: 14px 8px;
-  bottom: 87px;
-  float: left;
+  bottom: 80px;
   height: 40px;
-  margin-left: 45px;
+  margin-left: 160px;
   position: relative;
+  visibility: hidden;
   width: 180px;
 }
-
-/* ---------------------------------------
-   interactive
---------------------------------------- */
-.hide { visibility: hidden; }
-
-.show { visibility: visible; }
