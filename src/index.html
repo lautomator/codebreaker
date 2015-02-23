@@ -73,8 +73,15 @@
             <!-- the recorded guesses -->
             <div id="console_readout">
 
+              <div id="feedback">
+                <!-- messages returned to the player -->
+              </div>
+
+
+
+
               <!-- the guesses entered -->
-              <table id="guesses_entered">
+<!--               <table id="guesses_entered">
 
                 <tr>
                   <td class="digit_entered">0</td>
@@ -196,7 +203,7 @@
                   <td class="flag_returned">-</td>
                 </tr>
 
-              </table>
+              </table> -->
 
               <!-- display messages to player: win, lose, invalid -->
               <div id="console_messages"></div>
@@ -266,24 +273,24 @@
 
       <script type="text/javascript">
 
-      // var game_params = {
-      //     skillLevel: 3,
-      //     players: 1,
-      //     guesses: 10
-      // };
+      var cb_game_params = {
+          skillLevel: 3,
+          players: 1,
+          guesses: 10
+      };
 
-      // var html_targets = {
-      //     submitGuess:  document.getElementsByTagName("form")[0],
-      //     playerGuess:  document.getElementById('player_guess'),
-      //     gameFeedback: document.getElementById('game'),
-      //     gameRules:    document.getElementById('rules'),
-      //     gameInfo:     document.getElementById('info'),
-      //     gameSrc:      document.getElementById('src'),
-      //     playAgain:    document.getElementById('play_again'),
-      //     cb_src:       'https://github.com/lautomator/codebreaker'
-      // };
+      var cb_html_targets = {
+          submitGuess:  document.getElementsByTagName("form")[0],
+          playerGuess:  document.getElementById('player_guess'),
+          gameFeedback: document.getElementById('feedback'),
+          gameRules:    document.getElementById('rules'),
+          gameInfo:     document.getElementById('info'),
+          gameSrc:      document.getElementById('src'),
+          playAgain:    document.getElementById('play_again'),
+          cb_src:       'https://github.com/lautomator/codebreaker'
+      };
 
-      // codebreaker(game_params, html_targets);
+      codebreaker(cb_game_params, cb_html_targets);
 
       </script>
 

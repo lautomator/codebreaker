@@ -2,19 +2,19 @@
    codebreaker base styles
 ======================================= */
 
-/* ---------------------------------------
+/* ====================================
    colors style guide
    bg         :  #ecf0d5
    light blue :  #59aad5
    dark blue  :  #3e7795
    green      :  #59d568
    dark green :  #3e9549
---------------------------------------- */
+==================================== */
 
 /* ==================================== */
 /* FOR DEVELOPMENT ONLY */
-
-/** { visibility: visible !important; }
+/*
+* { visibility: visible !important; }
 
 body {
   background-color:  #cbcbcb !important;
@@ -23,13 +23,13 @@ body {
 
 #page { overflow: visible !important; }
 
-#rules, #info_exit { visibility: hidden !important; }*/
-
+#rules, #info_exit { visibility: hidden !important; }
+*/
 /* ==================================== */
 
-/* ---------------------------------------
+/* ====================================
    global
---------------------------------------- */
+==================================== */
 * {
   border: 0;
   border-collapse: collapse;
@@ -41,9 +41,9 @@ body {
   vertical-align: top;
 }
 
-/* ---------------------------------------
+/* ====================================
    layout
---------------------------------------- */
+==================================== */
 body {
   background-image: url(../img/cb_bg_2ca1b34.jpg);
   background-repeat: repeat;
@@ -87,9 +87,9 @@ footer {
   width: 723px;
 }
 
-/* ---------------------------------------
+/* ====================================
    info / game rules
---------------------------------------- */
+==================================== */
 #rules {
   background-color: #000;
   background-image: url(../img/cb_instructions.png);
@@ -115,9 +115,9 @@ footer {
   width: 23px
 }
 
-/* ---------------------------------------
+/* ====================================
    keypad
---------------------------------------- */
+==================================== */
 #keypad {
   background-color: #fff;
   height: 465px;
@@ -195,9 +195,9 @@ footer {
 
 #pos_three { background-image: url(../img/cb_key_3.png); }
 
-/* ---------------------------------------
+/* ====================================
    console
---------------------------------------- */
+==================================== */
 #console {
   background-color: #fff;
   left: 339px;
@@ -212,12 +212,13 @@ footer {
   left: 8px;
   height: 449px;
   position: relative;
+  overflow: visible;
   top: 8px;
   width: 279px;
 }
 
 #console_messages {
-  background-image: url(../img/cb_msg_win.png);
+  /*background-image: url(../img/cb_msg_win.png);*/
   height: 23px;
   left: 20px;
   position: relative;
@@ -268,9 +269,9 @@ footer {
   width: 18px;
 }
 
-/* ---------------------------------------
+/* ====================================
    footer buttons
---------------------------------------- */
+==================================== */
 #info {
   background-image: url(../img/cb_ftr_info.png);
   background-position: 10px 8px;
@@ -302,9 +303,23 @@ footer {
   width: 180px;
 }
 
-/* ---------------------------------------
+/* ====================================
    dynamic
---------------------------------------- */
+==================================== */
 .show { visibility: visible; }
 
 .hide { visibility: hidden; }
+
+/* ====================================
+   typography
+==================================== */
+#feedback p {
+  background-color: #fff;
+  top: 8px;
+  color: red;
+  font: 14px/18px courier, sans-serif;
+  left: 8px;
+  padding: 8px;
+  position: relative;
+  width: 247px;
+}

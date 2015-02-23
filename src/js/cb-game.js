@@ -4,28 +4,36 @@ var codebreaker = function (params, targets) {
 
 // validates the primary game parameters:
 
-        check_params = function (gameopts) {
+        check_params = function (gameopts, tgts) {
 
-            var err = '';
+            var err = [],
+                status_window = tgts.gameFeedback,
+                err_item = document.createElement("p");
 
             if (!gameopts.skillLevel) {
 
-                err += " missing skill level";
+                err.push("missing skill level");
 
             }
             if (!gameopts.players) {
 
-                err += " missing number of players";
+                err.push("missing number of players");
 
             }
             if (!gameopts.guesses) {
 
-                err += " missing number of guesses";
+                err.push("missing number of guesses");
 
             }
-            if (err) {
+            if (err.length > 0) {
+
+                err_msg = document.createTextNode(
+                    "Invalid game configuration: see console");
+                err_item.appendChild(err_msg);
+                status_window.appendChild(err_item);
 
                 throw "Invalid game configuration: " + err;
+
             }
         },
 
@@ -257,7 +265,7 @@ var codebreaker = function (params, targets) {
             window.location.reload();
         };
 
-    check_params(params);
+    check_params(params, targets);
 
     // for debugging -----------------------
     console.log(solution);
@@ -265,9 +273,9 @@ var codebreaker = function (params, targets) {
 
 // primary click/touch events:
 
-    targets.submitGuess.onsubmit = init;
-    targets.playAgain.onclick = replay;
-    targets.gameInfo.onclick = get_rules;
-    targets.gameSrc.onclick = src_redirect;
+    // targets.submitGuess.onsubmit = init;
+    // targets.playAgain.onclick = replay;
+    // targets.gameInfo.onclick = get_rules;
+    // targets.gameSrc.onclick = src_redirect;
 
 };
