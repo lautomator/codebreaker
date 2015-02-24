@@ -7,28 +7,31 @@ var codebreaker = function (params, targets) {
         check_params = function (gameopts, tgts) {
 
             var err = [],
-                status_window = tgts.gameFeedback,
+                status_window = tgts.gameStatus,
                 err_item = document.createElement("p");
 
-            if (!gameopts.skillLevel) {
+            if (!gameopts.skillLevel || gameopts.skillLevel !== 3) {
 
-                err.push("missing skill level");
-
-            }
-            if (!gameopts.players) {
-
-                err.push("missing number of players");
+                err.push("Missing skill level. " +
+                    "Skill level must equal 3.  ");
 
             }
-            if (!gameopts.guesses) {
+            if (!gameopts.players || gameopts.players !== 1) {
 
-                err.push("missing number of guesses");
+                err.push("Missing number of players. " +
+                    "This is a 1-player version.");
+
+            }
+            if (!gameopts.guesses || gameopts.guesses !== 10) {
+
+                err.push("Missing number of guesses. " +
+                    "Only 10 guess permitted.");
 
             }
             if (err.length > 0) {
 
                 err_msg = document.createTextNode(
-                    "Invalid game configuration: see console");
+                    "Invalid game configuration");
                 err_item.appendChild(err_msg);
                 status_window.appendChild(err_item);
 

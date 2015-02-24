@@ -221,13 +221,13 @@ footer {
   /*background-image: url(../img/cb_msg_win.png);*/
   height: 23px;
   left: 20px;
-  position: relative;
-  top: 40px;
+  position: absolute;
+  top: 403px;
   width: 239px;
 }
 
-#guesses_entered {
-  display: inline-table;
+#feedback {
+  display: inline-table; 
   left: 20px;
   height: 366px;
   position: relative;
@@ -236,33 +236,35 @@ footer {
   width: 239px;
 }
 
-/*#guesses_entered td,
+
+#feedback,
 #console_messages {
   border: solid 1px magenta;
 }
-*/
-#guesses_entered td.digit_entered {
-  background-image: url(../img/cb_key_0.png);
+
+
+#feedback td.digit_entered {
+  /*background-image: url(../img/cb_key_0@16x23.png);*/
   background-position: 0 3px;
   background-size: 16px 23px;
   height: 23px;
   width: 18px;
 }
 
-#guesses_entered td.gutter {
+#feedback td.gutter {
   height: 23px;
   width: 24px;
 }
 
-#guesses_entered td.arrow {
+#feedback td.arrow {
   background-image: url(../img/cb_arrow.png);
   background-position: 3px 6px;
   height: 23px;
   width: 28px;
 }
 
-#guesses_entered td.flag_returned {
-  background-image: url(../img/cb_status_ast.png);
+#feedback td.flag_returned {
+  /*background-image: url(../img/cb_status_ast.png);*/
   background-position: 3px 6px;
   background-size: 16px;
   height: 23px;
@@ -313,13 +315,7 @@ footer {
 /* ====================================
    typography
 ==================================== */
-#feedback p {
-  background-color: #fff;
-  top: 8px;
-  color: red;
+#console_messages p {
+  color: #fff;
   font: 14px/18px courier, sans-serif;
-  left: 8px;
-  padding: 8px;
-  position: relative;
-  width: 247px;
 }
