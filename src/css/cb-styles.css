@@ -244,7 +244,7 @@ footer {
 
 
 #feedback td.digit_entered {
-  /*background-image: url(../img/cb_key_0@16x23.png);*/
+  background-image: url(../img/cb_key_0@16x23.png);
   background-position: 0 3px;
   background-size: 16px 23px;
   height: 23px;
@@ -257,14 +257,14 @@ footer {
 }
 
 #feedback td.arrow {
-  background-image: url(../img/cb_arrow.png);
+  background-image: url(../img/cb_status_arrow.png);
   background-position: 3px 6px;
   height: 23px;
   width: 28px;
 }
 
 #feedback td.flag_returned {
-  /*background-image: url(../img/cb_status_ast.png);*/
+  background-image: url(../img/cb_status_ast.png);
   background-position: 3px 6px;
   background-size: 16px;
   height: 23px;

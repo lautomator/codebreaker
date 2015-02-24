@@ -81,16 +81,27 @@ var codebreaker = function (params, targets) {
 // get the game rules:
         get_rules = function () {
 
-            var rules = targets.gameRules;
+            var rules = targets.gameRules,
+                exit = targets.infoExit;
 
-            if (rules.getAttribute('class') === 'hide') {
+            // use the 'info' button
+            if (rules.style.visibility === 'hidden') {
 
-                rules.setAttribute('class', 'show');
+                rules.style.visibility = 'visible';
 
             } else {
 
-                rules.setAttribute('class', 'hide');
+                rules.style.visibility = 'hidden';
             }
+        },
+
+// exit the info panel:
+        exit_info_panel = function () {
+
+            var rules = targets.gameRules;
+
+            rules.style.visibility = 'hidden';
+
         },
 
 // redirect to the game source code GitHub page
@@ -277,8 +288,9 @@ var codebreaker = function (params, targets) {
 // primary click/touch events:
 
     // targets.submitGuess.onsubmit = init;
-    // targets.playAgain.onclick = replay;
-    // targets.gameInfo.onclick = get_rules;
-    // targets.gameSrc.onclick = src_redirect;
+    targets.playAgain.onclick = replay;
+    targets.gameInfo.onclick = get_rules;
+    targets.gameSrc.onclick = src_redirect;
+    targets.infoExit.onclick = exit_info_panel;
 
 };
