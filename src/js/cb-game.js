@@ -4,7 +4,7 @@ var codebreaker = function (params, targets) {
 
     var turns = params.guesses,
 
-// validates the primary game parameters:
+// validates the primary game parameters
 
         check_params = function (gameopts, tgts) {
 
@@ -77,11 +77,12 @@ var codebreaker = function (params, targets) {
             return solutions.join('');
         },
 
-// Set a solution for this game:
+// Set a solution for this game
 
         solution = set_solution(params.skillLevel),
 
-// get the game rules:
+// get the game rules
+
         get_rules = function () {
 
             var rules = targets.gameRules;
@@ -97,7 +98,8 @@ var codebreaker = function (params, targets) {
             }
         },
 
-// exit the info panel:
+// exit the info panel
+
         exit_info_panel = function () {
 
             var rules = targets.gameRules;
@@ -110,13 +112,21 @@ var codebreaker = function (params, targets) {
 
         src_redirect = function () {
 
-            var url = targets.cb_src;
+            var url = targets.cbSrc;
 
             window.location.assign(url);
 
         },
 
-// method to validate a guess:
+// the player clicks the numbered keys ("calculator")
+
+        key_click = function () {
+
+            console.log('little charlie');
+
+        },
+
+// method to validate a guess
 
         validate_guess = function (aguess) {
 
@@ -206,7 +216,7 @@ var codebreaker = function (params, targets) {
             return fdback;
         },
 
-// method to process a valid guess, generate a response, and return a win:
+// method to process a valid guess, generate a response, and return a win
 
         process_guess = function () {
 
@@ -219,7 +229,7 @@ var codebreaker = function (params, targets) {
                 status = '',
                 win = false;
 
-// check to verify a valid guess has been entered:
+// check to verify a valid guess has been entered
 
             if (!validate_guess(guess)) {
 
@@ -256,7 +266,7 @@ var codebreaker = function (params, targets) {
             return win;
         },
 
-// method to handle the sequence of game events:
+// method to handle the sequence of game events
 
         init = function () {
 
@@ -287,12 +297,20 @@ var codebreaker = function (params, targets) {
     console.log(solution);
     // -------------------------------------
 
-// primary click/touch events:
+// primary click/touch events
 
     // targets.submitGuess.onsubmit = init;
     targets.playAgain.onclick = replay;
     targets.gameInfo.onclick = get_rules;
-    targets.gameSrc.onclick = src_redirect;
     targets.infoExit.onclick = exit_info_panel;
+    targets.gameSrc.onclick = src_redirect;
+
+// the player uses the keypad
+
+    // for (var i in targets.cbKeys) {
+
+    //     targets.cbKeys[i].onclick = key_click;
+
+    // }
 
 };

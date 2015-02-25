@@ -1,9 +1,9 @@
-codebreaker
+Codebreaker
 ===========
 
 This is GUI version of the game.
 
-###instructions
+###Instructions
 
 This game is based on the classic Atari 2600 game of the same
 title. The object of the game is for the player to guess 3

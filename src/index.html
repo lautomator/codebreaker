@@ -278,14 +278,32 @@
           submitGuess:   document.getElementsByTagName("form")[0],
           playerGuess:   document.getElementById('player_guess'),
           gameFeedback:  document.getElementById('feedback'),
+          // these need to be reworked ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
           gameStatus:    document.getElementById('console_messages'),
           gameRules:     document.getElementById('rules'),
           infoExit:      document.getElementById('info_exit'),
           gameInfo:      document.getElementById('info'),
           gameSrc:       document.getElementById('src'),
           playAgain:     document.getElementById('play_again'),
-          cb_src:        'https://github.com/lautomator/codebreaker'
+          cbSrc:        'https://github.com/lautomator/codebreaker',
+          cbKeys:       document.getElementsByClassName('key_inactive')
+          // these are current ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
       };
+
+      // if (cb_keys.length >= 1) {
+
+      //   cb_keys[0].className = 'key_active';
+
+      // }
+
+      // console.log(cb_keys.length);
+
+      // for (i in cb_keys) {
+      
+      //     cb_keys[i].className = 'key_active';
+      
+      // }
+
 
       codebreaker(cb_game_params, cb_html_targets);
 
