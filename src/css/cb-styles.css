@@ -108,6 +108,7 @@ footer {
 
 #info_exit {
   background-image: url(../img/cb_button_x.png);
+  cursor: pointer;
   float: right;
   height: 23px;
   margin: 4px;
@@ -142,18 +143,26 @@ footer {
   width: 33%;
 }
 
-.key_active { background-color: #3e7795; }
+.key_active {
+  background-color: #3e7795;
+  cursor: pointer;
+}
 
-.key_inactive { background-color: #59aad5; }
+.key_inactive {
+  background-color: #59aad5;
+  cursor: pointer;
+}
 
 #enter.key_active {
   background-color: #3e9549;
   background-position: 28px 35px;
+  cursor: pointer;
 }
 
 #enter.key_inactive {
   background-color: #59d568;
   background-position: 28px 35px;
+  cursor: pointer;
 }
 
 #enter  { background-image: url(../img/cb_key_ret.png); }
@@ -227,7 +236,7 @@ footer {
 }
 
 #feedback {
-  display: inline-table; 
+  display: inline-table;
   left: 20px;
   height: 366px;
   position: relative;
@@ -277,6 +286,7 @@ footer {
 #info {
   background-image: url(../img/cb_ftr_info.png);
   background-position: 10px 8px;
+  cursor: pointer;
   height: 40px;
   left: 0;
   position: relative;
@@ -288,6 +298,7 @@ footer {
   background-image: url(../img/cb_ftr_src.png);
   background-position: 14px 14px;
   bottom: 40px;
+  cursor: pointer;
   height: 40px;
   margin-left: 80px;
   position: relative;
@@ -298,6 +309,7 @@ footer {
   background-image: url(../img/cb_ftr_play.png);
   background-position: 14px 8px;
   bottom: 80px;
+  cursor: pointer;
   height: 40px;
   margin-left: 160px;
   position: relative;
@@ -311,6 +323,8 @@ footer {
 .show { visibility: visible; }
 
 .hide { visibility: hidden; }
+
+footer div:hover { background-color: #3e7795; }
 
 /* ====================================
    typography

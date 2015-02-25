@@ -1,5 +1,7 @@
 var codebreaker = function (params, targets) {
 
+    "use strict";
+
     var turns = params.guesses,
 
 // validates the primary game parameters:
@@ -8,7 +10,10 @@ var codebreaker = function (params, targets) {
 
             var err = [],
                 status_window = tgts.gameStatus,
-                err_item = document.createElement("p");
+                err_item = document.createElement("p"),
+                err_msg = document.createTextNode(
+                    "Invalid game configuration"
+                );
 
             if (!gameopts.skillLevel || gameopts.skillLevel !== 3) {
 
@@ -30,8 +35,6 @@ var codebreaker = function (params, targets) {
             }
             if (err.length > 0) {
 
-                err_msg = document.createTextNode(
-                    "Invalid game configuration");
                 err_item.appendChild(err_msg);
                 status_window.appendChild(err_item);
 
@@ -81,8 +84,7 @@ var codebreaker = function (params, targets) {
 // get the game rules:
         get_rules = function () {
 
-            var rules = targets.gameRules,
-                exit = targets.infoExit;
+            var rules = targets.gameRules;
 
             // use the 'info' button
             if (rules.style.visibility === 'hidden') {
