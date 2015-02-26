@@ -1,0 +1,40 @@
+form {
+  border: solid 1px #000;
+  height: 200px;
+  width: 200px;
+}
+
+input {
+  border: none;
+  color: #000;
+  height: 100px;
+  width: 100px;
+}
+
+#zero {
+  left: 0;
+  opacity: .3;
+  position: relative;
+  top: 0;
+}
+
+#one {
+  bottom: 100px;
+  left: 100px;
+  opacity: .5;
+  position: relative;
+}
+
+#two {
+  bottom: 100px;
+  left: 0;
+  opacity: .7;
+  position: relative;
+}
+
+#enter {
+  bottom: 200px;
+  left: 100px;
+  opacity: 1;
+  position: relative;
+}
