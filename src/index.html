@@ -4,7 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="css/cb-styles.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/cb-styles.css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/cb-styles-dev.css" />
+    <!-- FOR DEVELOPMENT ^^^^^ -->
 
     <title>CODEBREAKER</title>
   </head>
@@ -83,121 +85,11 @@
                   <td class="digit_entered">0</td>
                   <td class="digit_entered">0</td>
                   <td class="gutter"></td>
-                  <td class="arrow">&rarr;</td>
-                  <td class="gutter"></td>
-                  <td class="flag_returned">-</td>
-                  <td class="flag_returned">-</td>
-                  <td class="flag_returned">-</td>
-                </tr>
-<!--
-                <tr>
-                  <td class="digit_entered">0</td>
-                  <td class="digit_entered">0</td>
-                  <td class="digit_entered">0</td>
-                  <td class="gutter"></td>
-                  <td class="arrow">&rarr;</td>
-                  <td class="gutter"></td>
                   <td class="flag_returned">-</td>
                   <td class="flag_returned">-</td>
                   <td class="flag_returned">-</td>
                 </tr>
 
-                <tr>
-                  <td class="digit_entered">0</td>
-                  <td class="digit_entered">0</td>
-                  <td class="digit_entered">0</td>
-                  <td class="gutter"></td>
-                  <td class="arrow">&rarr;</td>
-                  <td class="gutter"></td>
-                  <td class="flag_returned">-</td>
-                  <td class="flag_returned">-</td>
-                  <td class="flag_returned">-</td>
-                </tr>
-
-                <tr>
-                  <td class="digit_entered">0</td>
-                  <td class="digit_entered">0</td>
-                  <td class="digit_entered">0</td>
-                  <td class="gutter"></td>
-                  <td class="arrow">&rarr;</td>
-                  <td class="gutter"></td>
-                  <td class="flag_returned">-</td>
-                  <td class="flag_returned">-</td>
-                  <td class="flag_returned">-</td>
-                </tr>
-
-                <tr>
-                  <td class="digit_entered">0</td>
-                  <td class="digit_entered">0</td>
-                  <td class="digit_entered">0</td>
-                  <td class="gutter"></td>
-                  <td class="arrow">&rarr;</td>
-                  <td class="gutter"></td>
-                  <td class="flag_returned">-</td>
-                  <td class="flag_returned">-</td>
-                  <td class="flag_returned">-</td>
-                </tr>
-
-                <tr>
-                  <td class="digit_entered">0</td>
-                  <td class="digit_entered">0</td>
-                  <td class="digit_entered">0</td>
-                  <td class="gutter"></td>
-                  <td class="arrow">&rarr;</td>
-                  <td class="gutter"></td>
-                  <td class="flag_returned">-</td>
-                  <td class="flag_returned">-</td>
-                  <td class="flag_returned">-</td>
-                </tr>
-
-                <tr>
-                  <td class="digit_entered">0</td>
-                  <td class="digit_entered">0</td>
-                  <td class="digit_entered">0</td>
-                  <td class="gutter"></td>
-                  <td class="arrow">&rarr;</td>
-                  <td class="gutter"></td>
-                  <td class="flag_returned">-</td>
-                  <td class="flag_returned">-</td>
-                  <td class="flag_returned">-</td>
-                </tr>
-
-                <tr>
-                  <td class="digit_entered">0</td>
-                  <td class="digit_entered">0</td>
-                  <td class="digit_entered">0</td>
-                  <td class="gutter"></td>
-                  <td class="arrow">&rarr;</td>
-                  <td class="gutter"></td>
-                  <td class="flag_returned">-</td>
-                  <td class="flag_returned">-</td>
-                  <td class="flag_returned">-</td>
-                </tr>
-
-                <tr>
-                  <td class="digit_entered">0</td>
-                  <td class="digit_entered">0</td>
-                  <td class="digit_entered">0</td>
-                  <td class="gutter"></td>
-                  <td class="arrow">&rarr;</td>
-                  <td class="gutter"></td>
-                  <td class="flag_returned">-</td>
-                  <td class="flag_returned">-</td>
-                  <td class="flag_returned">-</td>
-                </tr>
-
-                <tr>
-                  <td class="digit_entered">0</td>
-                  <td class="digit_entered">0</td>
-                  <td class="digit_entered">0</td>
-                  <td class="gutter"></td>
-                  <td class="arrow">&rarr;</td>
-                  <td class="gutter"></td>
-                  <td class="flag_returned">-</td>
-                  <td class="flag_returned">-</td>
-                  <td class="flag_returned">-</td>
-                </tr>
- -->
               </table>
 
               <!-- display messages to player: win, lose, invalid -->
@@ -257,9 +149,9 @@
 
         <!-- footer -->
         <footer>
-          <div id="info">Information</div>
-          <div id="src">Source Code</div>
-          <div id="play_again">Play Again?</div>
+          <div id="info">info</div>
+          <div id="src">src</div>
+          <div id="play_again">play again?</div>
         </footer><!-- footer ends -->
 
       </div><!-- page ends -->
@@ -285,25 +177,12 @@
           gameInfo:      document.getElementById('info'),
           gameSrc:       document.getElementById('src'),
           playAgain:     document.getElementById('play_again'),
-          cbSrc:        'https://github.com/lautomator/codebreaker',
-          cbKeys:       document.getElementsByClassName('key_inactive')
+          cbSrc:         'https://github.com/lautomator/codebreaker',
+          cbKey:         document.getElementById('one'),
+          digitOne:      document.getElementById('pos_one')
+
           // these are current ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
       };
-
-      // if (cb_keys.length >= 1) {
-
-      //   cb_keys[0].className = 'key_active';
-
-      // }
-
-      // console.log(cb_keys.length);
-
-      // for (i in cb_keys) {
-      
-      //     cb_keys[i].className = 'key_active';
-      
-      // }
-
 
       codebreaker(cb_game_params, cb_html_targets);
 

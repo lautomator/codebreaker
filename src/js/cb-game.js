@@ -122,7 +122,14 @@ var codebreaker = function (params, targets) {
 
         key_click = function () {
 
+            // This is just a test
+
             console.log('little charlie');
+
+            var p1 = targets.digitOne;
+
+            p1.setAttribute('class', 'show');
+            p1.textContent = '1';
 
         },
 
@@ -307,10 +314,6 @@ var codebreaker = function (params, targets) {
 
 // the player uses the keypad
 
-    // for (var i in targets.cbKeys) {
-
-    //     targets.cbKeys[i].onclick = key_click;
-
-    // }
+    targets.cbKey.onclick = key_click;
 
 };
