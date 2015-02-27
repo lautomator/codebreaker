@@ -33,9 +33,22 @@
                     <td colspan="3" id="keys_readout">
                       <table id="digits_entered">
                         <tr>
+                          <td>
+
+                            <!-- FORM IS FPO -->
+                            <form action ="#" id="player_input" method="get">
+                              <input id="player_guess" maxlength="3"
+                                type="text">
+                              <input id="e" type="submit" value="guess">
+                            </form>
+
+                          </td>
+
+<!--
                           <td id="pos_one" class="hide">0</td>
                           <td id="pos_two" class="hide">1</td>
                           <td id="pos_three" class="hide">2</td>
+ -->
                         </tr>
                       </table>
                     </td>
@@ -77,40 +90,13 @@
 
               <!-- the guesses entered -->
               <!-- messages returned to the player -->
-              <table id="feedback">
-
-                <!-- FPO -->
-                <tr>
-                  <td class="digit_entered">0</td>
-                  <td class="digit_entered">0</td>
-                  <td class="digit_entered">0</td>
-                  <td class="gutter"></td>
-                  <td class="flag_returned">-</td>
-                  <td class="flag_returned">-</td>
-                  <td class="flag_returned">-</td>
-                </tr>
-
-              </table>
+              <div id="feedback"></div>
 
               <!-- display messages to player: win, lose, invalid -->
               <div id="console_messages"></div>
 
             </div><!-- readout ends -->
           </div><!-- console ends -->
-
-
-          <!-- game interface begins -->
-<!--           <div id="game">
-
-            <form action="#game" id="player_input">
-                <p>
-                  <input autofocus id="player_guess" maxlength="3" type="text">
-                  <input type="submit" value="guess">
-                </p>
-            </form>
-
-          </div> --><!-- game ends -->
-
         </div><!-- main ends -->
 
         <!-- info panel -->
@@ -177,10 +163,7 @@
           gameInfo:      document.getElementById('info'),
           gameSrc:       document.getElementById('src'),
           playAgain:     document.getElementById('play_again'),
-          cbSrc:         'https://github.com/lautomator/codebreaker',
-          cbKey:         document.getElementById('one'),
-          digitOne:      document.getElementById('pos_one')
-
+          cbSrc:         'https://github.com/lautomator/codebreaker'
           // these are current ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
       };
 

@@ -1,18 +1,4 @@
-/* ==================================== */
 /* FOR DEVELOPMENT ONLY */
-/*
-* { visibility: visible !important; }
-
-body {
-  background-color:  #cbcbcb !important;
-  background-image: none !important;
-}
-
-#page { overflow: visible !important; }
-
-#rules, #info_exit { visibility: hidden !important; }
-*/
-/* ==================================== */
 
 /* ====================================
    global
@@ -88,6 +74,33 @@ footer {
 /* ====================================
    keypad
 ==================================== */
+form {
+  background-color: aliceblue;
+  bottom: 27px;
+  height: 89px;
+  position: relative;
+  right: 118px;
+  width: 283px;
+}
+
+#player_guess{
+  background-color: grey;
+  color: #fff;
+  height: 89px;
+  left: 0;
+  position: relative;
+  top: 0;
+  width: 194px;
+}
+
+#e {
+  height: 89px;
+  left: 0;
+  position: relative;
+  top: 0;
+  width: 83px;
+}
+
 #keypad {
   background-color: #fff;
   height: 465px;
@@ -162,6 +175,7 @@ footer {
 }
 
 #console_messages {
+  background-color: aliceblue;
   height: 23px;
   left: 20px;
   position: absolute;
@@ -170,38 +184,13 @@ footer {
 }
 
 #feedback {
+  background-color: aliceblue;
   display: inline-table;
   left: 20px;
   height: 366px;
   position: relative;
   top: 20px;
   width: 239px;
-}
-
-
-#feedback,
-#console_messages {
-}
-
-
-#feedback td.digit_entered {
-  height: 23px;
-  width: 18px;
-}
-
-#feedback td.gutter {
-  height: 23px;
-  width: 24px;
-}
-
-#feedback td.arrow {
-  height: 23px;
-  width: 28px;
-}
-
-#feedback td.flag_returned {
-  height: 23px;
-  width: 18px;
 }
 
 /* ====================================

@@ -287,7 +287,7 @@ var codebreaker = function (params, targets) {
             if ((turns === 0 && !win) || win) {
 
                 formrEl.remove(rmForm);
-                replay.setAttribute('class', 'show');
+                replay.style.visibility = 'visible';
             }
         },
 
@@ -306,14 +306,10 @@ var codebreaker = function (params, targets) {
 
 // primary click/touch events
 
-    // targets.submitGuess.onsubmit = init;
+    targets.submitGuess.onsubmit = init;
     targets.playAgain.onclick = replay;
     targets.gameInfo.onclick = get_rules;
     targets.infoExit.onclick = exit_info_panel;
     targets.gameSrc.onclick = src_redirect;
-
-// the player uses the keypad
-
-    targets.cbKey.onclick = key_click;
 
 };
