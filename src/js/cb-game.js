@@ -120,18 +120,18 @@ var codebreaker = function (params, targets) {
 
 // the player clicks the numbered keys ("calculator")
 
-        key_click = function () {
+        // key_click = function () {
 
-            // This is just a test
+        //     // This is just a test
 
-            console.log('little charlie');
+        //     console.log('little charlie');
 
-            var p1 = targets.digitOne;
+        //     var p1 = targets.digitOne;
 
-            p1.setAttribute('class', 'show');
-            p1.textContent = '1';
+        //     p1.setAttribute('class', 'show');
+        //     p1.textContent = '1';
 
-        },
+        // },
 
 // method to validate a guess
 
@@ -229,6 +229,8 @@ var codebreaker = function (params, targets) {
 
             var guess = targets.playerGuess.value,
                 feedback = targets.gameFeedback,
+                console_messages = targets.gameMessages,
+                console_message = '',
                 p = document.createElement("p"),
                 response = '',
                 message = '',
@@ -240,23 +242,22 @@ var codebreaker = function (params, targets) {
 
             if (!validate_guess(guess)) {
 
-                response = 'Enter 3 numbers (0-9) only.';
+                console_message = 'Enter 3 numbers (0-9) only.';
                 turns += 1;
 
             } else if (guess === solution) {
 
                 response = guess + ' --> ';
                 response += get_flag(guess);
-                message = 'You WIN!';
-                score = 'Score = ' + turns;
+                score = turns;
+                console_message = 'You WIN! | Score: ' + score;
                 win = true;
 
             } else if (turns === 1) {
 
                 response = guess + ' --> ';
                 response += get_flag(guess);
-                message = 'You have run out of guesses.';
-                message += 'Solution: ' + solution;
+                console_message = 'You have run out of guesses.';
 
             } else {
 
@@ -265,7 +266,8 @@ var codebreaker = function (params, targets) {
 
             }
 
-            status = document.createTextNode(response + message + score);
+            console_messages.textContent = console_message;
+            status = document.createTextNode(response + message);
             p.appendChild(status);
             feedback.appendChild(p);
             targets.submitGuess.reset();

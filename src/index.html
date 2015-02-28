@@ -6,7 +6,7 @@
 
     <!-- <link rel="stylesheet" type="text/css" href="css/cb-styles.css" /> -->
     <link rel="stylesheet" type="text/css" href="css/cb-styles-dev.css" />
-    <!-- FOR DEVELOPMENT ^^^^^ -->
+    <!-- ^^^^^ FOR DEVELOPMENT -->
 
     <title>CODEBREAKER</title>
   </head>
@@ -38,7 +38,7 @@
                             <!-- FORM IS FPO -->
                             <form action ="#" id="player_input" method="get">
                               <input id="player_guess" maxlength="3"
-                                type="text">
+                                type="hidden">
                               <input id="e" type="submit" value="guess">
                             </form>
 
@@ -156,15 +156,13 @@
           submitGuess:   document.getElementsByTagName("form")[0],
           playerGuess:   document.getElementById('player_guess'),
           gameFeedback:  document.getElementById('feedback'),
-          // these need to be reworked ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          gameStatus:    document.getElementById('console_messages'),
+          gameMessages:  document.getElementById('console_messages'),
           gameRules:     document.getElementById('rules'),
           infoExit:      document.getElementById('info_exit'),
           gameInfo:      document.getElementById('info'),
           gameSrc:       document.getElementById('src'),
           playAgain:     document.getElementById('play_again'),
           cbSrc:         'https://github.com/lautomator/codebreaker'
-          // these are current ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
       };
 
       codebreaker(cb_game_params, cb_html_targets);
