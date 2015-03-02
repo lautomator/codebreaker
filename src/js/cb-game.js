@@ -120,10 +120,13 @@ var codebreaker = function (params, targets) {
 
 // the player clicks the numbered keys ("the calculator")
 
-        keyboard_click = function (s) {
-			
-			this.s = s;
-			console.log('hello charlie', s.value);
+        keyboard_click = function (k) {
+
+            var display = targets.keyDisplay;
+
+            console.log('hello charlie');
+
+            display.textContent = k;
 
         },
 
@@ -280,8 +283,8 @@ var codebreaker = function (params, targets) {
             if ((turns === 0 && !win) || win) {
 
                 // TODO: need to make the form inoperable
-				// when the game is complete.
-				// formrEl.remove(rmForm);
+                // when the game is complete.
+                // formrEl.remove(rmForm);
                 replay.style.visibility = 'visible';
             }
         },
@@ -301,13 +304,13 @@ var codebreaker = function (params, targets) {
 
 // keypad click/touch events
 
-	var s = targets.keypad[0].value;
-	
-	targets.keyPad[0].onclick = keyboard_click.bind();
+    var k = targets.keyPad[0];
+
+    k.addEventListener('click', function(){ keyboard_click(k.value); });
 
 // primary click/touch events
 
-	targets.submitGuess.onsubmit = init;
+    targets.submitGuess.onsubmit = init;
     targets.playAgain.onclick = replay;
     targets.gameInfo.onclick = get_rules;
     targets.infoExit.onclick = exit_info_panel;

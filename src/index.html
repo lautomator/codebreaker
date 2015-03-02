@@ -125,8 +125,9 @@
       };
 
       var cb_game_targets = {
-		  keyPad:    	 document.getElementsByClassName('key'),
-		  submitGuess:   document.getElementsByTagName('form')[0],
+          keyPad:        document.getElementsByClassName('key'),
+          keyDisplay:    document.getElementById('keys_readout'),
+          submitGuess:   document.getElementsByTagName('form')[0],
           playerGuess:   document.getElementById('player_guess'),
           gameFeedback:  document.getElementById('feedback'),
           gameMessages:  document.getElementById('console_messages'),
