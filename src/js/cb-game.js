@@ -1,4 +1,4 @@
-var codebreaker = function (params, keypad, targets) {
+var codebreaker = function (params, targets) {
 
     "use strict";
 
@@ -118,13 +118,12 @@ var codebreaker = function (params, keypad, targets) {
 
         },
 
-// the player clicks the numbered keys ("calculator")
+// the player clicks the numbered keys ("the calculator")
 
-        keyboard_click = function () {
-
-            // This is just a test
-
-            console.log('little charlie');
+        keyboard_click = function (s) {
+			
+			this.s = s;
+			console.log('hello charlie', s.value);
 
         },
 
@@ -271,8 +270,8 @@ var codebreaker = function (params, keypad, targets) {
 
         init = function () {
 
-            var rmForm = targets.playerGuess,
-                formrEl = rmForm.parentNode,
+            var // rmForm = targets.playerGuess,
+                // formrEl = rmForm.parentNode,
                 win = process_guess(),
                 replay = targets.playAgain;
 
@@ -280,7 +279,9 @@ var codebreaker = function (params, keypad, targets) {
 
             if ((turns === 0 && !win) || win) {
 
-                formrEl.remove(rmForm);
+                // TODO: need to make the form inoperable
+				// when the game is complete.
+				// formrEl.remove(rmForm);
                 replay.style.visibility = 'visible';
             }
         },
@@ -298,9 +299,15 @@ var codebreaker = function (params, keypad, targets) {
     console.log(solution);
     // -------------------------------------
 
+// keypad click/touch events
+
+	var s = targets.keypad[0].value;
+	
+	targets.keyPad[0].onclick = keyboard_click.bind();
+
 // primary click/touch events
 
-    targets.submitGuess.onsubmit = init;
+	targets.submitGuess.onsubmit = init;
     targets.playAgain.onclick = replay;
     targets.gameInfo.onclick = get_rules;
     targets.infoExit.onclick = exit_info_panel;

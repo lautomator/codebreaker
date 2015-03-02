@@ -26,6 +26,7 @@
           <div id="keypad">
 
             <div id="keys_readout"></div>
+
             <form action ="#" id="player_input" method="get">
 
               <input id="player_guess" maxlength="3" type="text">
@@ -47,8 +48,8 @@
               <br>
 
               <input id="zero" class="key" type="button" value="0">
-              <input id="clear" class="key" type="button" value="C">
-              <input id="enter" class="key" type="submit" value="&crarr;">
+              <input id="clear" class="key" type="button" value="&larr;">
+              <input id="enter" type="submit" value="&crarr;">
 
             </form>
 
@@ -123,23 +124,9 @@
           guesses: 10
       };
 
-       var cb_game_keyboard = {
-          allKeys:       document.getElementsByClassName('key'),
-          keyClear:      document.getElementById('clear'),
-          keyZero:       document.getElementById('zero'),
-          keyOne:        document.getElementById('one'),
-          keyTwo:        document.getElementById('two'),
-          keyThree:      document.getElementById('three'),
-          keyFour:       document.getElementById('four'),
-          keyFive:       document.getElementById('five'),
-          keySix:        document.getElementById('six'),
-          keySeven:      document.getElementById('seven'),
-          keyEight:      document.getElementById('eight'),
-          keyNine:       document.getElementById('nine')
-       };
-
       var cb_game_targets = {
-          submitGuess:   document.getElementsByTagName("form")[0],
+		  keyPad:    	 document.getElementsByClassName('key'),
+		  submitGuess:   document.getElementsByTagName('form')[0],
           playerGuess:   document.getElementById('player_guess'),
           gameFeedback:  document.getElementById('feedback'),
           gameMessages:  document.getElementById('console_messages'),
@@ -151,11 +138,7 @@
           cbSrc:         'https://github.com/lautomator/codebreaker'
       };
 
-      codebreaker(
-          cb_game_params,
-          cb_game_keyboard,
-          cb_game_targets
-      );
+      codebreaker(cb_game_params, cb_game_targets);
 
       </script>
 

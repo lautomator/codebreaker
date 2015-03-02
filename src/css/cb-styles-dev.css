@@ -88,23 +88,22 @@ footer {
 #keys_readout {
   background-color: cyan;
   height: 91px;
-  left: 118px;
+  left: 8px;
   position: relative;
   top: 27px;
   width: 125px;
 }
 
 form {
-  background-color: aliceblue;
   height: 449px;
   left: 8px;
   position: relative;
   right: 118px;
-  top: 8px;
+  top: 0;
   width: 279px;
 }
 
-.key {
+.key, #enter {
   border: solid 1px #000;
   height: 83px;
   margin: 2px 0 2px 0;
