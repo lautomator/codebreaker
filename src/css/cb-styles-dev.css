@@ -22,7 +22,7 @@
 #page {
   border: 1px solid #000;
   height: 658px;
-  margin: 44px auto 44px; auto;
+  margin: 44px auto 44px auto;
   width: 723px;
 }
 
@@ -32,6 +32,7 @@ header {
 }
 
 #main {
+  background-color: aliceblue;
   left: 44px;
   height: 465px;
   position: relative;
@@ -74,82 +75,40 @@ footer {
 /* ====================================
    keypad
 ==================================== */
-form {
-  background-color: aliceblue;
-  bottom: 27px;
-  height: 89px;
-  position: relative;
-  right: 118px;
-  width: 283px;
-}
-
-#player_guess{
-  background-color: grey;
-  color: #fff;
-  height: 89px;
-  left: 0;
-  position: relative;
-  top: 0;
-  width: 194px;
-}
-
-#e {
-  height: 89px;
-  left: 0;
-  position: relative;
-  top: 0;
-  width: 83px;
-}
-
 #keypad {
   background-color: #fff;
+  border: solid 1px #000;
   height: 465px;
   left: 0;
   position: relative;
+  top: 0;
   width: 295px;
 }
 
-#digits {
-  display: inline-table;
-  left: 5px;
-  height: 455px;
-  position: relative;
-  top: 5px;
-  width: 285px;
-}
-
-#digits td {
-  border: solid 1px #000;
-  width: 33%;
-}
-
-.key_active {
-  background-color: #000;
-  color: #fff;
-  cursor: pointer;
-}
-
-.key_inactive {
-  color: #000;
-  cursor: pointer;
-}
-
 #keys_readout {
+  background-color: cyan;
   height: 91px;
-}
-
-#digits_entered {
-  height: 37px;
   left: 118px;
   position: relative;
   top: 27px;
   width: 125px;
 }
 
-#digits_entered td {
-  border: none;
-  height: 37px;
-  width: 26px;
+form {
+  background-color: aliceblue;
+  height: 449px;
+  left: 8px;
+  position: relative;
+  right: 118px;
+  top: 8px;
+  width: 279px;
+}
+
+.key {
+  border: solid 1px #000;
+  height: 83px;
+  margin: 2px 0 2px 0;
+  width: 83px;
 }
 
 /* ====================================
@@ -161,7 +120,7 @@ form {
   left: 339px;
   height: 465px;
   position: relative;
-  bottom: 465px;
+  bottom: 467px;
   width: 295px;
 }
 
@@ -169,7 +128,7 @@ form {
   left: 8px;
   height: 449px;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   top: 8px;
   width: 279px;
 }

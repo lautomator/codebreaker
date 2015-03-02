@@ -1,4 +1,4 @@
-var codebreaker = function (params, targets) {
+var codebreaker = function (params, keypad, targets) {
 
     "use strict";
 
@@ -120,18 +120,13 @@ var codebreaker = function (params, targets) {
 
 // the player clicks the numbered keys ("calculator")
 
-        // key_click = function () {
+        keyboard_click = function () {
 
-        //     // This is just a test
+            // This is just a test
 
-        //     console.log('little charlie');
+            console.log('little charlie');
 
-        //     var p1 = targets.digitOne;
-
-        //     p1.setAttribute('class', 'show');
-        //     p1.textContent = '1';
-
-        // },
+        },
 
 // method to validate a guess
 
@@ -247,22 +242,19 @@ var codebreaker = function (params, targets) {
 
             } else if (guess === solution) {
 
-                response = guess + ' --> ';
-                response += get_flag(guess);
+                response = guess + get_flag(guess);
                 score = turns;
                 console_message = 'You WIN! | Score: ' + score;
                 win = true;
 
             } else if (turns === 1) {
 
-                response = guess + ' --> ';
-                response += get_flag(guess);
+                response = guess + get_flag(guess);
                 console_message = 'You have run out of guesses.';
 
             } else {
 
-                response = guess + ' --> ';
-                response += get_flag(guess);
+                response = guess + get_flag(guess);
 
             }
 

@@ -25,61 +25,32 @@
           <!-- keypad for input -->
           <div id="keypad">
 
-            <!-- the keypad -->
-              <table id="digits">
-                <tbody>
+            <div id="keys_readout"></div>
+            <form action ="#" id="player_input" method="get">
 
-                  <tr>
-                    <td colspan="3" id="keys_readout">
-                      <table id="digits_entered">
-                        <tr>
-                          <td>
+              <input id="player_guess" maxlength="3" type="text">
+              <br>
 
-                            <!-- FORM IS FPO -->
-                            <form action ="#" id="player_input" method="get">
-                              <input id="player_guess" maxlength="3"
-                                type="hidden">
-                              <input id="e" type="submit" value="guess">
-                            </form>
+              <input id="seven" class="key" type="button" value="7">
+              <input id="eight" class="key" type="button" value="8">
+              <input id="nine" class="key" type="button" value="9">
+              <br>
 
-                          </td>
+              <input id="four" class="key" type="button" value="4">
+              <input id="five" class="key" type="button" value="5">
+              <input id="six" class="key" type="button" value="6">
+              <br>
 
-<!--
-                          <td id="pos_one" class="hide">0</td>
-                          <td id="pos_two" class="hide">1</td>
-                          <td id="pos_three" class="hide">2</td>
- -->
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
+              <input id="one" class="key" type="button" value="1">
+              <input id="two" class="key" type="button" value="2">
+              <input id="three" class="key" type="button" value="3">
+              <br>
 
-                  <tr>
-                    <td id="seven" class="key_inactive">7</td>
-                    <td id="eight" class="key_inactive">8</td>
-                    <td id="nine" class="key_inactive">9</td>
-                  </tr>
+              <input id="zero" class="key" type="button" value="0">
+              <input id="clear" class="key" type="button" value="C">
+              <input id="enter" class="key" type="submit" value="&crarr;">
 
-                  <tr>
-                    <td id="four" class="key_inactive">4</td>
-                    <td id="five" class="key_inactive">5</td>
-                    <td id="six" class="key_inactive">6</td>
-                  </tr>
-
-                  <tr>
-                    <td id="one" class="key_inactive">1</td>
-                    <td id="two" class="key_inactive">2</td>
-                    <td id="three" class="key_inactive">3</td>
-                  </tr>
-
-                  <tr>
-                    <td id="zero" class="key_inactive">0</td>
-                    <td id="clear" class="key_inactive">C</td>
-                    <td id="enter" class="key_inactive">enter</td>
-                  </tr>
-
-                </tbody>
-              </table>
+            </form>
 
           </div> <!-- the keypad ends -->
 
@@ -152,7 +123,22 @@
           guesses: 10
       };
 
-      var cb_html_targets = {
+       var cb_game_keyboard = {
+          allKeys:       document.getElementsByClassName('key'),
+          keyClear:      document.getElementById('clear'),
+          keyZero:       document.getElementById('zero'),
+          keyOne:        document.getElementById('one'),
+          keyTwo:        document.getElementById('two'),
+          keyThree:      document.getElementById('three'),
+          keyFour:       document.getElementById('four'),
+          keyFive:       document.getElementById('five'),
+          keySix:        document.getElementById('six'),
+          keySeven:      document.getElementById('seven'),
+          keyEight:      document.getElementById('eight'),
+          keyNine:       document.getElementById('nine')
+       };
+
+      var cb_game_targets = {
           submitGuess:   document.getElementsByTagName("form")[0],
           playerGuess:   document.getElementById('player_guess'),
           gameFeedback:  document.getElementById('feedback'),
@@ -165,7 +151,11 @@
           cbSrc:         'https://github.com/lautomator/codebreaker'
       };
 
-      codebreaker(cb_game_params, cb_html_targets);
+      codebreaker(
+          cb_game_params,
+          cb_game_keyboard,
+          cb_game_targets
+      );
 
       </script>
 
