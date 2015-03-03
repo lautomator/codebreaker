@@ -120,7 +120,7 @@ var codebreaker = function (params, targets) {
 
 // the player clicks the numbered keys ("the calculator")
 
-        keyboard_click = function (k) {
+        keypad_click = function (k) {
 
             var display = targets.keyDisplay;
 
@@ -130,6 +130,25 @@ var codebreaker = function (params, targets) {
             display.textContent = k;
 
         },
+
+        keypad_init = function () {
+
+            var index,
+                buttons = targets.keyPad;
+
+            for (index = 0; index < (buttons.length - 1); index += 1) {
+
+                buttons[index].addEventListener(
+                    'click',
+                    function () {
+                        keypad_click(buttons[index].value);
+                    },
+                    false
+                );
+            }
+        },
+
+
 
 // method to validate a guess
 
@@ -305,9 +324,7 @@ var codebreaker = function (params, targets) {
 
 // keypad click/touch events
 
-    var k = targets.keyPad[0];
-
-    k.addEventListener('click', function (){ keyboard_click(k.value); });
+    keypad_init();
 
 // primary click/touch events
 
