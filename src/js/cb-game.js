@@ -126,6 +126,7 @@ var codebreaker = function (params, targets) {
 
             console.log('hello charlie');
 
+            targets.playerGuess.value = k;
             display.textContent = k;
 
         },
@@ -306,7 +307,7 @@ var codebreaker = function (params, targets) {
 
     var k = targets.keyPad[0];
 
-    k.addEventListener('click', function(){ keyboard_click(k.value); });
+    k.addEventListener('click', function (){ keyboard_click(k.value); });
 
 // primary click/touch events
 
