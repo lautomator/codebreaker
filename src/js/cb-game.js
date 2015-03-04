@@ -120,11 +120,11 @@ var codebreaker = function (params, targets) {
 
 // the player clicks the numbered keys ("the calculator")
 
-        keypad_click = function (k) {
-            
+        keypad_click = function (c, clicks) {
+
             var display = targets.keyDisplay;
 
-            if (k === 'reset') {
+            if (c === 'reset') {
 
                 targets.submitGuess.reset()
                 display.textContent = '';
@@ -132,59 +132,73 @@ var codebreaker = function (params, targets) {
             }
             else {
 
-                targets.playerGuess.value = k;
-                display.textContent = k;
+                targets.playerGuess.value = clicks;
+                display.textContent = clicks;
 
             }
 
         },
 
-        keypad_init = function () {
+        // TODO:This needs to be in the init function for the game.
+		keypad_init = function () {
 
             var buttons = targets.keyPad,
-                clicks = [];
+				n_of_guesses = params.skillLevel,
+				clicks = [],
+                add_clicks = function (c, clicks) {
+
+					if (clicks.length < n_of_guesses) {
+
+                        clicks.push(c);
+						keypad_click(c, clicks.join(''));
+                    
+                    }
+
+                    console.log(clicks.join(''));
+                    return clicks.join('');
+
+                };
 
             // 7
             buttons[0].onclick = function () {
-                keypad_click(buttons[0].value);
+                add_clicks(buttons[0].value, clicks);
             };
             // 8
             buttons[1].onclick = function () {
-                keypad_click(buttons[1].value);
+                add_clicks(buttons[1].value, clicks);
             };
             // 9
             buttons[2].onclick = function () {
-                keypad_click(buttons[2].value);
+                add_clicks(buttons[2].value, clicks);
             };
             // 4
             buttons[3].onclick = function () {
-                keypad_click(buttons[3].value);
+                add_clicks(buttons[3].value, clicks);
             };
             // 5
             buttons[4].onclick = function () {
-                keypad_click(buttons[4].value);
+                add_clicks(buttons[4].value, clicks);
             };
             // 6
             buttons[5].onclick = function () {
-                keypad_click(buttons[5].value);
+                add_clicks(buttons[5].value, clicks);
             };
             // 1
             buttons[6].onclick = function () {
-                keypad_click(buttons[6].value);
+                add_clicks(buttons[6].value, clicks);
             };
             // 2
             buttons[7].onclick = function () {
-                keypad_click(buttons[7].value);
+                add_clicks(buttons[7].value, clicks);
             };
             // 3
             buttons[8].onclick = function () {
-                keypad_click(buttons[8].value);
+                add_clicks(buttons[8].value, clicks);
             };
             // 0
             buttons[9].onclick = function () {
-                keypad_click(buttons[9].value);
+                add_clicks(buttons[9].value, clicks);
             };
-
             // C
             buttons[10].onclick = function () {
                 keypad_click('reset');

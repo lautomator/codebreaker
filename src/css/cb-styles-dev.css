@@ -105,6 +105,7 @@ form {
 
 .key, #enter {
   border: solid 1px #000;
+  cursor: pointer;
   height: 83px;
   margin: 2px 0 2px 0;
   width: 83px;
