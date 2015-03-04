@@ -9,7 +9,7 @@ var codebreaker = function (params, targets) {
         check_params = function (gameopts, tgts) {
 
             var err = [],
-                status_window = tgts.gameStatus,
+                status_window = tgts.gameMessages,
                 err_item = document.createElement("p"),
                 err_msg = document.createTextNode(
                     "Invalid game configuration"
@@ -121,34 +121,76 @@ var codebreaker = function (params, targets) {
 // the player clicks the numbered keys ("the calculator")
 
         keypad_click = function (k) {
-
+            
             var display = targets.keyDisplay;
 
-            console.log('hello charlie');
+            if (k === 'reset') {
 
-            targets.playerGuess.value = k;
-            display.textContent = k;
+                targets.submitGuess.reset()
+                display.textContent = '';
+
+            }
+            else {
+
+                targets.playerGuess.value = k;
+                display.textContent = k;
+
+            }
 
         },
 
         keypad_init = function () {
 
-            var index,
-                buttons = targets.keyPad;
+            var buttons = targets.keyPad,
+                clicks = [];
 
-            for (index = 0; index < (buttons.length - 1); index += 1) {
+            // 7
+            buttons[0].onclick = function () {
+                keypad_click(buttons[0].value);
+            };
+            // 8
+            buttons[1].onclick = function () {
+                keypad_click(buttons[1].value);
+            };
+            // 9
+            buttons[2].onclick = function () {
+                keypad_click(buttons[2].value);
+            };
+            // 4
+            buttons[3].onclick = function () {
+                keypad_click(buttons[3].value);
+            };
+            // 5
+            buttons[4].onclick = function () {
+                keypad_click(buttons[4].value);
+            };
+            // 6
+            buttons[5].onclick = function () {
+                keypad_click(buttons[5].value);
+            };
+            // 1
+            buttons[6].onclick = function () {
+                keypad_click(buttons[6].value);
+            };
+            // 2
+            buttons[7].onclick = function () {
+                keypad_click(buttons[7].value);
+            };
+            // 3
+            buttons[8].onclick = function () {
+                keypad_click(buttons[8].value);
+            };
+            // 0
+            buttons[9].onclick = function () {
+                keypad_click(buttons[9].value);
+            };
 
-                buttons[index].addEventListener(
-                    'click',
-                    function () {
-                        keypad_click(buttons[index].value);
-                    },
-                    false
-                );
-            }
+            // C
+            buttons[10].onclick = function () {
+                keypad_click('reset');
+            };
+
         },
-
-
 
 // method to validate a guess
 
