@@ -140,21 +140,24 @@ var codebreaker = function (params, targets) {
         },
 
         // TODO:This needs to be in the init function for the game.
-		keypad_init = function () {
+        keypad_init = function () {
+
+            console.log('keypad init');
 
             var buttons = targets.keyPad,
-				n_of_guesses = params.skillLevel,
-				clicks = [],
+                n_of_guesses = params.skillLevel,
+                clicks = [],
                 add_clicks = function (c, clicks) {
 
-					if (clicks.length < n_of_guesses) {
+                    if (clicks.length < n_of_guesses) {
 
                         clicks.push(c);
-						keypad_click(c, clicks.join(''));
-                    
+                        keypad_click(c, clicks.join(''));
+
                     }
 
                     console.log(clicks.join(''));
+                    
                     return clicks.join('');
 
                 };
@@ -349,10 +352,12 @@ var codebreaker = function (params, targets) {
 
         init = function () {
 
-            var // rmForm = targets.playerGuess,
-                // formrEl = rmForm.parentNode,
-                win = process_guess(),
+            console.log('init');
+            var win = process_guess(),
                 replay = targets.playAgain;
+
+            // intialize the keypad
+            keypad_init();
 
             turns -= 1;
 
@@ -360,7 +365,6 @@ var codebreaker = function (params, targets) {
 
                 // TODO: need to make the form inoperable
                 // when the game is complete.
-                // formrEl.remove(rmForm);
                 replay.style.visibility = 'visible';
             }
         },
@@ -378,16 +382,15 @@ var codebreaker = function (params, targets) {
     console.log(solution);
     // -------------------------------------
 
-// keypad click/touch events
-
-    keypad_init();
+    window.onload = init;
 
 // primary click/touch events
 
-    targets.submitGuess.onsubmit = init;
+    //targets.submitGuess.onsubmit = init;
     targets.playAgain.onclick = replay;
     targets.gameInfo.onclick = get_rules;
     targets.infoExit.onclick = exit_info_panel;
     targets.gameSrc.onclick = src_redirect;
+
 
 };
