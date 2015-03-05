@@ -114,36 +114,7 @@ var codebreaker = function (params, targets) {
 
             var url = targets.cbSrc;
 
-            window.location.assign(url);
-
-        },
-
-// the player clicks the numbered keys ("the calculator")
-
-        keypad_click = function (c, clicks) {
-
-            var display = targets.keyDisplay;
-
-            if (c === 'reset') {
-
-                targets.submitGuess.reset();
-                display.textContent = '';
-                clicks = '';
-                targets.playerGuess.value = clicks;
-                keypad_init();
-
-// REMOVE
-                console.log(clicks);
-
-            } else {
-
-// REMOVE
-                console.log(clicks);
-
-                targets.playerGuess.value = clicks;
-                display.textContent = clicks;
-
-            }
+            window.open(url);
 
         },
 
@@ -153,12 +124,57 @@ var codebreaker = function (params, targets) {
             var buttons = targets.keyPad,
                 n_of_guesses = params.skillLevel,
                 clicks = [],
-                add_clicks = function (c, clicks) {
+                keypad_dbls = function (c, clicks) {
 
-                    if (clicks.length < n_of_guesses) {
+                    var index = 0,
+                        ok = true;
+
+                    if (clicks.length > 0) {
+
+                        for (index in clicks) {
+
+                            if (clicks.hasOwnProperty(index)) {
+
+                                if (c === clicks[index]) {
+
+                                    ok = false;
+
+                                }
+                            }
+                        }
+                    }
+
+                    return ok;
+
+                },
+                keypad_click = function (c, clicks) {
+
+                    var display = targets.keyDisplay;
+
+                    if (clicks.length < n_of_guesses &&
+                            keypad_dbls(c, clicks)) {
 
                         clicks.push(c);
-                        keypad_click(c, clicks.join(''));
+                    }
+
+                    if (c === 'reset') {
+
+                        console.log('clear');
+
+                        targets.submitGuess.reset();
+                        display.textContent = '';
+                        clicks = '';
+                        targets.playerGuess.value = clicks;
+                        keypad_init();
+
+                        console.log(clicks);
+
+                    } else {
+
+                        console.log(clicks);
+
+                        targets.playerGuess.value = clicks.join('');
+                        display.textContent = clicks.join('');
 
                     }
 
@@ -166,47 +182,47 @@ var codebreaker = function (params, targets) {
 
             // 7
             buttons[0].onclick = function () {
-                add_clicks(buttons[0].value, clicks);
+                keypad_click(buttons[0].value, clicks);
             };
             // 8
             buttons[1].onclick = function () {
-                add_clicks(buttons[1].value, clicks);
+                keypad_click(buttons[1].value, clicks);
             };
             // 9
             buttons[2].onclick = function () {
-                add_clicks(buttons[2].value, clicks);
+                keypad_click(buttons[2].value, clicks);
             };
             // 4
             buttons[3].onclick = function () {
-                add_clicks(buttons[3].value, clicks);
+                keypad_click(buttons[3].value, clicks);
             };
             // 5
             buttons[4].onclick = function () {
-                add_clicks(buttons[4].value, clicks);
+                keypad_click(buttons[4].value, clicks);
             };
             // 6
             buttons[5].onclick = function () {
-                add_clicks(buttons[5].value, clicks);
+                keypad_click(buttons[5].value, clicks);
             };
             // 1
             buttons[6].onclick = function () {
-                add_clicks(buttons[6].value, clicks);
+                keypad_click(buttons[6].value, clicks);
             };
             // 2
             buttons[7].onclick = function () {
-                add_clicks(buttons[7].value, clicks);
+                keypad_click(buttons[7].value, clicks);
             };
             // 3
             buttons[8].onclick = function () {
-                add_clicks(buttons[8].value, clicks);
+                keypad_click(buttons[8].value, clicks);
             };
             // 0
             buttons[9].onclick = function () {
-                add_clicks(buttons[9].value, clicks);
+                keypad_click(buttons[9].value, clicks);
             };
             // C
             buttons[10].onclick = function () {
-                keypad_click('reset');
+                keypad_click('reset', clicks);
             };
 
         },
@@ -385,10 +401,6 @@ var codebreaker = function (params, targets) {
 
     check_params(params, targets);
 
-    // for debugging -----------------------
-    console.log(solution);
-    // -------------------------------------
-
     window.onload = init;
 
 // click/touch events
@@ -399,8 +411,10 @@ var codebreaker = function (params, targets) {
     targets.infoExit.onclick = exit_info_panel;
     targets.gameSrc.onclick = src_redirect;
 
+    // for debugging -----------------------
+    console.log(solution);
+    // -------------------------------------
+
 };
 
-// TODO:   no double key strokes
-//         allow for keyboard input to fire buttons
-//         Lint issue with keyboard_init function
+// TODO: allow for keyboard input to fire buttons

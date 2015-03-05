@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style type="text/css">
+
+            p { font: 20px/20px sans-serif; }
+            #number_entered i {
+                font: 12px/20px sans-serif;
+                color: #000; }
+            #number_entered { color: red; }
+
+        </style>
+        <title>keys</title>
+    </head>
+
+    <body>
+
+        <p id="trigger">press a key</p>
+        <p id="number_entered"><i>status</i></p>
+
+        <script type="text/javascript">
+
+        var key_test = (function () {
+
+            "use strict";
+
+            var init = function (e) {
+
+                // supress any key clicks except for numbers and enter, resp.
+                if ((e.keyCode >= 48 && e.keyCode <= 57) ||
+                        e.keyCode === 13) {
+
+                    var status = document.getElementById('number_entered');
+
+                    console.log('ASCII:', e.keyCode);
+
+                    status.textContent = String.fromCharCode(e.keyCode);
+
+                }
+            };
+
+            window.onkeypress = init;
+
+        }());
+
+        </script>
+
+    </body>
+</html>
