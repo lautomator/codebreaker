@@ -124,7 +124,7 @@ var codebreaker = function (params, targets) {
             var buttons = targets.keyPad,
                 n_of_guesses = params.skillLevel,
                 clicks = [],
-                keypad_dbls = function (c, clicks) {
+                keypad_dbls = function (e, clicks) {
 
                     var index = 0,
                         ok = true;
@@ -135,7 +135,7 @@ var codebreaker = function (params, targets) {
 
                             if (clicks.hasOwnProperty(index)) {
 
-                                if (c === clicks[index]) {
+                                if (e === clicks[index]) {
 
                                     ok = false;
 
@@ -147,17 +147,17 @@ var codebreaker = function (params, targets) {
                     return ok;
 
                 },
-                keypad_click = function (c, clicks) {
+                keypad_click = function (e, clicks) {
 
                     var display = targets.keyDisplay;
 
                     if (clicks.length < n_of_guesses &&
-                            keypad_dbls(c, clicks)) {
+                            keypad_dbls(e, clicks)) {
 
-                        clicks.push(c);
+                        clicks.push(e);
                     }
 
-                    if (c === 'reset') {
+                    if (e === 'reset') {
 
                         console.log('clear');
 
@@ -178,9 +178,33 @@ var codebreaker = function (params, targets) {
 
                     }
 
-                };
+                },
+                keyboard_input = function (e) {
 
-            // 7
+					var entry = '';
+
+					// suppress any key clicks except for numbers, enter, and clear, respectively.
+					if ((e.keyCode >= 48 && e.keyCode <= 57) ||
+							e.keyCode === 13 || e.keyCode === 99) {
+
+						// handle 'c' as a reset call.
+						if (e.keyCode === 99) {
+
+							entry = 'reset';
+						
+						} else {
+						
+							entry = String.fromCharCode(e.keyCode);
+						
+						}						
+					}
+					
+					console.log(entry);
+					return entry;
+				};
+
+            // button mouse click events
+			// 7
             buttons[0].onclick = function () {
                 keypad_click(buttons[0].value, clicks);
             };
@@ -224,6 +248,8 @@ var codebreaker = function (params, targets) {
             buttons[10].onclick = function () {
                 keypad_click('reset', clicks);
             };
+			
+			window.onkeypress = keyboard_input;
 
         },
 
@@ -370,7 +396,7 @@ var codebreaker = function (params, targets) {
 
         init = function (s) {
 
-            // intialize the keypad
+            // initialize the keypad
             keypad_init();
 
             if (s === 'submit') {
