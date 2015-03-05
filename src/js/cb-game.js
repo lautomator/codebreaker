@@ -126,11 +126,19 @@ var codebreaker = function (params, targets) {
 
             if (c === 'reset') {
 
-                targets.submitGuess.reset()
+                targets.submitGuess.reset();
                 display.textContent = '';
+                clicks = '';
+                targets.playerGuess.value = clicks;
+                keypad_init();
 
-            }
-            else {
+// REMOVE
+                console.log(clicks);
+
+            } else {
+
+// REMOVE
+                console.log(clicks);
 
                 targets.playerGuess.value = clicks;
                 display.textContent = clicks;
@@ -139,10 +147,8 @@ var codebreaker = function (params, targets) {
 
         },
 
-        // TODO:This needs to be in the init function for the game.
+// keypad events
         keypad_init = function () {
-
-            console.log('keypad init');
 
             var buttons = targets.keyPad,
                 n_of_guesses = params.skillLevel,
@@ -155,10 +161,6 @@ var codebreaker = function (params, targets) {
                         keypad_click(c, clicks.join(''));
 
                     }
-
-                    console.log(clicks.join(''));
-                    
-                    return clicks.join('');
 
                 };
 
@@ -229,7 +231,7 @@ var codebreaker = function (params, targets) {
         },
 
 // method to generate a flag (displayed feedback to the player):
-// See the instructions to decipher the meaning of the flags.
+// See the instructions for the meaning of the flags.
 
         get_flag = function (resp) {
 
@@ -350,22 +352,27 @@ var codebreaker = function (params, targets) {
 
 // method to handle the sequence of game events
 
-        init = function () {
-
-            console.log('init');
-            var win = process_guess(),
-                replay = targets.playAgain;
+        init = function (s) {
 
             // intialize the keypad
             keypad_init();
 
-            turns -= 1;
+            if (s === 'submit') {
 
-            if ((turns === 0 && !win) || win) {
+                var display = targets.keyDisplay,
+                    enter = targets.keyEnter,
+                    win = process_guess(),
+                    replay = targets.playAgain;
 
-                // TODO: need to make the form inoperable
-                // when the game is complete.
-                replay.style.visibility = 'visible';
+                turns -= 1;
+                display.textContent = '';
+
+                if ((turns === 0 && !win) || win) {
+
+                    display.style.visibility = 'hidden';
+                    enter.type = 'button';
+                    replay.style.visibility = 'visible';
+                }
             }
         },
 
@@ -384,13 +391,16 @@ var codebreaker = function (params, targets) {
 
     window.onload = init;
 
-// primary click/touch events
+// click/touch events
 
-    //targets.submitGuess.onsubmit = init;
+    targets.submitGuess.onsubmit = function () { init('submit'); };
     targets.playAgain.onclick = replay;
     targets.gameInfo.onclick = get_rules;
     targets.infoExit.onclick = exit_info_panel;
     targets.gameSrc.onclick = src_redirect;
 
-
 };
+
+// TODO:   no double key strokes
+//         allow for keyboard input to fire buttons
+//         Lint issue with keyboard_init function

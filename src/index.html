@@ -29,8 +29,7 @@
 
             <form action ="#" id="player_input" method="get">
 
-              <input id="player_guess" maxlength="3"
-                autofocus type="text">
+              <input id="player_guess" type="hidden">
               <br>
 
               <input id="seven" class="key" type="button" value="7">
@@ -83,8 +82,8 @@
           of three things:</p>
 
           <ul>
-            <li>*&ensp;=&ensp;a number has been matched and is not in the correct
-             position</li>
+            <li>*&ensp;=&ensp;a number has been matched and is not in
+              the correct position</li>
             <li>+&ensp;=&ensp;a number has been matched and is in the correct
               position</li>
             <li>-&ensp;=&ensp;a number has not been matched.</li>
@@ -128,6 +127,7 @@
       var cb_game_targets = {
           keyPad:        document.getElementsByClassName('key'),
           keyDisplay:    document.getElementById('keys_readout'),
+          keyEnter:      document.getElementById('enter'),
           submitGuess:   document.getElementsByTagName('form')[0],
           playerGuess:   document.getElementById('player_guess'),
           gameFeedback:  document.getElementById('feedback'),

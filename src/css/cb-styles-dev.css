@@ -32,7 +32,6 @@ header {
 }
 
 #main {
-  background-color: aliceblue;
   left: 44px;
   height: 465px;
   position: relative;
@@ -86,7 +85,6 @@ footer {
 }
 
 #keys_readout {
-  background-color: cyan;
   height: 91px;
   left: 8px;
   position: relative;
@@ -134,7 +132,6 @@ form {
 }
 
 #console_messages {
-  background-color: aliceblue;
   height: 23px;
   left: 20px;
   position: absolute;
@@ -143,7 +140,6 @@ form {
 }
 
 #feedback {
-  background-color: aliceblue;
   display: inline-table;
   left: 20px;
   height: 366px;
