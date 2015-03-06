@@ -29,34 +29,35 @@
 
             var init = function (e) {
 
-				console.log(e);
-                
-				// suppress any key clicks except for numbers, enter, and clear, respectively.
+                console.log(e);
+
+                // suppress any key clicks except for numbers,
+                // enter, and clear, respectively.
                 if ((e.keyCode >= 48 && e.keyCode <= 57) ||
                         e.keyCode === 13 || e.keyCode === 99) {
 
                     var status = document.getElementById('number_entered');
 
-					// handle 'c' as a reset call.
-					if (e.keyCode === 99) {
-						
-						e.keyCode = 'reset';
-						
-						console.log('ASCII:', e.keyCode);
-					
-						status.textContent = 'reset';
-					
-					} else {
+                    // handle 'c' as a reset call.
+                    if (e.keyCode === 99) {
 
-						console.log('ASCII:', e.keyCode);
+                        e.keyCode = 'reset';
 
-						status.textContent = String.fromCharCode(e.keyCode);
-					
-					}
+                        console.log('ASCII:', e.keyCode);
+
+                        status.textContent = 'reset';
+
+                    } else {
+
+                        console.log('ASCII:', e.keyCode);
+
+                        status.textContent = String.fromCharCode(e.keyCode);
+
+                    }
                 }
-			};
+            };
 
-			window.onkeypress = init;
+            window.onkeypress = init;
             // window.onkeypress = function () { init(); };
 
         }());
