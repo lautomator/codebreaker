@@ -147,6 +147,7 @@ var codebreaker = function (params, targets) {
                     return ok;
 
                 },
+                // input from the buttons
                 keypad_click = function (e) {
 
                     var display = targets.keyDisplay;
@@ -178,41 +179,47 @@ var codebreaker = function (params, targets) {
 
                     }
                 },
+                //input from the keyboard
                 keyboard_input = function (e) {
 
-                    var display = targets.keyDisplay;
+                    var display = targets.keyDisplay,
+                        ent = targets.submitGuess;
 
                     if (clicks.length < n_of_guesses &&
                             keypad_dbls(e, clicks)) {
 
                         // suppress any key clicks except for numbers,
                         // enter, and clear, respectively.
-                        if (e.keyCode >= 48 && e.keyCode <= 57) {
+                        if ((e.keyCode >= 48 && e.keyCode <= 57) ||
+                                e.keyCode === 13 || e.keyCode === 99) {
 
-                            clicks.push(String.fromCharCode(e.keyCode));
-                            targets.playerGuess.value = clicks.join('');
-                            display.textContent = clicks.join('');
+                            // handle 'c' as a reset call.
+                            if (e.keyCode === 99) {
 
-                        }
+                                console.log('clear');
 
-                        // handle 'c' as a reset call.
-                        if (e.keyCode === 99) {
+                                display.textContent = '';
+                                clicks = '';
+                                targets.playerGuess.value = clicks;
+                                targets.submitGuess.reset();
+                                keypad_init();
 
-                            console.log('clear');
+                            } else if (e.keyCode === 13) {
 
-                            targets.submitGuess.reset();
-                            display.textContent = '';
-                            clicks = '';
-                            targets.playerGuess.value = clicks;
-                            keypad_init();
+                                console.log('enter');
 
-                        }
+                                // targets.playerGuess.value = clicks.join('');
+                                // ent.submit();
 
-                        // return/enter
-                        if (e.keyCode === 13) {
+                            } else {
 
-                            console.log(clicks);
+                                clicks.push(String.fromCharCode(e.keyCode));
+                                targets.playerGuess.value = clicks.join('');
+                                display.textContent = clicks.join('');
 
+                                console.log(clicks);
+
+                            }
                         }
                     }
                 };
@@ -366,7 +373,7 @@ var codebreaker = function (params, targets) {
                 feedback = targets.gameFeedback,
                 console_messages = targets.gameMessages,
                 console_message = '',
-                p = document.createElement("p"),
+                p = document.createElement("li"),
                 response = '',
                 message = '',
                 score = '',

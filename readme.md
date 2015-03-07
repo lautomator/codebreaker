@@ -1,15 +1,14 @@
 Codebreaker
 ===========
 
-This is GUI version of the game.
+This is the GUI version of the game.
 
 ###Instructions
 
 This game is based on the classic Atari 2600 game of the same
 title. The object of the game is for the player to guess 3
-numbers between 0 and 9 in the correct order. If the player
-makes a valid guess, a flag is raised. Flags indicate one
-of three things:
+numbers between 0 and 9 in the correct order. When the player
+makes a guess, a flag is raised. Flags indicate one of three things:
 
 ```
   * = a number has been matched and is not in the correct position
@@ -28,11 +27,11 @@ might look like this:
   123 --> +++
 ```
 
-The game play ends when all of the numbers have been matched
+The game ends when all of the numbers have been matched
 to their correct positions or 10 guesses have been taken.
 
-This version can be run from any web browser. Download the source and open the ```index.html``` page in a browser.
+This version can be run from a web browser. Download the source and open the ```index.html``` page in a browser.
 
 **Screen shots to come... **
 
-Special thanks to [Sam Halperin](https://github.com/shalperin) for several code reviews and direction. 
+Special thanks to [Sam Halperin](https://github.com/shalperin) for several code reviews and suggestions.

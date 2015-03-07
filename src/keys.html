@@ -19,7 +19,7 @@
     <body>
 
         <p id="trigger">press any number key or return</p>
-        <p id="number_entered"><i>status</i></p>
+        <p id="number_entered"><em>status</em></p>
 
         <script type="text/javascript">
 
@@ -29,7 +29,7 @@
 
             var init = function (e) {
 
-                console.log(e);
+                // console.log(e);
 
                 // suppress any key clicks except for numbers,
                 // enter, and clear, respectively.
@@ -46,6 +46,14 @@
                         console.log('ASCII:', e.keyCode);
 
                         status.textContent = 'reset';
+
+                    } else if (e.keyCode === 13) {
+
+                        e.keyCode = 'enter';
+
+                        console.log('ASCII:', e.keyCode);
+
+                        status.textContent = 'enter';
 
                     } else {
 

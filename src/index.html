@@ -49,7 +49,7 @@
 
               <input id="zero" class="key" type="button" value="0">
               <input id="clear" class="key" type="button" value="C">
-              <input id="enter" type="submit" value="&crarr;">
+              <input id="enter" type="submit" value="&crarr;" autofocus>
 
             </form>
 
@@ -62,7 +62,9 @@
 
               <!-- the guesses entered -->
               <!-- messages returned to the player -->
-              <div id="feedback"></div>
+              <div id="console_guesses">
+                <ol id="status"></ol>
+              </div>
 
               <!-- display messages to player: win, lose, invalid -->
               <div id="console_messages"></div>
@@ -130,7 +132,7 @@
           keyEnter:      document.getElementById('enter'),
           submitGuess:   document.getElementsByTagName('form')[0],
           playerGuess:   document.getElementById('player_guess'),
-          gameFeedback:  document.getElementById('feedback'),
+          gameFeedback:  document.getElementById('status'),
           gameMessages:  document.getElementById('console_messages'),
           gameRules:     document.getElementById('rules'),
           infoExit:      document.getElementById('info_exit'),
