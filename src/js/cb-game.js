@@ -124,6 +124,8 @@ var codebreaker = function (params, targets) {
             var buttons = targets.keyPad,
                 n_of_guesses = params.skillLevel,
                 clicks = [],
+
+                // method to supress double input
                 keypad_dbls = function (e, clicks) {
 
                     var index = 0,
@@ -156,6 +158,7 @@ var codebreaker = function (params, targets) {
                             keypad_dbls(e, clicks)) {
 
                         clicks.push(e);
+
                     }
 
                     if (e === 'reset') {
@@ -179,47 +182,44 @@ var codebreaker = function (params, targets) {
 
                     }
                 },
-                //input from the keyboard
+                // input from the keyboard
                 keyboard_input = function (e) {
 
-                    var display = targets.keyDisplay,
-                        ent = targets.submitGuess;
+                    var display = targets.keyDisplay;
+
+                    // enable focus for keyboard input
+                    targets.keyEnter.focus();
+
+                    // clear any input
+                    // handle 'c' as a reset call.
+                    if (e.keyCode === 99) {
+
+                        console.log('clear');
+
+                        display.textContent = '';
+                        clicks = '';
+                        targets.playerGuess.value = clicks;
+                        targets.submitGuess.reset();
+                        keypad_init();
+
+                    }
 
                     if (clicks.length < n_of_guesses &&
-                            keypad_dbls(e, clicks)) {
+                            keypad_dbls(
+                                String.fromCharCode(e.keyCode),
+                                clicks
+                            )) {
 
                         // suppress any key clicks except for numbers,
                         // enter, and clear, respectively.
-                        if ((e.keyCode >= 48 && e.keyCode <= 57) ||
-                                e.keyCode === 13 || e.keyCode === 99) {
+                        if (e.keyCode >= 48 && e.keyCode <= 57) {
 
-                            // handle 'c' as a reset call.
-                            if (e.keyCode === 99) {
+                            clicks.push(String.fromCharCode(e.keyCode));
+                            targets.playerGuess.value = clicks.join('');
+                            display.textContent = clicks.join('');
 
-                                console.log('clear');
+                            console.log(clicks);
 
-                                display.textContent = '';
-                                clicks = '';
-                                targets.playerGuess.value = clicks;
-                                targets.submitGuess.reset();
-                                keypad_init();
-
-                            } else if (e.keyCode === 13) {
-
-                                console.log('enter');
-
-                                // targets.playerGuess.value = clicks.join('');
-                                // ent.submit();
-
-                            } else {
-
-                                clicks.push(String.fromCharCode(e.keyCode));
-                                targets.playerGuess.value = clicks.join('');
-                                display.textContent = clicks.join('');
-
-                                console.log(clicks);
-
-                            }
                         }
                     }
                 };
@@ -270,7 +270,7 @@ var codebreaker = function (params, targets) {
                 keypad_click('reset');
             };
 
-            // keyboard events
+            // button keyboard events
             window.onkeypress = keyboard_input;
 
         },
@@ -433,6 +433,8 @@ var codebreaker = function (params, targets) {
 
                 if ((turns === 0 && !win) || win) {
 
+                    // disable the screen and submit button
+                    // render the 'replay' button
                     display.style.visibility = 'hidden';
                     enter.type = 'button';
                     replay.style.visibility = 'visible';
