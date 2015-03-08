@@ -124,6 +124,7 @@ var codebreaker = function (params, targets) {
             var buttons = targets.keyPad,
                 n_of_guesses = params.skillLevel,
                 clicks = [],
+                submitted = false,
 
                 // method to supress double input
                 keypad_dbls = function (e, clicks) {
@@ -273,6 +274,8 @@ var codebreaker = function (params, targets) {
             // button keyboard events
             window.onkeypress = keyboard_input;
 
+            return submitted;
+
         },
 
 // method to validate a guess
@@ -418,8 +421,10 @@ var codebreaker = function (params, targets) {
 
         init = function (s) {
 
-            // initialize the keypad
             keypad_init();
+
+            // var test = keypad_init();
+            // console.log(test);
 
             if (s === 'submit') {
 
