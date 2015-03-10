@@ -1,31 +1,6 @@
-/* =======================================
-   codebreaker base styles
-======================================= */
+@charset "utf-8";
 
-/* ====================================
-   colors style guide
-   bg         :  #ecf0d5
-   light blue :  #59aad5
-   dark blue  :  #3e7795
-   green      :  #59d568
-   dark green :  #3e9549
-==================================== */
-
-/* ==================================== */
-/* FOR DEVELOPMENT ONLY */
-/*
-* { visibility: visible !important; }
-
-body {
-  background-color:  #cbcbcb !important;
-  background-image: none !important;
-}
-
-#page { overflow: visible !important; }
-
-#rules, #info_exit { visibility: hidden !important; }
-*/
-/* ==================================== */
+@import url(http://fonts.googleapis.com/css?family=VT323);
 
 /* ====================================
    global
@@ -34,37 +9,35 @@ body {
   border: 0;
   border-collapse: collapse;
   background-repeat: no-repeat;
-  list-style: none;
   margin: 0;
   padding: 0;
   text-decoration: none;
-  vertical-align: top;
 }
 
 /* ====================================
    layout
 ==================================== */
-body {
-  background-image: url(../img/cb_bg_2ca1b34.jpg);
-  background-repeat: repeat;
-}
 
 #page {
-  background-color: #ecf0d5;
-  border-radius: 5px;
+  background-color: #59aad5;
+  border: 4px solid #000f20;
   height: 658px;
-  margin: 44px auto 44px; auto;
-  overflow: hidden;
+  margin: 44px auto 44px auto;
   width: 723px;
 }
 
 header {
-  background-color: #59aad5;
-  background-image: url(../img/cb_header.png);
-  background-position: 355px 15px;
   height: 66px;
-  text-indent: -9999px;
   width: 723px;
+}
+
+header h1 {
+  color: #fff;
+  font: 60px/60px VT323;
+  letter-spacing: 1px;
+  padding: 5px 14px 0 0;
+  text-align: right;
+
 }
 
 #main {
@@ -76,12 +49,10 @@ header {
 }
 
 footer {
-  background-color: #59aad5;
   bottom: 465px;
   height: 40px;
   left: 0;
   position: relative;
-  text-indent: -9999px;
   width: 723px;
 }
 
@@ -89,28 +60,22 @@ footer {
    info / game rules
 ==================================== */
 #rules {
-  background-color: #000;
-  background-image: url(../img/cb_instructions.png);
-  background-position: 10px 30px;
+  background-color: #fff;
   bottom: 465px;
   height: 542px;
   left: 0;
   margin: 5px;
-  opacity: .85;
   position: relative;
-  text-indent: -9999px;
   visibility: hidden;
   width: 713px;
   z-index: 99;
 }
 
 #info_exit {
-  background-image: url(../img/cb_button_x.png);
   cursor: pointer;
   float: right;
   height: 23px;
   margin: 4px;
-  text-indent: -9999px;
   width: 23px
 }
 
@@ -122,85 +87,35 @@ footer {
   height: 465px;
   left: 0;
   position: relative;
+  top: 0;
   width: 295px;
 }
 
-#digits {
-  display: inline-table;
-  left: 5px;
-  height: 455px;
-  position: relative;
-  top: 5px;
-  width: 285px;
-}
-
-#digits td {
-  background-position: 30px 25px;
-  border: solid 3px #fff;
-  text-indent: -9999px;
-  width: 33%;
-}
-
-.key_active {
-  background-color: #3e7795;
-  cursor: pointer;
-}
-
-.key_inactive {
-  background-color: #59aad5;
-  cursor: pointer;
-}
-
-#enter.key_active {
-  background-color: #3e9549;
-  background-position: 28px 35px;
-  cursor: pointer;
-}
-
-#enter.key_inactive {
-  background-color: #59d568;
-  background-position: 28px 35px;
-  cursor: pointer;
-}
-
-#enter  { background-image: url(../img/cb_key_ret.png); }
-#clear  { background-image: url(../img/cb_key_C.png); }
-#zero   { background-image: url(../img/cb_key_0.png); }
-#one    { background-image: url(../img/cb_key_1.png); }
-#two    { background-image: url(../img/cb_key_2.png); }
-#three  { background-image: url(../img/cb_key_3.png); }
-#four   { background-image: url(../img/cb_key_4.png); }
-#five   { background-image: url(../img/cb_key_5.png); }
-#six    { background-image: url(../img/cb_key_6.png); }
-#seven  { background-image: url(../img/cb_key_7.png); }
-#eight  { background-image: url(../img/cb_key_8.png); }
-#nine   { background-image: url(../img/cb_key_9.png); }
-
 #keys_readout {
-  background-color: #3e7795;
+  background-color: #000f20;
   height: 91px;
-}
-
-#digits_entered {
-  height: 37px;
-  left: 118px;
+  left: 8px;
   position: relative;
-  top: 27px;
-  width: 125px;
+  top: 8px;
+  width: 279px;
 }
 
-#digits_entered td {
-  background-position: 16px 0 !important;
-  border: none;
-  height: 37px;
-  width: 26px;
+form {
+  height: 449px;
+  left: 8px;
+  position: relative;
+  right: 118px;
+  top: 0;
+  width: 279px;
 }
 
-#pos_one { background-image: url(../img/cb_key_1.png); }
-
-#pos_two { background-image: url(../img/cb_key_2.png); }
-
-#pos_three { background-image: url(../img/cb_key_3.png); }
+.key, #enter {
+  cursor: pointer;
+  font-size: 32px;
+  height: 84px;
+  margin: 2px 0 2px 0;
+  width: 90px;
+}
 
 /* ====================================
    console
@@ -210,22 +125,21 @@ footer {
   left: 339px;
   height: 465px;
   position: relative;
-  bottom: 465px;
+  bottom: 467px;
   width: 295px;
 }
 
 #console_readout {
-  background-color: #3e7795;
-  left: 8px;
+  background-color: #000f20;
   height: 449px;
+  left: 8px;
+  overflow: hidden;
   position: relative;
-  overflow: visible;
   top: 8px;
   width: 279px;
 }
 
 #console_messages {
-  /*background-image: url(../img/cb_msg_win.png);*/
   height: 23px;
   left: 20px;
   position: absolute;
@@ -233,57 +147,18 @@ footer {
   width: 239px;
 }
 
-#feedback {
-  display: inline-table;
-  left: 20px;
+#status {
+  left: 40px;
   height: 366px;
   position: relative;
-  text-indent: -9999px;
   top: 20px;
   width: 239px;
-}
-
-
-#feedback,
-#console_messages {
-  border: solid 1px magenta;
-}
-
-
-#feedback td.digit_entered {
-  background-image: url(../img/cb_key_0@16x23.png);
-  background-position: 0 3px;
-  background-size: 16px 23px;
-  height: 23px;
-  width: 18px;
-}
-
-#feedback td.gutter {
-  height: 23px;
-  width: 24px;
-}
-
-#feedback td.arrow {
-  background-image: url(../img/cb_status_arrow.png);
-  background-position: 3px 6px;
-  height: 23px;
-  width: 28px;
-}
-
-#feedback td.flag_returned {
-  background-image: url(../img/cb_status_ast.png);
-  background-position: 3px 6px;
-  background-size: 16px;
-  height: 23px;
-  width: 18px;
 }
 
 /* ====================================
    footer buttons
 ==================================== */
 #info {
-  background-image: url(../img/cb_ftr_info.png);
-  background-position: 10px 8px;
   cursor: pointer;
   height: 40px;
   left: 0;
@@ -293,8 +168,6 @@ footer {
 }
 
 #src {
-  background-image: url(../img/cb_ftr_src.png);
-  background-position: 14px 14px;
   bottom: 40px;
   cursor: pointer;
   height: 40px;
@@ -304,8 +177,6 @@ footer {
 }
 
 #play_again {
-  background-image: url(../img/cb_ftr_play.png);
-  background-position: 14px 8px;
   bottom: 80px;
   cursor: pointer;
   height: 40px;
@@ -321,13 +192,3 @@ footer {
 .show { visibility: visible; }
 
 .hide { visibility: hidden; }
-
-footer div:hover { background-color: #3e7795; }
-
-/* ====================================
-   typography
-==================================== */
-#console_messages p {
-  color: #fff;
-  font: 14px/18px courier, sans-serif;
-}
