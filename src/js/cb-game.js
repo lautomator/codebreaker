@@ -87,15 +87,8 @@ var codebreaker = function (params, targets) {
 
             var rules = targets.gameRules;
 
-            // use the 'info' button
-            if (rules.style.visibility === 'hidden') {
+            rules.style.visibility = 'visible';
 
-                rules.style.visibility = 'visible';
-
-            } else {
-
-                rules.style.visibility = 'hidden';
-            }
         },
 
 // exit the info panel
@@ -118,13 +111,19 @@ var codebreaker = function (params, targets) {
 
         },
 
+// play again
+
+        replay = function () {
+
+            window.location.reload();
+        },
+
 // keypad events
         keypad_init = function () {
 
             var buttons = targets.keyPad,
                 n_of_guesses = params.skillLevel,
                 clicks = [],
-                submitted = false,
 
                 // method to supress double input
                 keypad_dbls = function (e, clicks) {
@@ -164,19 +163,12 @@ var codebreaker = function (params, targets) {
 
                     if (e === 'reset') {
 
-                        console.log('clear');
-
-                        targets.submitGuess.reset();
                         display.textContent = '';
                         clicks = '';
                         targets.playerGuess.value = clicks;
                         keypad_init();
 
-                        console.log(clicks);
-
                     } else {
-
-                        console.log(clicks);
 
                         targets.playerGuess.value = clicks.join('');
                         display.textContent = clicks.join('');
@@ -195,12 +187,9 @@ var codebreaker = function (params, targets) {
                     // handle 'c' as a reset call.
                     if (e.keyCode === 99) {
 
-                        console.log('clear');
-
                         display.textContent = '';
                         clicks = '';
                         targets.playerGuess.value = clicks;
-                        targets.submitGuess.reset();
                         keypad_init();
 
                     }
@@ -218,8 +207,6 @@ var codebreaker = function (params, targets) {
                             clicks.push(String.fromCharCode(e.keyCode));
                             targets.playerGuess.value = clicks.join('');
                             display.textContent = clicks.join('');
-
-                            console.log(clicks);
 
                         }
                     }
@@ -273,8 +260,6 @@ var codebreaker = function (params, targets) {
 
             // button keyboard events
             window.onkeypress = keyboard_input;
-
-            return submitted;
 
         },
 
@@ -374,14 +359,15 @@ var codebreaker = function (params, targets) {
 
             var guess = targets.playerGuess.value,
                 feedback = targets.gameFeedback,
-                console_messages = targets.gameMessages,
+                console_msgs = targets.gameMessages,
                 console_message = '',
                 p = document.createElement("li"),
                 response = '',
                 message = '',
                 score = '',
                 status = '',
-                win = false;
+                win = false,
+                guesses_left = true;
 
 // check to verify a valid guess has been entered
 
@@ -401,6 +387,8 @@ var codebreaker = function (params, targets) {
 
                 response = guess + get_flag(guess);
                 console_message = 'You have run out of guesses.';
+                guesses_left = false;
+
 
             } else {
 
@@ -408,23 +396,49 @@ var codebreaker = function (params, targets) {
 
             }
 
-            console_messages.textContent = console_message;
-            status = document.createTextNode(response + message);
-            p.appendChild(status);
-            feedback.appendChild(p);
-            targets.submitGuess.reset();
+            console_msgs.textContent = console_message;
+
+            if (!console_message || !guesses_left || win) {
+
+                status = document.createTextNode(response + message);
+                p.appendChild(status);
+                feedback.appendChild(p);
+                targets.playerGuess.value = 0;
+                targets.submitGuess.reset();
+
+            }
 
             return win;
         },
 
-// play again
+// submit a guess
 
-        replay = function () {
+        submit_guess = function () {
 
-            window.location.reload();
+            var display = targets.keyDisplay,
+                enter = targets.keyEnter,
+                win = process_guess(),
+                play_again = targets.playAgain;
+
+            turns -= 1;
+            display.textContent = '';
+
+            if ((turns === 0 && !win) || win) {
+
+                // disable the screen and submit button
+                // render the 'play again' button
+                display.style.visibility = 'hidden';
+                enter.type = 'button';
+                play_again.style.visibility = 'visible';
+
+            } else {
+
+                keypad_init();
+
+            }
         },
 
-// method to handle the sequence of game events
+// method to handle the preliminary game events
 
         init = function () {
 
@@ -434,39 +448,23 @@ var codebreaker = function (params, targets) {
 
             check_params(params, targets);
 
-            // keypad/leyboard click events
             keypad_init();
-
-            var submit_guess = function () {
-
-                var display = targets.keyDisplay,
-                    enter = targets.keyEnter,
-                    win = process_guess(),
-                    play_again = targets.playAgain;
-
-                turns -= 1;
-                display.textContent = '';
-
-                if ((turns === 0 && !win) || win) {
-
-                    // disable the screen and submit button
-                    // render the 'play again' button
-                    display.style.visibility = 'hidden';
-                    enter.type = 'button';
-                    play_again.style.visibility = 'visible';
-
-                }
-            };
-
-            // general click events
-            targets.submitGuess.onsubmit = submit_guess;
-            targets.playAgain.onclick = replay;
-            targets.gameInfo.onclick = get_rules;
-            targets.infoExit.onclick = exit_info_panel;
-            targets.gameSrc.onclick = src_redirect;
 
         };
 
     init();
+
+// general click events
+
+    if (targets.keyEnter.type === 'submit') {
+
+        targets.submitGuess.onsubmit = submit_guess;
+
+    }
+
+    targets.playAgain.onclick = replay;
+    targets.gameInfo.onclick = get_rules;
+    targets.infoExit.onclick = exit_info_panel;
+    targets.gameSrc.onclick = src_redirect;
 
 };
