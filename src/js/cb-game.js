@@ -456,12 +456,7 @@ var codebreaker = function (params, targets) {
 
 // general click events
 
-    if (targets.keyEnter.type === 'submit') {
-
-        targets.submitGuess.onsubmit = submit_guess;
-
-    }
-
+    targets.submitGuess.onsubmit = submit_guess;
     targets.playAgain.onclick = replay;
     targets.gameInfo.onclick = get_rules;
     targets.infoExit.onclick = exit_info_panel;
