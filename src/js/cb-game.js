@@ -417,21 +417,32 @@ var codebreaker = function (params, targets) {
             return win;
         },
 
+// play again
+
+        replay = function () {
+
+            window.location.reload();
+        },
+
 // method to handle the sequence of game events
 
-        init = function (s) {
+        init = function () {
 
+            // for debugging -----------------------
+            console.log(solution);
+            // -------------------------------------
+
+            check_params(params, targets);
+
+            // keypad/leyboard click events
             keypad_init();
 
-            // var test = keypad_init();
-            // console.log(test);
-
-            if (s === 'submit') {
+            var submit_guess = function () {
 
                 var display = targets.keyDisplay,
                     enter = targets.keyEnter,
                     win = process_guess(),
-                    replay = targets.playAgain;
+                    play_again = targets.playAgain;
 
                 turns -= 1;
                 display.textContent = '';
@@ -439,36 +450,23 @@ var codebreaker = function (params, targets) {
                 if ((turns === 0 && !win) || win) {
 
                     // disable the screen and submit button
-                    // render the 'replay' button
+                    // render the 'play again' button
                     display.style.visibility = 'hidden';
                     enter.type = 'button';
-                    replay.style.visibility = 'visible';
+                    play_again.style.visibility = 'visible';
 
                 }
-            }
-        },
+            };
 
-// play again
+            // general click events
+            targets.submitGuess.onsubmit = submit_guess;
+            targets.playAgain.onclick = replay;
+            targets.gameInfo.onclick = get_rules;
+            targets.infoExit.onclick = exit_info_panel;
+            targets.gameSrc.onclick = src_redirect;
 
-        replay = function () {
-
-            window.location.reload();
         };
 
-    check_params(params, targets);
-
-    window.onload = init;
-
-// click/touch events
-
-    targets.submitGuess.onsubmit = function () { init('submit'); };
-    targets.playAgain.onclick = replay;
-    targets.gameInfo.onclick = get_rules;
-    targets.infoExit.onclick = exit_info_panel;
-    targets.gameSrc.onclick = src_redirect;
-
-    // for debugging -----------------------
-    console.log(solution);
-    // -------------------------------------
+    init();
 
 };
