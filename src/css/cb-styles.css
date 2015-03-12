@@ -20,22 +20,32 @@
    layout
 ==================================== */
 
-#page {
-  background-color: #59aad5;
-  border: 1px solid #000f20;
+body {
+  background-color: #f1f1f1;
+  padding: 5px;
+
+}
+
+.container {
+/*  background-color: #59aad5; */ 
+  background-color: #fff;
+  border: 1px solid #999;
+
   border-radius: 5px;
-  height: 625px;
-  margin: 44px auto 44px auto;
-  width: 723px;
+  height: 600px;
+  margin: 0 auto;
+  max-width: 600px;
 }
 
 header {
-  background-color: #2c5c7a;
-  border: solid 1px #8bc4e2;
+/*  background-color: #2c5c7a;
+  border: solid 1px #8bc4e2;*/
+/*  background-color: magenta;
+
   border-radius: 5px;
   height: 50px;
   margin: 14px auto 0 auto;
-  width: 635px;
+  width: 600px;
 }
 
 header h1 {
@@ -46,11 +56,12 @@ header h1 {
 }
 
 #main {
-  left: 44px;
-  height: 465px;
-  position: relative;
-  top: 24px;
-  width: 635px;
+  background-color: yellow;
+
+  border-radius: 5px;
+  height: 500px;
+  margin: 0 auto;
+  width: 500px;
 }
 
 footer {
@@ -60,7 +71,7 @@ footer {
   position: relative;
   width: 723px;
 }
-
+*/
 /* ====================================
    info / game rules
 ==================================== */
