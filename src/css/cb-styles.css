@@ -27,32 +27,32 @@ body {
 
 .container {
   background-color: #fff;
-  /*border: 1px solid #999;*/
+  border: 1px solid #b2b2b2;
   border-radius: 5px;
-  /*height: 400px;*/
+  min-height: 355px;
   margin: 0 auto;
-  max-width: 500px;
+  max-width: 502px;
   overflow: hidden;
   padding: 0 !important;
 }
 
 header {
-  background-color: magenta;
   height: 50px;
+  padding: 0 0 0 10px;
   width: 100%;
 }
 
 #main {
-  background-color: yellow;
-  min-height: 300px;
+  min-height: 255px;
   margin: 0 auto;
-  width: 500px;
+  padding: 10px;
+  width: 100%;
 }
 
 footer {
-  background-color: cyan;
   height: 50px;
   left: 0;
+  padding: 0 0 0 10px;
   position: relative;
   top: 0;
   width: 100%;
@@ -89,12 +89,9 @@ footer {
    keypad
 ==================================== */
 #keypad {
-  background-color: green;
-  height: 300px;
-/*  left: 0;
-  position: relative;
-  top: 0;*/
-  /*width: 225px;*/
+  height: 225px;
+  margin: 0 auto;
+  width: 240px;
 }
 
 /*#keys_readout {
@@ -127,26 +124,12 @@ form {
 }*/
 
 /* ====================================
-   gutter
-==================================== */
-#gutter {
-  /*background-color: aliceblue;*/
-  /*bottom: 300px;*/
-  /*height: 5px;*/
-/*  left: 225px;
-  position: relative;*/
-}
-
-/* ====================================
    console
 ==================================== */
 #console {
-  background-color: lightgreen;
-  /*bottom: 300px;*/
-  height: 325px;
-/*  left: 275px;
-  position: relative;*/
-  /*width: 225px;*/
+  height: 225px;
+  margin: 0 auto;
+  width: 240px;
 }
 
 /*#console_readout {
@@ -179,6 +162,8 @@ form {
    footer buttons
 ==================================== */
 #info {
+  border: 1px solid #b2b2b2;
+  border-radius: 5px;
   cursor: pointer;
   height: 40px;
   left: 0;
@@ -188,6 +173,8 @@ form {
 }
 
 #src {
+  border: 1px solid #b2b2b2;
+  border-radius: 5px;
   bottom: 40px;
   cursor: pointer;
   height: 40px;
@@ -197,13 +184,15 @@ form {
 }
 
 #play_again {
+  border: 1px solid #b2b2b2;
+  border-radius: 5px;
   bottom: 80px;
   cursor: pointer;
   height: 40px;
   margin-left: 160px;
   position: relative;
-  visibility: hidden;
-  width: 180px;
+  /*visibility: hidden;*/
+  width: 90px;
 }
 
 /* ====================================
@@ -219,9 +208,15 @@ li { list-style: none; }
    typography
 ==================================== */
 
-header h1 {
-  color: #fff;
-  font-size: 40px;
+.title {
+  color: #262626;
+  font-size: 20px;
   letter-spacing: 1px;
-  padding: 0 0 0 10px;
+}
+
+.footer-text {
+  color: #262626;
+  font-size: 14px;
+  line-height: 34px;
+  text-align: center;
 }
