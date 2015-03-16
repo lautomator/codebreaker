@@ -1,5 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=VT323);
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);
+
 /* ====================================
    global
 ==================================== */
@@ -9,14 +10,16 @@
   font-family: "Source Sans Pro", sans-serif;
   margin: 0;
   padding: 0;
-  text-decoration: none; }
+  text-decoration: none; 
+}
 
 /* ====================================
    primary layout spaces
 ==================================== */
 body {
   background-color: #f1f1f1;
-  padding: 5px; }
+  padding: 5px; 
+}
 
 .container {
   background-color: #fff;
@@ -26,18 +29,21 @@ body {
   margin: 0 auto;
   max-width: 502px;
   overflow: hidden;
-  padding: 0 !important; }
+  padding: 0 !important; 
+}
 
 header {
   height: 50px;
   padding: 0 0 0 10px;
-  width: 100%; }
+  width: 100%; 
+}
 
 #main {
   min-height: 255px;
   margin: 0 auto;
   padding: 10px;
-  width: 100%; }
+  width: 100%; 
+}
 
 footer {
   height: 50px;
@@ -45,7 +51,8 @@ footer {
   padding: 0 0 0 10px;
   position: relative;
   top: 0;
-  width: 100%; }
+  width: 100%; 
+}
 
 /* ====================================
    info / game rules
@@ -63,6 +70,7 @@ footer {
   visibility: hidden;
   width: 655px;
   z-index: 99;
+
 }
 
 #info_exit {
@@ -72,24 +80,31 @@ footer {
   margin: 4px;
   position: relative;
   width: 23px
+
 }
 */
 /* ====================================
    keypad
 ==================================== */
 #keypad {
+  background-color: cyan;
+  overflow: hidden;
+
   height: 225px;
   margin: 0 auto;
-  width: 240px; }
+  width: 240px; 
+}
 
 #keys_readout {
   background-color: #000f20;
   border-radius: 5px;
-  height: 25px;
-  left: 8px;
+  height: 30px;
+  /*margin: 10px auto 0 auto;*/
+/*  left: -5px;
   position: relative;
-  top: 8px;
-  width: 279px; }
+  top: 5px;*/
+  width: 220px; 
+}
 
 form {
   height: 449px;
@@ -97,7 +112,8 @@ form {
   position: relative;
   right: 118px;
   top: 0;
-  width: 279px; }
+  width: 279px; 
+}
 
 .key, #enter {
   background-color: #b2b2b2;
@@ -107,15 +123,19 @@ form {
   font-size: 32px;
   height: 84px;
   margin: 2px 0 2px 0;
-  width: 90px; }
+  width: 90px; 
+}
 
 /* ====================================
    console
 ==================================== */
 #console {
+  background-color: yellow;
+
   height: 225px;
   margin: 0 auto;
-  width: 240px; }
+  width: 240px; 
+}
 
 /*#console_readout {
   background-color: #000f20;
@@ -125,6 +145,7 @@ form {
   position: relative;
   top: 8px;
   width: 279px;
+
 }
 
 #console_messages {
@@ -133,6 +154,7 @@ form {
   position: absolute;
   top: 403px;
   width: 239px;
+
 }
 
 #status {
@@ -141,6 +163,7 @@ form {
   position: relative;
   top: 20px;
   width: 239px;
+
 }*/
 /* ====================================
    footer buttons
@@ -153,7 +176,8 @@ form {
   left: 0;
   position: relative;
   top: 0;
-  width: 70px; }
+  width: 70px; 
+}
 
 #src {
   border: 1px solid #b2b2b2;
@@ -163,7 +187,8 @@ form {
   height: 40px;
   margin-left: 80px;
   position: relative;
-  width: 70px; }
+  width: 70px; 
+}
 
 #play_again {
   border: 1px solid #b2b2b2;
@@ -174,19 +199,23 @@ form {
   margin-left: 160px;
   position: relative;
   /*visibility: hidden;*/
-  width: 90px; }
+  width: 90px; 
+}
 
 /* ====================================
    dynamic
 ==================================== */
 .show {
-  visibility: visible; }
+  visibility: visible; 
+}
 
 .hide {
-  visibility: hidden; }
+  visibility: hidden; 
+}
 
 li {
-  list-style: none; }
+  list-style: none; 
+}
 
 /* ====================================
    typography
@@ -194,10 +223,12 @@ li {
 .title {
   color: #262626;
   font-size: 20px;
-  letter-spacing: 1px; }
+  letter-spacing: 1px; 
+}
 
 .footer-text {
   color: #262626;
   font-size: 14px;
   line-height: 34px;
-  text-align: center; }
+  text-align: center; 
+}
