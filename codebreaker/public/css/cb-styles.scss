@@ -14,6 +14,8 @@ $clr_main_font: #262626;
 
 $keys_bg: #000f20;
 $keys_bg_con: #000f20;
+$keys_con_clr: #00aeef;
+$keys_type: #b2b2b2;
 
 
 * {
@@ -69,11 +71,11 @@ footer {
 /* ====================================
    info / game rules
 ==================================== */
-/*#rules {
+#rules {
   background-color: #000f20;
   bottom: 465px;
-  border-radius: $glbl-radius;
   color: #fff;
+  display: none;
   height: 542px;
   left: 0;
   margin: 0 auto 0 auto;
@@ -94,14 +96,11 @@ footer {
   width: 23px
 
 }
-*/
+
 /* ====================================
    keypad
 ==================================== */
 #keypad {
-  background-color: cyan;
-  overflow: hidden;
-
   height: 290px;
   margin: 0 auto;
   padding: 0 !important;
@@ -110,27 +109,34 @@ footer {
 
 #keys_readout {
   background-color: $keys_bg_con;
-  border-radius: 5px;
+  color: $keys_con_clr;
   height: 45px;
   margin: 5px auto;
+  position: relative;
+  top: 0;
   width: 180px;
 }
 
 #player_input {
-  border: solid 1px $clr_border;
-  border-radius: 5px;
+  background-color: $keys_bg_con; 
   height: 230px;
-  margin: auto;
+  margin: 0 auto;
+  position: relative;
+  top: -5px;
   width: 180px;
 
   .key, #enter, input {
-    background-color: $clr_bg;
-    border: 1px solid $clr_border;
-    border-radius: 3px;
+    background-color: $keys_bg_con;
+    color: $keys_type;
     cursor: pointer;
-    font-size: 22px;
-    height: 50px;
-    width: 50px;
+    font-size: 16px;
+    height: 48px;
+    margin: 0;
+    width: 48px;
+  }
+
+  .key:focus, #enter:focus, input:focus {
+    border: none;
   }
 }
 
@@ -138,7 +144,7 @@ footer {
    console
 ==================================== */
 #console {
-  background-color: yellow;
+  /*background-color: yellow;*/
 
   height: 290px;
   margin: 0 auto;
@@ -206,7 +212,7 @@ footer {
   height: 40px;
   margin-left: 160px;
   position: relative;
-  /*visibility: hidden;*/
+  visibility: hidden;
   width: 90px;
 }
 
