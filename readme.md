@@ -13,7 +13,7 @@ makes a guess, a flag is raised. Flags indicate one of three things:
 ```
   * = a number has been matched and is not in the correct position
   + = a number has been matched and is in the correct position
-  - = a number has not been matched.
+  _ = a number has not been matched.
 ```
 
 The flag does not necessarily indicate the correct position on
@@ -21,9 +21,9 @@ the readout. For example, given a solution of 123, the game play
 might look like this:
 
 ```
-  346 --> -*-
-  328 --> -+*
-  423 --> ++-
+  346 --> _*_
+  328 --> _+*
+  423 --> ++_
   123 --> +++
 ```
 

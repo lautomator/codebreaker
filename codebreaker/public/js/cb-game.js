@@ -271,9 +271,7 @@ var codebreaker = function (params, targets) {
 
 // A guess must be 3 numbers and must not be empty.
 
-            if (!aguess.match(/[0-9]{3}/)
-                    || isNaN(aguess)
-                    || aguess === '') {
+            if (!aguess.match(/[0-9]{3}/)) {
 
                 ok = false;
 
@@ -338,7 +336,7 @@ var codebreaker = function (params, targets) {
 
                             } else {
 
-                                results[index] = '-';
+                                results[index] = '_';
 
                             }
                         }
@@ -378,21 +376,21 @@ var codebreaker = function (params, targets) {
 
             } else if (guess === solution) {
 
-                response = guess + '    ' + get_flag(guess);
+                response = guess + '  |  ' + get_flag(guess);
                 score = turns;
-                console_message = 'You WIN! | Score: ' + score;
+                console_message = 'You WIN! Score: ' + score;
                 win = true;
 
             } else if (turns === 1) {
 
-                response = guess + '    ' + get_flag(guess);
+                response = guess + '  |  ' + get_flag(guess);
                 console_message = 'You have run out of guesses.';
                 guesses_left = false;
 
 
             } else {
 
-                response = guess + '    ' + get_flag(guess);
+                response = guess + '  |  ' + get_flag(guess);
 
             }
 

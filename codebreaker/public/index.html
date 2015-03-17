@@ -27,30 +27,34 @@
           <!-- keypad for input -->
           <div id="keypad" class="col-sm-6">
 
-            <div id="keys_readout" class="console_txt"></div>
+            <div id="keypad_panel">
 
-            <form action ="#" id="player_input" method="get">
+              <div id="keys_readout" class="console_txt"></div>
 
-              <input id="player_guess" type="hidden">
-              <br>
-              <input id="seven" class="key top topside" 
-                type="button" value="7">
-              <input id="eight" class="key top" type="button" value="8">
-              <input id="nine" class="key top" type="button" value="9">
-              <br>
-              <input id="four" class="key side" type="button" value="4">
-              <input id="five" class="key" type="button" value="5">
-              <input id="six" class="key" type="button" value="6">
-              <br>
-              <input id="one" class="key side" type="button" value="1">
-              <input id="two" class="key" type="button" value="2">
-              <input id="three" class="key" type="button" value="3">
-              <br>
-              <input id="zero" class="key side" type="button" value="0">
-              <input id="clear" class="key" type="button" value="C">
-              <input id="enter" type="submit" value="&crarr;" autofocus>
+              <form action ="#" id="player_input" method="get">
 
-            </form>
+                <input id="player_guess" type="hidden">
+                <br>
+                <input id="seven" class="key side" type="button" value="7">
+                <input id="eight" class="key" type="button" value="8">
+                <input id="nine" class="key" type="button" value="9">
+                <br>
+                <input id="four" class="key side" type="button" value="4">
+                <input id="five" class="key" type="button" value="5">
+                <input id="six" class="key" type="button" value="6">
+                <br>
+                <input id="one" class="key side" type="button" value="1">
+                <input id="two" class="key" type="button" value="2">
+                <input id="three" class="key" type="button" value="3">
+                <br>
+                <input id="zero" class="key side" type="button" value="0">
+                <input id="clear" class="key" type="button" value="C">
+                <input id="enter" class="key_act" type="submit"
+                  value="&crarr;" autofocus>
+
+              </form>
+
+            </div><!-- keypad panel ends -->
 
           </div><!-- the keypad ends -->
 
@@ -75,6 +79,13 @@
 
         </div><!-- main ends -->
 
+        <!-- footer -->
+        <footer>
+          <div id="info" class="footer-text">info</div>
+          <div id="src" class="footer-text">src</div>
+          <div id="play_again" class="footer-text">play again?</div>
+        </footer><!-- footer ends -->
+
         <!-- info panel -->
         <div id="rules">
           <div id="info_exit">x</div>
@@ -90,7 +101,7 @@
               the correct position</li>
             <li>+&ensp;=&ensp;a number has been matched and is in the correct
               position</li>
-            <li>-&ensp;=&ensp;a number has not been matched.</li>
+            <li>_&ensp;=&ensp;a number has not been matched.</li>
           </ul>
 
           <p>The flag does not necessarily indicate the correct position on
@@ -98,9 +109,9 @@
           might look like this:</p>
 
           <ul>
-            <li>346&emsp;&rarr;&emsp;-*-</li>
-            <li>328&emsp;&rarr;&emsp; -+*</li>
-            <li>423&emsp;&rarr;&emsp; ++-</li>
+            <li>346&emsp;&rarr;&emsp;_*_</li>
+            <li>328&emsp;&rarr;&emsp; _+*</li>
+            <li>423&emsp;&rarr;&emsp; ++_</li>
             <li>123&emsp;&rarr;&emsp; +++</li>
           </ul>
 
@@ -108,13 +119,6 @@
           to their correct positions or 10 guesses have been taken.
           </p>
         </div><!-- info panel ends -->
-
-        <!-- footer -->
-        <footer>
-          <div id="info" class="footer-text">info</div>
-          <div id="src" class="footer-text">src</div>
-          <div id="play_again" class="footer-text">play again?</div>
-        </footer><!-- footer ends -->
 
       </div><!-- page ends -->
 

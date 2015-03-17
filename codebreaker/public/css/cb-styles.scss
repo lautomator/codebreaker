@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400);
 
 /* ====================================
    global
@@ -12,13 +12,14 @@ $clr_main_font: #fff;
 
 $keys_bg: #000;
 $keys_bg_con: #000;
-$keys_con_clr: #00aeef;
-$keys_type: #b2b2b2;
-
+$keys_con_clr: #00b9ff;
+$keys_border: #333;
+$keys_active: #00ff00;
 
 * {
   border: 0;
   background-repeat: no-repeat;
+  border-collapse: collapse;
   font-family: $font_main;
   margin: 0;
   padding: 0;
@@ -39,7 +40,7 @@ body {
   background-repeat: repeat;
   border: 1px solid $clr_border;
   border-radius: 5px;
-  min-height: 420;
+  min-height: 420px;
   margin: 0 auto;
   max-width: 502px;
   overflow: hidden;
@@ -72,29 +73,28 @@ footer {
    info / game rules
 ==================================== */
 #rules {
-  background-color: #000f20;
-  bottom: 465px;
-  color: #fff;
-  display: none;
-  height: 542px;
-  left: 0;
-  margin: 0 auto 0 auto;
-  opacity: .9;
+  /*display: none;*/
+
+  background-color: $clr_bg;
+  /*border: solid 1px $clr_main_font;*/
+  border-radius: 5px;
+  bottom: 412px;
+  height: auto;
+  left: 12px;
+  opacity: .8;
   position: relative;
   visibility: hidden;
-  width: 655px;
-  z-index: 99;
+  width: 95%;
+  z-index: 999;
 
 }
 
 #info_exit {
   cursor: pointer;
+  float: right;
   height: 23px;
-  left: 640px;
   margin: 4px;
-  position: relative;
   width: 23px
-
 }
 
 /* ====================================
@@ -107,9 +107,18 @@ footer {
   width: 240px;
 }
 
-#keys_readout {
+#console_readout,
+#keypad_panel {
   background-color: $keys_bg_con;
-  color: $keys_con_clr;  /*this should be in typography*/
+  border: solid 1px $keys_border;
+  border-radius: 3px;
+  /*box-shadow: 0 0 5px $clr_bg;*/
+  height: 290px;
+  margin: 0 auto;
+  width: 180px;
+}
+
+#keys_readout {
   height: 42px;
   margin: 5px auto 0 auto;
   position: relative;
@@ -118,7 +127,6 @@ footer {
 }
 
 #player_input {
-  background-color: $keys_bg_con;
   height: 242px;
   margin: 0 auto;
   position: relative;
@@ -127,28 +135,17 @@ footer {
 
   .key, #enter {
     background-color: $keys_bg_con;
-    border-top: solid 1px #333;
-    border-left: solid 1px #333;
+    border-top: solid 1px $keys_border;
+    border-left: solid 1px $keys_border;
     cursor: pointer;
     height: 57px;
     position: relative;
-    bottom: 12px;
+    bottom: 8px;
     width: 57px;
-  }
-
-  .top {
-    border-left: solid 1px #333;
-    border-top: none;  
   }
 
   .side {
     border-left: none;
-    border-top: solid 1px #333; 
-  }
-
-  .topside {
-    border-left: none;
-    border-top: none; 
   }
 
   input:focus {
@@ -163,73 +160,45 @@ footer {
 #console {
   height: 290px;
   margin: 0 auto 0 auto;
-  overflow: hidden;
   padding: 0;
   width: 240px;
 }
 
-#console_readout {
-  background-color: $keys_bg_con;
-  border: solid 1px #333;
-  border-radius: 3px;
-  height: 290px;
-  margin: 0 auto;
-  width: 180px;
-}
-
 #console_guesses {
-  /*background-color: cyan;*/
+  height: 260px;
+  padding-top: 15px;
   width: 180px;
-  height: 210px;
 }
 
 #console_messages {
-  /*background-color: magenta;*/
   height: 23px;
   width: 180px;
 }
 
 #status {
   left: 40px;
-  height: 200px;
+  height: 260px;
   width: 180;
-
 }
+
 /* ====================================
    footer buttons
 ==================================== */
-#info {
-  border: 1px solid $clr_border;
+#info,
+#src,
+#play_again {
+  background-color: $keys_bg;
+  border: 1px solid $keys_border;
   border-radius: 5px;
   cursor: pointer;
-  height: 40px;
-  left: 0;
-  position: relative;
-  top: 0;
-  width: 70px;
-}
-
-#src {
-  border: 1px solid $clr_border;
-  border-radius: 5px;
-  bottom: 40px;
-  cursor: pointer;
-  height: 40px;
-  margin-left: 80px;
-  position: relative;
-  width: 70px;
+  display: inline-block;
+  height: 30px;
+  margin: 10px 10px 0 0;
+  width: 100px;
 }
 
 #play_again {
-  border: 1px solid $clr_border;
-  border-radius: 5px;
-  bottom: 80px;
-  cursor: pointer;
-  height: 40px;
-  margin-left: 160px;
-  position: relative;
   visibility: hidden;
-  width: 90px;
 }
 
 /* ====================================
@@ -259,22 +228,43 @@ li {
 .footer-text {
   color: $clr_main_font;
   font-size: 14px;
-  line-height: 34px;
+  line-height: 26px;
   text-align: center;
 }
 
+input {
+  color: $keys_con_clr;;
+  font: 24px/24px $font_main;
+}
+
 .console_txt {
-  color: $keys_type;
+  color: $keys_con_clr;;
   font: 32px/46px $font_main;
+  letter-spacing: 3px;
   padding:0 15px 0 0;
   text-align: right;
 }
 
 #status li {
   color: $keys_con_clr;
-  font: 22px/20px $font_main;
+  font: 22px/22px $font_main;
   letter-spacing: 3px;
-  padding-left: 55px;
+  padding-left: 35px;
   text-align: left;
 }
 
+#console_messages {
+  color: $keys_active;
+  font: 22px/22px $keys_active;
+  text-align: center;
+
+}
+
+.key_act {
+  color: $keys_active;
+}
+
+/*#rules p {
+  font: 16px/16px $font_main;
+
+}*/
