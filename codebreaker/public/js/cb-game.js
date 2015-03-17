@@ -378,21 +378,21 @@ var codebreaker = function (params, targets) {
 
             } else if (guess === solution) {
 
-                response = guess + get_flag(guess);
+                response = guess + '    ' + get_flag(guess);
                 score = turns;
                 console_message = 'You WIN! | Score: ' + score;
                 win = true;
 
             } else if (turns === 1) {
 
-                response = guess + get_flag(guess);
+                response = guess + '    ' + get_flag(guess);
                 console_message = 'You have run out of guesses.';
                 guesses_left = false;
 
 
             } else {
 
-                response = guess + get_flag(guess);
+                response = guess + '    ' + get_flag(guess);
 
             }
 

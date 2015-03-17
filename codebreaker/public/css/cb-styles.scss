@@ -111,7 +111,7 @@ footer {
 
 #keys_readout {
   background-color: $keys_bg_con;
-  color: $keys_con_clr;
+  color: $keys_con_clr;  /*this should be in typography*/
   height: 42px;
   margin: 5px auto 0 auto;
   position: relative;
@@ -132,10 +132,10 @@ footer {
     border-top: solid 1px #333;
     border-left: solid 1px #333;
     cursor: pointer;
-    height: 58px;
+    height: 57px;
     position: relative;
     bottom: 12px;
-    width: 58px;
+    width: 57px;
   }
 
   input:focus {
@@ -148,35 +148,36 @@ footer {
    console
 ==================================== */
 #console {
-  background-color: yellow;
-
   height: 290px;
-  margin: 0 auto;
+  margin: 0 auto 0 auto;
+  overflow: hidden;
+  padding: 0;
   width: 240px;
 }
 
 #console_readout {
-  background-color: #000f20;
-  height: 242px;
-  overflow: hidden;
+  background-color: $keys_bg_con;
+  height: 290px;
+  margin: 0 auto;
   width: 180px;
 }
 
-#console_messages {
-  height: 23px;
-  left: 20px;
-  position: absolute;
-  top: 403px;
-  width: 239px;
+#console_guesses {
+  /*background-color: cyan;*/
+  width: 180px;
+  height: 210px;
+}
 
+#console_messages {
+  /*background-color: magenta;*/
+  height: 23px;
+  width: 180px;
 }
 
 #status {
   left: 40px;
-  height: 366px;
-  position: relative;
-  top: 20px;
-  width: 239px;
+  height: 200px;
+  width: 180;
 
 }
 /* ====================================
@@ -249,8 +250,15 @@ li {
 
 .console_txt {
   color: $keys_type;
-  font: 34px/42px $font_console;
+  font: 32px/46px $font_console;
   padding:0 15px 0 0;
   text-align: right;
+}
+
+#status li {
+  color: $keys_con_clr;
+  font: 22px/20px $font_console;
+  letter-spacing: 3px;
+  text-align: center;
 }
 
