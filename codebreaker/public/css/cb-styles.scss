@@ -6,7 +6,7 @@
 ==================================== */
 
 $font_main: 'Source Sans Pro', sans-serif;
-$font_console: 'SVT323', sans-serif;
+$font_console: 'VT323', sans-serif;
 
 $clr_bg: #f1f1f1;
 $clr_border: #b2b2b2;
@@ -37,6 +37,8 @@ body {
 
 .container {
   background-color: #fff;
+  /*background-image: url('../img/99882.res');*/
+  background-repeat: repeat;
   border: 1px solid $clr_border;
   border-radius: 5px;
   min-height: 420;
@@ -101,7 +103,7 @@ footer {
    keypad
 ==================================== */
 #keypad {
-  height: 290px;
+  height: 310px;
   margin: 0 auto;
   padding: 0 !important;
   width: 240px;
@@ -110,56 +112,54 @@ footer {
 #keys_readout {
   background-color: $keys_bg_con;
   color: $keys_con_clr;
-  height: 45px;
-  margin: 5px auto;
+  height: 42px;
+  margin: 5px auto 0 auto;
   position: relative;
   top: 0;
   width: 180px;
 }
 
 #player_input {
-  background-color: $keys_bg_con; 
-  height: 230px;
+  background-color: $keys_bg_con;
+  height: 242px;
   margin: 0 auto;
   position: relative;
-  top: -5px;
+  top: 0;
   width: 180px;
 
   .key, #enter, input {
     background-color: $keys_bg_con;
-    color: $keys_type;
+    border-top: solid 1px #333;
+    border-left: solid 1px #333;
     cursor: pointer;
-    font-size: 16px;
-    height: 48px;
-    margin: 0;
-    width: 48px;
+    height: 58px;
+    position: relative;
+    bottom: 12px;
+    width: 58px;
   }
 
-  .key:focus, #enter:focus, input:focus {
+  input:focus {
     display: none;
   }
+
 }
 
 /* ====================================
    console
 ==================================== */
 #console {
-  /*background-color: yellow;*/
+  background-color: yellow;
 
   height: 290px;
   margin: 0 auto;
   width: 240px;
 }
 
-/*#console_readout {
+#console_readout {
   background-color: #000f20;
-  height: 449px;
-  left: 8px;
+  height: 242px;
   overflow: hidden;
-  position: relative;
-  top: 8px;
-  width: 279px;
-
+  width: 180px;
 }
 
 #console_messages {
@@ -178,7 +178,7 @@ footer {
   top: 20px;
   width: 239px;
 
-}*/
+}
 /* ====================================
    footer buttons
 ==================================== */
@@ -246,3 +246,11 @@ li {
   line-height: 34px;
   text-align: center;
 }
+
+.console_txt {
+  color: $keys_type;
+  font: 34px/42px $font_console;
+  padding:0 15px 0 0;
+  text-align: right;
+}
+
