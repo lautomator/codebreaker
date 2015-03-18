@@ -35,7 +35,7 @@ body {
 }
 
 .container {
-  background-color: #fff;
+  background-color: $keys_bg;
   background-image: url('../img/99882.gif');
   background-repeat: repeat;
   border: 1px solid $clr_border;
@@ -73,23 +73,22 @@ footer {
    info / game rules
 ==================================== */
 #rules {
-  /*display: none;*/
-
-  background-color: $clr_bg;
-  /*border: solid 1px $clr_main_font;*/
+  background-color: $keys_bg;
+  border: solid 1px $clr_main_font;
   border-radius: 5px;
+  max-width: 485px;
   margin: 0 auto;
-  max-width: 495px;
-  min-height: 420px;
-  opacity: .8;
-  /*position: relative;*/
-  /*bottom: 420px;*/
+  opacity: .88;
+  padding: 10px;
+  position: relative;
+  bottom: 410px;
   visibility: hidden;
-  z-index: 999;
+  /*z-index: 9999;*/
 
 }
 
 #info_exit {
+  color: $clr_main_font;
   cursor: pointer;
   float: right;
   height: 23px;
@@ -112,7 +111,6 @@ footer {
   background-color: $keys_bg_con;
   border: solid 1px $keys_border;
   border-radius: 3px;
-  /*box-shadow: 0 0 5px $clr_bg;*/
   height: 290px;
   margin: 0 auto;
   width: 180px;
@@ -264,7 +262,7 @@ input {
   color: $keys_active;
 }
 
-/*#rules p {
-  font: 16px/16px $font_main;
-
-}*/
+#rules>p,
+#rules>ul>li {
+  color: $clr_main_font;
+}
