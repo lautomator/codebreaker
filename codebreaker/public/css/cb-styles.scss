@@ -78,13 +78,13 @@ footer {
   background-color: $clr_bg;
   /*border: solid 1px $clr_main_font;*/
   border-radius: 5px;
-  bottom: 412px;
-  height: auto;
-  left: 12px;
+  margin: 0 auto;
+  max-width: 495px;
+  min-height: 420px;
   opacity: .8;
-  position: relative;
+  /*position: relative;*/
+  /*bottom: 420px;*/
   visibility: hidden;
-  width: 95%;
   z-index: 999;
 
 }
