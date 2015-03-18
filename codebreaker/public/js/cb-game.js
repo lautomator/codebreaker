@@ -448,16 +448,15 @@ var codebreaker = function (params, targets) {
 
             keypad_init();
 
+            // general click events
+            targets.submitGuess.onsubmit = submit_guess;
+            targets.playAgain.onclick = replay;
+            targets.gameInfo.onclick = get_rules;
+            targets.infoExit.onclick = exit_info_panel;
+            targets.gameSrc.onclick = src_redirect;
+
         };
 
     init();
-
-// general click events
-
-    targets.submitGuess.onsubmit = submit_guess;
-    targets.playAgain.onclick = replay;
-    targets.gameInfo.onclick = get_rules;
-    targets.infoExit.onclick = exit_info_panel;
-    targets.gameSrc.onclick = src_redirect;
 
 };
