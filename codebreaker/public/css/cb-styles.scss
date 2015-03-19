@@ -4,23 +4,23 @@
    global
 ==================================== */
 
-$font_main: 'Source Sans Pro', sans-serif;
+$font-main: 'Source Sans Pro', sans-serif;
 
-$clr_bg: #f1f1f1;
-$clr_border: #b2b2b2;
-$clr_main_font: #fff;
+$clr-bg: #f1f1f1;
+$clr-border: #b2b2b2;
+$clr-main-font: #fff;
 
-$keys_bg: #000;
-$keys_bg_con: #000;
-$keys_con_clr: #00b9ff;
-$keys_border: #333;
-$keys_active: #00ff00;
+$keys-bg: #000;
+$keys-bg-con: #000;
+$keys-con-clr: #00b9ff;
+$keys-border: #333;
+$keys-active: #00ff00;
 
 * {
   border: 0;
   background-repeat: no-repeat;
   border-collapse: collapse;
-  font-family: $font_main;
+  font-family: $font-main;
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -30,15 +30,15 @@ $keys_active: #00ff00;
    primary layout spaces
 ==================================== */
 body {
-  background-color: $clr_bg;
+  background-color: $clr-bg;
   padding: 5px;
 }
 
 .container {
-  background-color: $keys_bg;
+  background-color: $keys-bg;
   background-image: url('../img/99882.gif');
   background-repeat: repeat;
-  border: 1px solid $clr_border;
+  border: 1px solid $clr-border;
   border-radius: 5px;
   min-height: 420px;
   margin: 0 auto;
@@ -73,8 +73,8 @@ footer {
    info / game rules
 ==================================== */
 #rules {
-  background-color: $keys_bg;
-  border: solid 1px $clr_main_font;
+  background-color: $keys-bg;
+  border: solid 1px $clr-main-font;
   border-radius: 5px;
   max-width: 485px;
   margin: 0 auto;
@@ -87,8 +87,8 @@ footer {
 
 }
 
-#info_exit {
-  color: $clr_main_font;
+#info-exit {
+  color: $clr-main-font;
   cursor: pointer;
   float: right;
   height: 23px;
@@ -106,17 +106,17 @@ footer {
   width: 240px;
 }
 
-#console_readout,
-#keypad_panel {
-  background-color: $keys_bg_con;
-  border: solid 1px $keys_border;
+#console-readout,
+#keypad-panel {
+  background-color: $keys-bg-con;
+  border: solid 1px $keys-border;
   border-radius: 3px;
   height: 290px;
   margin: 0 auto;
   width: 180px;
 }
 
-#keys_readout {
+#keys-readout {
   height: 42px;
   margin: 5px auto 0 auto;
   position: relative;
@@ -124,7 +124,7 @@ footer {
   width: 180px;
 }
 
-#player_input {
+#player-input {
   height: 242px;
   margin: 0 auto;
   position: relative;
@@ -132,9 +132,9 @@ footer {
   width: 180px;
 
   .key, #enter {
-    background-color: $keys_bg_con;
-    border-top: solid 1px $keys_border;
-    border-left: solid 1px $keys_border;
+    background-color: $keys-bg-con;
+    border-top: solid 1px $keys-border;
+    border-left: solid 1px $keys-border;
     cursor: pointer;
     height: 57px;
     position: relative;
@@ -162,13 +162,13 @@ footer {
   width: 240px;
 }
 
-#console_guesses {
+#console-guesses {
   height: 260px;
   padding-top: 15px;
   width: 180px;
 }
 
-#console_messages {
+#console-messages {
   height: 23px;
   width: 180px;
 }
@@ -184,9 +184,9 @@ footer {
 ==================================== */
 #info,
 #src,
-#play_again {
-  background-color: $keys_bg;
-  border: 1px solid $keys_border;
+#play-again {
+  background-color: $keys-bg;
+  border: 1px solid $keys-border;
   border-radius: 5px;
   cursor: pointer;
   display: inline-block;
@@ -195,7 +195,7 @@ footer {
   width: 100px;
 }
 
-#play_again {
+#play-again {
   visibility: hidden;
 }
 
@@ -218,51 +218,51 @@ li {
    typography
 ==================================== */
 .title {
-  color: $clr_main_font;
+  color: $clr-main-font;
   font-size: 20px;
   letter-spacing: 1px;
 }
 
 .footer-text {
-  color: $clr_main_font;
+  color: $clr-main-font;
   font-size: 14px;
   line-height: 26px;
   text-align: center;
 }
 
 input {
-  color: $keys_con_clr;;
-  font: 24px/24px $font_main;
+  color: $keys-con-clr;;
+  font: 24px/24px $font-main;
 }
 
-.console_txt {
-  color: $keys_con_clr;;
-  font: 32px/46px $font_main;
+.console-txt {
+  color: $keys-con-clr;;
+  font: 32px/46px $font-main;
   letter-spacing: 3px;
   padding:0 15px 0 0;
   text-align: right;
 }
 
 #status li {
-  color: $keys_con_clr;
-  font: 22px/22px $font_main;
+  color: $keys-con-clr;
+  font: 22px/22px $font-main;
   letter-spacing: 3px;
   padding-left: 35px;
   text-align: left;
 }
 
-#console_messages {
-  color: $keys_active;
-  font: 22px/22px $keys_active;
+#console-messages {
+  color: $keys-active;
+  font: 22px/22px $keys-active;
   text-align: center;
 
 }
 
-.key_act {
-  color: $keys_active;
+.key-act {
+  color: $keys-active;
 }
 
 #rules>p,
 #rules>ul>li {
-  color: $clr_main_font;
+  color: $clr-main-font;
 }
