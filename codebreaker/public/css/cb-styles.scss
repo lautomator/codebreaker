@@ -56,8 +56,7 @@ header {
 #main {
   min-height: 320px;
   margin: 0 auto;
-  padding: 10px;
-  width: 100%;
+  max-width: 360px;
 }
 
 footer {
@@ -100,10 +99,9 @@ footer {
    keypad
 ==================================== */
 #keypad {
-  height: 310px;
-  margin: 0 auto;
+  height: 290px;
   padding: 0 !important;
-  width: 240px;
+  width: 180px;
 }
 
 #console-readout,
@@ -157,9 +155,8 @@ footer {
 ==================================== */
 #console {
   height: 290px;
-  margin: 0 auto 0 auto;
   padding: 0;
-  width: 240px;
+  width: 180px;
 }
 
 #console-guesses {

@@ -361,7 +361,7 @@ function codebreaker(params, targets) {
 
         if (!validateGuess(guess)) {
 
-            consoleMessage = 'Enter 3 numbers (0-9) only.';
+            consoleMessage = 'Enter 3 numbers.';
             turns += 1;
 
         } else if (guess === window.solution) {
