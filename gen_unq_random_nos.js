@@ -1,3 +1,4 @@
+// a comment 
 var skill = 3;
 
 function getSample() {
