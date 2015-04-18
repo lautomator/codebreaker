@@ -106,7 +106,7 @@ function codebreaker(params, targets) {
     // play again
     function replay() {
 
-        // TODO: rewrite this
+        // TODO: rewrite this to save some parameter(s) in a cookie
         window.location.reload();
     }
 
