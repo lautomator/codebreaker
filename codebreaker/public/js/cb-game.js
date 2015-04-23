@@ -42,7 +42,6 @@ function codebreaker(params, targets) {
         }
     }
 
-    // TODO: break this into two functions
     // returns the solution of a game:
     // generates a solution: 3 unique random numbers.
     function setSolution(skill) {
@@ -80,7 +79,6 @@ function codebreaker(params, targets) {
     function getRules() {
 
         var rules = targets.gameRules;
-
         rules.style.visibility = 'visible';
 
     }
@@ -89,7 +87,6 @@ function codebreaker(params, targets) {
     function exitInfoPanel() {
 
         var rules = targets.gameRules;
-
         rules.style.visibility = 'hidden';
 
     }
@@ -98,7 +95,6 @@ function codebreaker(params, targets) {
     function srcRedirect() {
 
         var url = targets.cbSrc;
-
         window.open(url);
 
     }
@@ -106,154 +102,29 @@ function codebreaker(params, targets) {
     // play again
     function replay() {
 
-        // TODO: rewrite this to save some parameter(s) in a cookie
+        // TODO:
+        // ideally store the score in a cookie
+        // save the last 10 scores and the dates
+        // the cookie expires after a week
+        // create a scores page that displays the 5
+        // highest scores
+
+        // var prevScores = []
+
+        // // add previous scores
+        // if (prevScores !== '' || prevScores === null) {
+
+        //     prevScores.push(turns)
+        //     document.cookie = "score=", prevScores[-1];
+
+        // } else {
+
+        //     console.log('there are no previous scores');
+
+        // }
+
+        // for now just reload: this will be removed later
         window.location.reload();
-    }
-
-    // TODO: extract this and make into a separate object
-    // keypad events
-    function keypadInit() {
-
-        var buttons = targets.keyPad,
-            numOfGuesses = params.skillLevel,
-            clicks = [],
-
-            // method to supress double input
-            keypadDbls = function (e, clicks) {
-
-                var index = 0,
-                    ok = true;
-
-                if (clicks.length > 0) {
-
-                    for (index in clicks) {
-
-                        if (clicks.hasOwnProperty(index)) {
-
-                            if (e === clicks[index]) {
-
-                                ok = false;
-
-                            }
-                        }
-                    }
-                }
-
-                return ok;
-
-            },
-            // input from the buttons
-            keypadClick = function (e) {
-
-                var display = targets.keyDisplay;
-
-                if (clicks.length < numOfGuesses &&
-                        keypadDbls(e, clicks)) {
-
-                    clicks.push(e);
-
-                }
-
-                if (e === 'reset') {
-
-                    display.textContent = '';
-                    clicks = '';
-                    targets.playerGuess.value = clicks;
-                    keypadInit();
-
-                } else {
-
-                    targets.playerGuess.value = clicks.join('');
-                    display.textContent = clicks.join('');
-
-                }
-            },
-            // input from the keyboard
-            keyboardInput = function (e) {
-
-                var display = targets.keyDisplay;
-
-                // enable focus for keyboard input
-                targets.keyEnter.focus();
-
-                // clear any input
-                // handle 'c' as a reset call.
-                if (e.keyCode === 99) {
-
-                    display.textContent = '';
-                    clicks = '';
-                    targets.playerGuess.value = clicks;
-                    keypadInit();
-
-                }
-
-                if (clicks.length < numOfGuesses &&
-                        keypadDbls(
-                            String.fromCharCode(e.keyCode),
-                            clicks
-                        )) {
-
-                    // suppress any key clicks except for numbers,
-                    // enter, and clear, respectively.
-                    if (e.keyCode >= 48 && e.keyCode <= 57) {
-
-                        clicks.push(String.fromCharCode(e.keyCode));
-                        targets.playerGuess.value = clicks.join('');
-                        display.textContent = clicks.join('');
-
-                    }
-                }
-            };
-
-        // button mouse click events
-        // 7
-        buttons[0].onclick = function () {
-            keypadClick(buttons[0].value);
-        };
-        // 8
-        buttons[1].onclick = function () {
-            keypadClick(buttons[1].value);
-        };
-        // 9
-        buttons[2].onclick = function () {
-            keypadClick(buttons[2].value);
-        };
-        // 4
-        buttons[3].onclick = function () {
-            keypadClick(buttons[3].value);
-        };
-        // 5
-        buttons[4].onclick = function () {
-            keypadClick(buttons[4].value);
-        };
-        // 6
-        buttons[5].onclick = function () {
-            keypadClick(buttons[5].value);
-        };
-        // 1
-        buttons[6].onclick = function () {
-            keypadClick(buttons[6].value);
-        };
-        // 2
-        buttons[7].onclick = function () {
-            keypadClick(buttons[7].value);
-        };
-        // 3
-        buttons[8].onclick = function () {
-            keypadClick(buttons[8].value);
-        };
-        // 0
-        buttons[9].onclick = function () {
-            keypadClick(buttons[9].value);
-        };
-        // C
-        buttons[10].onclick = function () {
-            keypadClick('reset');
-        };
-
-        // button keyboard events
-        window.onkeypress = keyboardInput;
-
     }
 
     // validate a guess
@@ -262,7 +133,6 @@ function codebreaker(params, targets) {
         var ok = true;
 
     // A guess must be 3 numbers and must not be empty.
-
         if (!aguess.match(/[0-9]{3}/)) {
 
             ok = false;
@@ -283,7 +153,6 @@ function codebreaker(params, targets) {
             fdback = '';
 
     // populates guessValues with the response (guess)
-
         for (index in resp) {
 
             if (resp.hasOwnProperty(index)) {
@@ -295,7 +164,6 @@ function codebreaker(params, targets) {
         }
 
     // populates solValues with this game's solution
-
         for (index in window.solution) {
 
             if (window.solution.hasOwnProperty(index)) {
@@ -306,7 +174,6 @@ function codebreaker(params, targets) {
         }
 
     // parse guess and solution values and prepare results
-
         for (index in guessValues) {
 
             if (guessValues.hasOwnProperty(index)) {
@@ -358,7 +225,6 @@ function codebreaker(params, targets) {
             guessesLeft = true;
 
     // check to verify a valid guess has been entered
-
         if (!validateGuess(guess)) {
 
             consoleMessage = 'Enter 3 numbers.';
