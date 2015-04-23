@@ -2,7 +2,8 @@ function codebreaker(params, targets) {
 
     "use strict";
 
-    var turns = params.guesses;
+    var turns = params.guesses,
+        solution = setSolution(params.skillLevel);
 
     // validates the primary game parameters
     function checkParams(gameopts, tgts) {
@@ -40,39 +41,6 @@ function codebreaker(params, targets) {
             throw "Invalid game configuration: " + err;
 
         }
-    }
-
-    // returns the solution of a game:
-    // generates a solution: 3 unique random numbers.
-    function setSolution(skill) {
-
-        var randomNumber,
-            found = false,
-            solutions = [],
-            i;
-
-        while (solutions.length < skill) {
-
-            randomNumber = Math.floor(Math.random() * 10);
-            found = false;
-
-            for (i = 0; i < solutions.length; i += 1) {
-
-                if (solutions[i] === randomNumber) {
-
-                    found = true;
-                    break;
-
-                }
-            }
-            if (!found) {
-
-                solutions[solutions.length] = randomNumber;
-
-            }
-        }
-
-        return solutions.join('');
     }
 
     // get the game rules
@@ -164,11 +132,11 @@ function codebreaker(params, targets) {
         }
 
     // populates solValues with this game's solution
-        for (index in window.solution) {
+        for (index in solution) {
 
-            if (window.solution.hasOwnProperty(index)) {
+            if (solution.hasOwnProperty(index)) {
 
-                solValues.push(window.solution[index]);
+                solValues.push(solution[index]);
 
             }
         }
@@ -230,7 +198,7 @@ function codebreaker(params, targets) {
             consoleMessage = 'Enter 3 numbers.';
             turns += 1;
 
-        } else if (guess === window.solution) {
+        } else if (guess === solution) {
 
             response = guess + '  |  ' + getFlag(guess);
             score = turns;
@@ -292,8 +260,6 @@ function codebreaker(params, targets) {
     }
 
     function init() {
-
-        var solution = setSolution(params.skillLevel);
 
         // for debugging -----------------------
         console.log(solution);
