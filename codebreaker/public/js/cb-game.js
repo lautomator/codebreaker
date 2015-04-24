@@ -67,32 +67,11 @@ function codebreaker(params, targets) {
 
     }
 
-    // play again
-    function replay() {
+    // set the most recent score in a cookie
+    function setScores(scr) {
 
-        // TODO:
-        // ideally store the score in a cookie
-        // save the last 10 scores and the dates
-        // the cookie expires after a week
-        // create a scores page that displays the 5
-        // highest scores
+        document.cookie = "score=" + scr;
 
-        // var prevScores = []
-
-        // // add previous scores
-        // if (prevScores !== '' || prevScores === null) {
-
-        //     prevScores.push(turns)
-        //     document.cookie = "score=", prevScores[-1];
-
-        // } else {
-
-        //     console.log('there are no previous scores');
-
-        // }
-
-        // for now just reload: this will be removed later
-        window.location.reload();
     }
 
     // validate a guess
@@ -203,6 +182,7 @@ function codebreaker(params, targets) {
             response = guess + '  |  ' + getFlag(guess);
             score = turns;
             consoleMessage = 'You WIN! Score: ' + score;
+            setScores(score);
             win = true;
 
         } else if (turns === 1) {
@@ -271,7 +251,7 @@ function codebreaker(params, targets) {
 
         // general click events
         targets.submitGuess.onsubmit = submitGuess;
-        // targets.newGame.onclick = replay;
+        // targets.newGame.onclick = setScores;
         targets.gameInfo.onclick = getRules;
         targets.infoExit.onclick = exitInfoPanel;
         targets.gameSrc.onclick = srcRedirect;
