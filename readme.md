@@ -32,6 +32,8 @@ to their correct positions or 10 guesses have been taken.
 
 This version can be run from a web browser. Download the source and open the ```index.html``` page in a browser.
 
-![codebreaker screenshot 1](https://drive.google.com/file/d/0BxiG75OfPmcLX2RnNnVzTnJjcFk/view)
+** images TBA **
+![codebreaker screenshot 1](url TBA)
+![codebreaker screenshot 2](url TBA)
 
 Special thanks to [Sam Halperin](https://github.com/shalperin) for several code reviews and suggestions.
