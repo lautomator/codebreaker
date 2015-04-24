@@ -68,9 +68,19 @@ function codebreaker(params, targets) {
     }
 
     // set the most recent score in a cookie
-    function setScores(scr) {
+    function setScores(name, scr, days) {
+        var date,
+            expires;
 
-        document.cookie = "score=" + scr;
+        if (days) {
+            date = new Date();
+            date.setTime(date.getTime()+(days*24*60*60*1000));
+            expires = "; expires="+date.toGMTString();
+        } else {
+            expires = "";
+        }
+
+        document.cookie = name + "=" + scr + expires + "; path=/";
 
     }
 
@@ -182,7 +192,7 @@ function codebreaker(params, targets) {
             response = guess + '  |  ' + getFlag(guess);
             score = turns;
             consoleMessage = 'You WIN! Score: ' + score;
-            setScores(score);
+            setScores('score', score, 30);
             win = true;
 
         } else if (turns === 1) {
