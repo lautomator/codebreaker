@@ -30,7 +30,7 @@ might look like this:
 The game ends when all of the numbers have been matched
 to their correct positions or 10 guesses have been taken.
 
-This version can be run from a web browser. Download the source and open the ```index.html``` page in a browser.
+This version can be run from a web browser. Download the source and open the ```index.html``` page in a browser or you can play the game here **(TBA)**.
 
 ![codebreaker screenshot 1](https://dl.dropboxusercontent.com/u/54256847/cb-01.png)
 
