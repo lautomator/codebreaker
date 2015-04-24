@@ -27,8 +27,10 @@
 
         <!-- main -->
         <div id="main">
-          <h1>Scores</h1>
-          <ul id="scores"></ul>
+          <div id="console-messages">
+            <p>Score to beat:</p>
+            <ul id="high-score"></ul>
+          </div>
 
 
         </div><!-- main ends -->
@@ -44,6 +46,13 @@
       </div><!-- page ends -->
 
       <script src="js/cb-scores.js"></script>
+      <script type="text/javascript">
+
+          var cbBestScoreTarget = document.getElementById('high-score');
+
+          getScore('score', cbBestScoreTarget);
+
+      </script>
 
   </body>
 </html>

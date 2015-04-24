@@ -67,20 +67,26 @@ function codebreaker(params, targets) {
 
     }
 
-    // set the most recent score in a cookie
-    function setScores(name, scr, days) {
+    // set the best score in a cookie
+    function setScore(ckname, scr, days) {
         var date,
             expires;
 
         if (days) {
+
             date = new Date();
             date.setTime(date.getTime()+(days*24*60*60*1000));
             expires = "; expires="+date.toGMTString();
+
         } else {
+
             expires = "";
+
         }
 
-        document.cookie = name + "=" + scr + expires + "; path=/";
+        // TODO: add the new score if it beats the highest score
+
+        document.cookie = ckname + "=" + scr + expires + "; path=/";
 
     }
 
@@ -173,13 +179,14 @@ function codebreaker(params, targets) {
             feedback = targets.gameFeedback,
             consoleMsgs = targets.gameMessages,
             consoleMessage = '',
-            p = document.createElement("li"),
+            l = document.createElement("li"),
             response = '',
             message = '',
             score = '',
             status = '',
             win = false,
-            guessesLeft = true;
+            guessesLeft = true,
+            cookieExpiration = 30;
 
     // check to verify a valid guess has been entered
         if (!validateGuess(guess)) {
@@ -192,7 +199,7 @@ function codebreaker(params, targets) {
             response = guess + '  |  ' + getFlag(guess);
             score = turns;
             consoleMessage = 'You WIN! Score: ' + score;
-            setScores('score', score, 30);
+            setScore('score', score, cookieExpiration);
             win = true;
 
         } else if (turns === 1) {
@@ -213,8 +220,8 @@ function codebreaker(params, targets) {
         if (!consoleMessage || !guessesLeft || win) {
 
             status = document.createTextNode(response + message);
-            p.appendChild(status);
-            feedback.appendChild(p);
+            l.appendChild(status);
+            feedback.appendChild(l);
             targets.playerGuess.value = 0;
             targets.submitGuess.reset();
 
@@ -261,7 +268,6 @@ function codebreaker(params, targets) {
 
         // general click events
         targets.submitGuess.onsubmit = submitGuess;
-        // targets.newGame.onclick = setScores;
         targets.gameInfo.onclick = getRules;
         targets.infoExit.onclick = exitInfoPanel;
         targets.gameSrc.onclick = srcRedirect;
