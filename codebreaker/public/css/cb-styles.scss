@@ -181,7 +181,7 @@ footer {
 ==================================== */
 #info,
 #src,
-#play-again {
+#new-game, #play-game {
   background-color: $keys-bg;
   border: 1px solid $keys-border;
   border-radius: 5px;
@@ -192,7 +192,7 @@ footer {
   width: 100px;
 }
 
-#play-again {
+#new-game {
   visibility: hidden;
 }
 
@@ -214,6 +214,11 @@ li {
 /* ====================================
    typography
 ==================================== */
+a, a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
 .title {
   color: $clr-main-font;
   font-size: 20px;

@@ -239,7 +239,7 @@ function codebreaker(params, targets) {
         var display = targets.keyDisplay,
             enter = targets.keyEnter,
             win = processGuess(),
-            playAgain = targets.playAgain;
+            newGame = targets.newGame;
 
         turns -= 1;
         display.textContent = '';
@@ -250,7 +250,7 @@ function codebreaker(params, targets) {
             // render the 'play again' button
             display.style.visibility = 'hidden';
             enter.type = 'button';
-            playAgain.style.visibility = 'visible';
+            newGame.style.visibility = 'visible';
 
         } else {
 
@@ -271,7 +271,7 @@ function codebreaker(params, targets) {
 
         // general click events
         targets.submitGuess.onsubmit = submitGuess;
-        targets.playAgain.onclick = replay;
+        // targets.newGame.onclick = replay;
         targets.gameInfo.onclick = getRules;
         targets.infoExit.onclick = exitInfoPanel;
         targets.gameSrc.onclick = srcRedirect;
