@@ -100,6 +100,7 @@ footer {
 ==================================== */
 #keypad {
   height: 290px;
+  margin: 0 auto;
   padding: 0 !important;
   width: 180px;
 }
@@ -155,6 +156,7 @@ footer {
 ==================================== */
 #console {
   height: 290px;
+  margin: 0 auto;
   padding: 0;
   width: 180px;
 }
@@ -195,6 +197,29 @@ footer {
 #new-game {
   visibility: hidden;
 }
+
+/* ====================================
+   scores page
+==================================== */
+#score-banner {
+  margin: 0 auto;
+  max-width: 360px;
+  padding-top: 80px;
+}
+
+#score-banner p,
+#score-banner ul li, {
+  color: $clr-main-font;
+  font: 32px/32px $font-main;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+#score-banner ul li, {
+  color: $keys-active;
+  font: 72px/72px $font-main;
+}
+
 
 /* ====================================
    dynamic
