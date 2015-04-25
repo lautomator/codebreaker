@@ -68,15 +68,15 @@ function codebreaker(params, targets) {
     }
 
     // set the best score in a cookie
-    function setScore(ckname, scr, days) {
+    function setScore(ckName, scr, days) {
         var date,
             expires;
 
         if (days) {
 
             date = new Date();
-            date.setTime(date.getTime()+(days*24*60*60*1000));
-            expires = "; expires="+date.toGMTString();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toGMTString();
 
         } else {
 
@@ -86,8 +86,32 @@ function codebreaker(params, targets) {
 
         // TODO: add the new score if it beats the highest score
 
-        document.cookie = ckname + "=" + scr + expires + "; path=/";
+        document.cookie = ckName + "=" + scr + expires + "; path=/";
 
+    }
+
+    function getScore(ckName) {
+
+        var name = ckName + "=",
+            ckArray = document.cookie.split(';'),
+            i;
+
+        for (i = 0; i < ckArray.length; i += 1) {
+
+            while (ckArray[i].charAt(0) === ' ') {
+
+                ckArray[i] = ckArray[i].substring(1);
+
+            }
+
+            if (ckArray[i].indexOf(name) === 0) {
+
+                return ckArray[i].substring(name.length, ckArray[i].length);
+
+            }
+        }
+
+        return "";
     }
 
     // validate a guess
@@ -186,7 +210,8 @@ function codebreaker(params, targets) {
             status = '',
             win = false,
             guessesLeft = true,
-            cookieExpiration = 30;
+            cookieExpiration = 28,
+            hiScore = getScore('score');
 
     // check to verify a valid guess has been entered
         if (!validateGuess(guess)) {
@@ -199,7 +224,14 @@ function codebreaker(params, targets) {
             response = guess + '  |  ' + getFlag(guess);
             score = turns;
             consoleMessage = 'You WIN! Score: ' + score;
-            setScore('score', score, cookieExpiration);
+
+            // determine if a new high score needs to be set
+            if (score > hiScore) {
+
+                setScore('score', score, cookieExpiration);
+
+            }
+
             win = true;
 
         } else if (turns === 1) {

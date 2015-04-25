@@ -1,4 +1,4 @@
-function getScore(ckName, cbBestScoreTarget) {
+function hiScore(ckName, cbBestScoreTarget) {
 
     "use strict";
 
@@ -20,11 +20,10 @@ function getScore(ckName, cbBestScoreTarget) {
 
             l.appendChild(document.createTextNode(ckArray[i].substring(
                 name.length,
-                ckArray[i].length)));
+                ckArray[i].length
+            )));
             topScore.appendChild(l);
-
         }
-
     }
 
     return "";
