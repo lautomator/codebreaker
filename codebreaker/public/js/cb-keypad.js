@@ -76,6 +76,15 @@ function keypadInit() {
 
             }
 
+            // TODO:
+            // handle 'enter' from the keyboard
+            // if (e.keyCode === 13) {
+
+            //     console.log('you hit the enter key');
+                // logic needed
+
+            // }
+
             if (clicks.length < numOfGuesses &&
                     keypadDbls(
                         String.fromCharCode(e.keyCode),

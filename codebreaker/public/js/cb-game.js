@@ -84,8 +84,6 @@ function codebreaker(params, targets) {
 
         }
 
-        // TODO: add the new score if it beats the highest score
-
         document.cookie = ckName + "=" + scr + expires + "; path=/";
 
     }
@@ -299,11 +297,10 @@ function codebreaker(params, targets) {
         keypadInit();
 
         // general click events
-        targets.submitGuess.onsubmit = submitGuess;
+        targets.keyEnter.onclick = submitGuess;
         targets.gameInfo.onclick = getRules;
         targets.infoExit.onclick = exitInfoPanel;
         targets.gameSrc.onclick = srcRedirect;
-
     }
 
     init();
