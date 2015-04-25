@@ -291,7 +291,7 @@ function codebreaker(params, targets) {
     function init() {
 
         // for debugging -----------------------
-        console.log(solution);
+        // console.log(solution);
         // -------------------------------------
 
         checkParams(params, targets);
