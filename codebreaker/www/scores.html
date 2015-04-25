@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is a simple guessing game.">
+
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/cb-styles.css" />
+
+    <title>CODEBREAKER</title>
+  </head>
+
+  <body>
+      <!-- page begins -->
+      <div class="container">
+
+        <header>
+          <p class="title">CODEBREAKER</p>
+        </header>
+
+        <!-- main -->
+        <div id="main">
+          <div id="console-messages">
+            <p>Score to beat:</p>
+            <ul id="high-score"></ul>
+          </div>
+
+
+        </div><!-- main ends -->
+
+        <!-- footer -->
+        <footer>
+          <div id="info" class="footer-text">info</div>
+          <div id="src" class="footer-text">src</div>
+          <div id="play-game" class="footer-text"><a href="/">
+            play</a></div>
+        </footer><!-- footer ends -->
+
+      </div><!-- page ends -->
+
+      <script src="js/cb-scores.js"></script>
+      <script type="text/javascript">
+
+          var cbBestScoreTarget = document.getElementById('high-score');
+
+          hiScore('score', cbBestScoreTarget);
+
+      </script>
+
+  </body>
+</html>

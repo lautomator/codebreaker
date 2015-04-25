@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is a simple guessing game.">
+
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/cb-styles.css" />
+
+    <title>CODEBREAKER</title>
+  </head>
+
+  <body>
+      <!-- page begins -->
+      <div class="container">
+
+        <header>
+          <p class="title">CODEBREAKER</p>
+        </header>
+
+        <!-- main -->
+        <div id="main">
+
+          <!-- keypad for input -->
+          <div id="keypad" class="col-sm-6">
+
+            <div id="keypad-panel">
+
+              <div id="keys-readout" class="console-txt"></div>
+
+              <form action="#" id="player-input" method="get">
+
+                <input id="player-guess" type="hidden">
+                <br>
+                <input id="seven" class="key side" type="button" value="7">
+                <input id="eight" class="key" type="button" value="8">
+                <input id="nine" class="key" type="button" value="9">
+                <br>
+                <input id="four" class="key side" type="button" value="4">
+                <input id="five" class="key" type="button" value="5">
+                <input id="six" class="key" type="button" value="6">
+                <br>
+                <input id="one" class="key side" type="button" value="1">
+                <input id="two" class="key" type="button" value="2">
+                <input id="three" class="key" type="button" value="3">
+                <br>
+                <input id="zero" class="key side" type="button" value="0">
+                <input id="clear" class="key" type="button" value="C">
+                <input id="enter" class="key-act" type="submit"
+                  value="&crarr;" autofocus>
+
+              </form>
+
+            </div><!-- keypad panel ends -->
+
+          </div><!-- the keypad ends -->
+
+          <!-- the console -->
+          <div id="console" class="col-sm-6">
+
+            <!-- the recorded guesses -->
+            <div id="console-readout">
+
+              <!-- the guesses entered -->
+              <!-- messages returned to the player -->
+              <div id="console-guesses">
+                <ol id="status"></ol>
+              </div>
+
+              <!-- display messages to player: win, lose, invalid -->
+              <div id="console-messages"></div>
+
+            </div><!-- readout ends -->
+
+          </div><!-- console ends -->
+
+        </div><!-- main ends -->
+
+        <!-- footer -->
+        <footer>
+          <div id="info" class="footer-text">info</div>
+          <div id="src" class="footer-text">src</div>
+          <div id="new-game" class="footer-text"><a href="scores.html">
+            new game</a></div>
+        </footer><!-- footer ends -->
+
+      </div><!-- page ends -->
+
+      <!-- info panel -->
+      <div id="rules">
+        <div id="info-exit">x</div>
+        <p>GAME RULES</p>
+        <p>This game is based on the classic Atari 2600 game of the same
+        title. The object of the game is to guess 3
+        numbers between 0 and 9 in the correct order. If you
+        make a valid guess, a flag is raised. Flags indicate one
+        of three things:</p>
+
+        <ul>
+          <li>*&ensp;=&ensp;a number has been matched and is not in
+            the correct position</li>
+          <li>+&ensp;=&ensp;a number has been matched and is in the correct
+            position</li>
+          <li>_&ensp;=&ensp;a number has not been matched.</li>
+        </ul>
+
+        <p>The flag does not necessarily indicate the correct position on
+        the readout. For example, given a solution of 123, the game play
+        might look like this:</p>
+
+        <ul>
+          <li>346&emsp;&rarr;&emsp;_*_</li>
+          <li>328&emsp;&rarr;&emsp; _+*</li>
+          <li>423&emsp;&rarr;&emsp; ++_</li>
+          <li>123&emsp;&rarr;&emsp; +++</li>
+        </ul>
+
+        <p>The game play ends when all of the numbers have been matched
+        to their correct positions or 10 guesses have been taken.
+        </p>
+      </div><!-- info panel ends -->
+
+      <script src="js/cb-gen-solution.js"></script>
+      <script src="js/cb-keypad.js"></script>
+      <script src="js/cb-game.js"></script>
+
+      <script type="text/javascript">
+
+        var params = {
+            skillLevel: 3,
+            players: 1,
+            guesses: 10
+        },
+            targets = {
+                keyPad:        document.getElementsByClassName('key'),
+                keyDisplay:    document.getElementById('keys-readout'),
+                keyEnter:      document.getElementById('enter'),
+                submitGuess:   document.getElementsByTagName('form')[0],
+                playerGuess:   document.getElementById('player-guess'),
+                gameFeedback:  document.getElementById('status'),
+                gameMessages:  document.getElementById('console-messages'),
+                gameRules:     document.getElementById('rules'),
+                infoExit:      document.getElementById('info-exit'),
+                gameInfo:      document.getElementById('info'),
+                gameSrc:       document.getElementById('src'),
+                newGame:       document.getElementById('new-game'),
+                cbSrc:         'https://github.com/lautomator/codebreaker'
+            };
+
+        codebreaker(params, targets);
+
+      </script>
+
+  </body>
+</html>
