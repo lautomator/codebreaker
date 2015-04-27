@@ -76,9 +76,9 @@ footer {
   border: solid 1px $clr-main-font;
   border-radius: 5px;
   display: none;
-  margin: 0 auto;
-  max-width: 485px;
-  opacity: .75;
+  margin: 6px 15px 0 10px;
+  max-width: 480px;
+  opacity: .8;
   padding: 10px;
   position: absolute;
   top: 6px;
@@ -88,13 +88,11 @@ footer {
 #info-exit {
   color: $keys-active;
   cursor: pointer;
+  float: right;
   font-size: 28px;
   height: 32px;
-  left: 430px;
   line-height: 28px;
-  position: relative;
   text-align: center;
-  top: -5px;
   width: 32px;
 }
 

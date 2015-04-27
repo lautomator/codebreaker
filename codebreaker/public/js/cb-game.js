@@ -278,6 +278,7 @@ function codebreaker(params, targets) {
             display.style.visibility = 'hidden';
             keys.disabled = true;
             enter.disabled = true;
+            enter.style.color = '#00b9ff';
             newGame.style.visibility = 'visible';
 
         } else {
@@ -290,7 +291,7 @@ function codebreaker(params, targets) {
     function init() {
 
         // for debugging -----------------------
-        console.log(solution);
+        // console.log(solution);
         // -------------------------------------
 
         checkParams(params, targets);
@@ -310,6 +311,4 @@ function codebreaker(params, targets) {
 
 // TODO:
 // * enable the enter button to work from the keypad
-// * adjust the rules so that they appear at the top of the screen
-// in the moble phone version.
 // * Lint
