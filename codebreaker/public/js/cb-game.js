@@ -47,7 +47,7 @@ function codebreaker(params, targets) {
     function getRules() {
 
         var rules = targets.gameRules;
-        rules.style.visibility = 'visible';
+        rules.style.display = 'block';
 
     }
 
@@ -55,8 +55,7 @@ function codebreaker(params, targets) {
     function exitInfoPanel() {
 
         var rules = targets.gameRules;
-        rules.style.visibility = 'hidden';
-
+        rules.style.display = 'none';
     }
 
     // redirect to the game source code GitHub page
@@ -309,9 +308,8 @@ function codebreaker(params, targets) {
 
 }
 
-// TODO: 
-// 1. disable the enter button on win or lose
-// 2. enable the enter button to work from the keypad
-// 3. adjust the rules so that they appear at the top of the screen
+// TODO:
+// * enable the enter button to work from the keypad
+// * adjust the rules so that they appear at the top of the screen
 // in the moble phone version.
-// 4. Lint
+// * Lint

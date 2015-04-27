@@ -75,22 +75,27 @@ footer {
   background-color: $keys-bg;
   border: solid 1px $clr-main-font;
   border-radius: 5px;
-  max-width: 485px;
+  display: none;
   margin: 0 auto;
-  opacity: .78;
+  max-width: 485px;
+  opacity: .75;
   padding: 10px;
-  position: relative;
-  bottom: 410px;
-  visibility: hidden;
+  position: absolute;
+  top: 6px;
+  z-index: 999;
 }
 
 #info-exit {
-  color: $clr-main-font;
+  color: $keys-active;
   cursor: pointer;
-  float: right;
-  height: 23px;
-  margin: 4px;
-  width: 23px
+  font-size: 28px;
+  height: 32px;
+  left: 430px;
+  line-height: 28px;
+  position: relative;
+  text-align: center;
+  top: -5px;
+  width: 32px;
 }
 
 /* ====================================
