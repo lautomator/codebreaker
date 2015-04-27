@@ -208,7 +208,7 @@ function codebreaker(params, targets) {
             status = '',
             win = false,
             guessesLeft = true,
-            cookieExpiration = 28,
+            cookieExpiration = 1,
             hiScore = getScore('score');
 
     // check to verify a valid guess has been entered
@@ -289,7 +289,7 @@ function codebreaker(params, targets) {
     function init() {
 
         // for debugging -----------------------
-        // console.log(solution);
+        console.log(solution);
         // -------------------------------------
 
         checkParams(params, targets);
@@ -306,3 +306,10 @@ function codebreaker(params, targets) {
     init();
 
 }
+
+// TODO: 
+// 1. disable the enter button on win or lose
+// 2. enable the enter button to work from the keypad
+// 3. adjust the rules so that they appear at the top of the screen
+// in the moble phone version.
+// 4. Lint
