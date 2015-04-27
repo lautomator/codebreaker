@@ -265,6 +265,7 @@ function codebreaker(params, targets) {
 
         var display = targets.keyDisplay,
             enter = targets.keyEnter,
+            keys = targets.keyPad,
             win = processGuess(),
             newGame = targets.newGame;
 
@@ -273,10 +274,11 @@ function codebreaker(params, targets) {
 
         if ((turns === 0 && !win) || win) {
 
-            // disable the screen and submit button
+            // disable the screen and all of the keys
             // render the 'play again' button
             display.style.visibility = 'hidden';
-            enter.type = 'button';
+            keys.disabled = true;
+            enter.disabled = true;
             newGame.style.visibility = 'visible';
 
         } else {
