@@ -47,7 +47,7 @@ function codebreaker(params, targets) {
     function getRules() {
 
         var rules = targets.gameRules;
-        rules.style.visibility = 'visible';
+        rules.style.display = 'block';
 
     }
 
@@ -55,8 +55,7 @@ function codebreaker(params, targets) {
     function exitInfoPanel() {
 
         var rules = targets.gameRules;
-        rules.style.visibility = 'hidden';
-
+        rules.style.display = 'none';
     }
 
     // redirect to the game source code GitHub page
@@ -83,8 +82,6 @@ function codebreaker(params, targets) {
             expires = "";
 
         }
-
-        // TODO: add the new score if it beats the highest score
 
         document.cookie = ckName + "=" + scr + expires + "; path=/";
 
@@ -210,7 +207,7 @@ function codebreaker(params, targets) {
             status = '',
             win = false,
             guessesLeft = true,
-            cookieExpiration = 28,
+            cookieExpiration = 1,
             hiScore = getScore('score');
 
     // check to verify a valid guess has been entered
@@ -267,6 +264,7 @@ function codebreaker(params, targets) {
 
         var display = targets.keyDisplay,
             enter = targets.keyEnter,
+            keys = targets.keyPad,
             win = processGuess(),
             newGame = targets.newGame;
 
@@ -275,10 +273,12 @@ function codebreaker(params, targets) {
 
         if ((turns === 0 && !win) || win) {
 
-            // disable the screen and submit button
+            // disable the screen and all of the keys
             // render the 'play again' button
             display.style.visibility = 'hidden';
-            enter.type = 'button';
+            keys.disabled = true;
+            enter.disabled = true;
+            enter.style.color = '#00b9ff';
             newGame.style.visibility = 'visible';
 
         } else {
@@ -299,11 +299,10 @@ function codebreaker(params, targets) {
         keypadInit();
 
         // general click events
-        targets.submitGuess.onsubmit = submitGuess;
+        targets.keyEnter.onclick = submitGuess;
         targets.gameInfo.onclick = getRules;
         targets.infoExit.onclick = exitInfoPanel;
         targets.gameSrc.onclick = srcRedirect;
-
     }
 
     init();
