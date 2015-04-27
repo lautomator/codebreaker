@@ -30,7 +30,7 @@ function keypadInit() {
 
         return ok;
 
-    };
+    }
 
     // input from the buttons
     function keypadClick(e) {
@@ -57,7 +57,7 @@ function keypadInit() {
             display.textContent = clicks.join('');
 
         }
-    };
+    }
 
     // input from the keyboard
     function keyboardInput(e) {
@@ -81,7 +81,7 @@ function keypadInit() {
         // handle 'enter' from the keyboard
         if (e.keyCode === 13) {
 
-            console.log('you hit the enter key');
+            targets.keyEnter.click();
 
         }
 
@@ -91,8 +91,7 @@ function keypadInit() {
                     clicks
                 )) {
 
-            // suppress any key clicks except for numbers,
-            // enter, and clear, respectively.
+            // suppress any key clicks except for numbers.
             if (e.keyCode >= 48 && e.keyCode <= 57) {
 
                 clicks.push(String.fromCharCode(e.keyCode));
@@ -101,7 +100,7 @@ function keypadInit() {
 
             }
         }
-    };
+    }
 
     // button mouse click events
     // 7

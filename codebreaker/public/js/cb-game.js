@@ -308,7 +308,3 @@ function codebreaker(params, targets) {
     init();
 
 }
-
-// TODO:
-// * enable the enter button to work from the keypad
-// * Lint
