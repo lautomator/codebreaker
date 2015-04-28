@@ -66,6 +66,26 @@ function codebreaker(params, targets) {
 
     }
 
+    // reveal the solution panel
+    function revealSolution(s) {
+
+        var sol = targets.gameSolution,
+            p = document.createElement("p"),
+            solTxt = document.createTextNode(s);
+
+        sol.style.display = 'block';
+        p.appendChild(solTxt);
+        sol.appendChild(p);
+
+    }
+
+    // exit the solution panel
+    function exitSolutionPanel() {
+
+        var sol = targets.gameSolution;
+        sol.style.display = 'none';
+    }
+
     // set the best score in a cookie
     function setScore(ckName, scr, days) {
         var date,
@@ -237,6 +257,14 @@ function codebreaker(params, targets) {
             consoleMessage = 'You have run out of guesses.';
             guessesLeft = false;
 
+            // reveal the solution
+            revealSolution(solution);
+
+            // check on the score status
+            if (score < 1) {
+
+                setScore('score', 0, cookieExpiration);
+            }
 
         } else {
 
@@ -290,10 +318,6 @@ function codebreaker(params, targets) {
 
     function init() {
 
-        // for debugging -----------------------
-        // console.log(solution);
-        // -------------------------------------
-
         checkParams(params, targets);
 
         keypadInit();
@@ -302,7 +326,13 @@ function codebreaker(params, targets) {
         targets.keyEnter.onclick = submitGuess;
         targets.gameInfo.onclick = getRules;
         targets.infoExit.onclick = exitInfoPanel;
+        targets.solExit.onclick = exitSolutionPanel;
         targets.gameSrc.onclick = srcRedirect;
+
+        // for debugging -----------------------
+        // console.log(solution);
+        // -------------------------------------
+
     }
 
     init();

@@ -67,10 +67,15 @@ function codebreaker(params, targets) {
     }
 
     // reveal the solution panel
-    function revealSolution() {
+    function revealSolution(s) {
 
-        var sol = targets.gameSolution;
+        var sol = targets.gameSolution,
+            p = document.createElement("p"),
+            solTxt = document.createTextNode(s);
+
         sol.style.display = 'block';
+        p.appendChild(solTxt);
+        sol.appendChild(p);
 
     }
 
@@ -256,7 +261,7 @@ function codebreaker(params, targets) {
             revealSolution(solution);
 
             // check on the score status
-            if (!score) {
+            if (score < 1) {
 
                 setScore('score', 0, cookieExpiration);
             }

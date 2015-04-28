@@ -119,13 +119,15 @@ footer {
 ==================================== */
 #reveal-solution {
   background-color: $keys-bg;
-  border: solid 1px $clr-main-font;
+  border-top: solid 1px $clr-main-font;
+  border-bottom: solid 1px $clr-main-font;
+  border-right: solid 1px $clr-main-font;
   border-radius: 5px;
   display: none;
   height: 75px;
   margin: 0;
   opacity: .8;
-  padding: 5px;
+  padding: 5px 0 0 15px;
   position: absolute;
   top: 50px;
   width: 200px;
@@ -138,7 +140,7 @@ footer {
   float: right;
   font-size: 28px;
   height: 32px;
-  line-height: 28px;
+  line-height: 12px;
   text-align: center;
   width: 32px;
 }
@@ -339,4 +341,10 @@ input {
 #rules>p,
 #rules>ul>li {
   color: $clr-main-font;
+}
+
+#reveal-solution>p {
+  color: $clr-main-font;
+  font: 18px/24px $font-main;
+  margin: 0 !important;
 }

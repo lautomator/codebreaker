@@ -94,7 +94,7 @@
         <!-- info panel -->
         <div id="rules">
           <div id="info-exit">x</div>
-          <p>GAME RULES</p>
+          <p><strong>GAME RULES</strong></p>
           <p>This game is based on the classic Atari 2600 game of the same
           title. The object of the game is to guess 3
           numbers between 0 and 9 in the correct order. If you
@@ -109,8 +109,8 @@
             <li>_&ensp;=&ensp;a number has not been matched.</li>
           </ul>
 
-          <p>The flag does not necessarily indicate the correct position on
-          the readout. For example, given a solution of 123, the game play
+          <p><em>The flag does not necessarily indicate the correct position on
+          the readout</em>. For example, given a solution of 123, the game play
           might look like this:</p>
 
           <ul>
@@ -124,6 +124,12 @@
           to their correct positions or 10 guesses have been taken.
           </p>
         </div><!-- info panel ends -->
+
+        <!-- solution panel -->
+        <div id="reveal-solution">
+          <div id="reveal-solution-exit">x</div>
+          <p>The solution is:</p>          
+        </div><!-- solution panel ends -->
 
       </div><!-- page ends -->
 
@@ -150,6 +156,8 @@
                 infoExit:      document.getElementById('info-exit'),
                 gameInfo:      document.getElementById('info'),
                 gameSrc:       document.getElementById('src'),
+                gameSolution:  document.getElementById('reveal-solution'),
+                solExit:       document.getElementById('reveal-solution-exit'),
                 newGame:       document.getElementById('new-game'),
                 cbSrc:         'https://github.com/lautomator/codebreaker'
             };
