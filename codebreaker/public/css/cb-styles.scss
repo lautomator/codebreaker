@@ -1,7 +1,25 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400);
 
 /* ====================================
-   global
+
+   contents
+   --------
+
+   1. global colors
+   2. primary layout spaces
+   3. info / game rules
+   4. reveal the solution
+   5. keypad
+   6. console
+   7. footer buttons
+   8. scores page
+   9. dynamic
+  10. typography
+
+==================================== */
+
+/* ====================================
+   1. global
 ==================================== */
 
 $font-main: 'Source Sans Pro', sans-serif;
@@ -27,7 +45,7 @@ $keys-active: #00ff00;
 }
 
 /* ====================================
-   primary layout spaces
+   2. primary layout spaces
 ==================================== */
 body {
   background-color: $clr-bg;
@@ -69,7 +87,7 @@ footer {
 }
 
 /* ====================================
-   info / game rules
+   3. info / game rules
 ==================================== */
 #rules {
   background-color: $keys-bg;
@@ -97,7 +115,36 @@ footer {
 }
 
 /* ====================================
-   keypad
+   4. reveal the solution
+==================================== */
+#reveal-solution {
+  background-color: $keys-bg;
+  border: solid 1px $clr-main-font;
+  border-radius: 5px;
+  display: none;
+  height: 75px;
+  margin: 0;
+  opacity: .8;
+  padding: 5px;
+  position: absolute;
+  top: 50px;
+  width: 200px;
+  z-index: 999;
+}
+
+#reveal-solution-exit {
+  color: $keys-active;
+  cursor: pointer;
+  float: right;
+  font-size: 28px;
+  height: 32px;
+  line-height: 28px;
+  text-align: center;
+  width: 32px;
+}
+
+/* ====================================
+   5. keypad
 ==================================== */
 #keypad {
   height: 290px;
@@ -153,7 +200,7 @@ footer {
 }
 
 /* ====================================
-   console
+   6. console
 ==================================== */
 #console {
   height: 290px;
@@ -180,7 +227,7 @@ footer {
 }
 
 /* ====================================
-   footer buttons
+   7. footer buttons
 ==================================== */
 #info,
 #src,
@@ -200,7 +247,7 @@ footer {
 }
 
 /* ====================================
-   scores page
+   8. scores page
 ==================================== */
 #score-banner {
   margin: 0 auto;
@@ -223,7 +270,7 @@ footer {
 
 
 /* ====================================
-   dynamic
+   9. dynamic
 ==================================== */
 .show {
   visibility: visible;
@@ -238,7 +285,7 @@ li {
 }
 
 /* ====================================
-   typography
+   10. typography
 ==================================== */
 a, a:hover {
   color: #fff;
@@ -283,7 +330,6 @@ input {
   color: $keys-active;
   font: 22px/22px $keys-active;
   text-align: center;
-
 }
 
 .key-act {
