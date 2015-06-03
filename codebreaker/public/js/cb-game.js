@@ -330,7 +330,7 @@ function codebreaker(params, targets) {
         targets.gameSrc.onclick = srcRedirect;
 
         // for debugging -----------------------
-        // console.log(solution);
+        console.log(solution);
         // -------------------------------------
 
     }
