@@ -38,7 +38,7 @@ This version can be run from a web browser. Download the source and open the `in
 
 ![codebreaker screenshot 2](https://dl.dropboxusercontent.com/u/54256847/cb-02.png)
 
-#Development
+##Development
 There are two directories: `public` and `www` in the `codebreaker` root directory. The `public` directory is the working directory. It uses the [Harp](http://harpjs.com/) server environment.
 
 Before editing, run `harp server` within the `codebreaker` directory. This will listen for changes when editing the css: sass stylesheet.
