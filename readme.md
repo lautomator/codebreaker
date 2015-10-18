@@ -1,5 +1,6 @@
 Codebreaker
 ===========
+<cite>version 1.1</cite>
 
 #Summary
 Codebreaker is a simple guessing game and can be run from a web browser. It is written in JavaScript.
