@@ -1,6 +1,6 @@
 Codebreaker
 ===========
-version 1.2
+version DEV
 
 ##Summary
 Codebreaker is a simple guessing game and can be run from a web browser. It is written in JavaScript. This version is written as object-oriented JavaScript.
