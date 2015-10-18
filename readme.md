@@ -1,5 +1,6 @@
-codebreaker
+Codebreaker
 ===========
+version 1.0
 
 ## Summary
 This is the first web version of the game, with a JavaScript backend.
