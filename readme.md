@@ -2,11 +2,11 @@ Codebreaker
 ===========
 version 0.0
 
-#Summary
+##Summary
 This is the initial version of the game authored in Python and can be played on the command line.
 
 
-#Rules
+##Rules
 This game is based on the classic Atari 2600 game of the same title.
 The object of the game is for the player to guess n=level numbers between
 0 and 9 in the correct order. If the player guesses any of the numbers,
@@ -46,5 +46,5 @@ There are three levels to choose from:
 6 (difficult)
 ```
 
-#Setup
+##Setup
 To play the game, download the source file: `codebreaker.py`. In the terminal, find the source file and run the program: `python codebreaker.py`.
