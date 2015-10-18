@@ -1,8 +1,10 @@
 codebreaker
 ===========
 
-###instructions
+## Summary
+This is the first web version of the game, with a JavaScript backend.
 
+##Instructions
 This game is based on the classic Atari 2600 game of the same
 title. The object of the game is for the player to guess 3
 numbers between 0 and 9 in the correct order. If the player
@@ -29,6 +31,7 @@ might look like this:
 The game play ends when all of the numbers have been matched
 to their correct positions or 10 guesses have been taken.
 
-This version can be run from any web browser. Download the source and open the ```index.html``` page in a browser.
+##Setup
+This version can be run from any web browser. Download the source and open `index.html` page in a browser.
 
 Special thanks to [Sam Halperin](https://github.com/shalperin) for several code reviews and direction.
