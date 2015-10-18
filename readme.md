@@ -1,5 +1,6 @@
-codebreaker
+Codebreaker
 ===========
+version 0.0
 
 #Summary
 This is the initial version of the game authored in Python and can be played on the command line.
