@@ -1,0 +1,350 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400);
+
+/* ====================================
+
+   contents
+   --------
+
+   1. global colors
+   2. primary layout spaces
+   3. info / game rules
+   4. reveal the solution
+   5. keypad
+   6. console
+   7. footer buttons
+   8. scores page
+   9. dynamic
+  10. typography
+
+==================================== */
+
+/* ====================================
+   1. global
+==================================== */
+
+$font-main: 'Source Sans Pro', sans-serif;
+
+$clr-bg: #f1f1f1;
+$clr-border: #b2b2b2;
+$clr-main-font: #fff;
+
+$keys-bg: #000;
+$keys-bg-con: #000;
+$keys-con-clr: #00b9ff;
+$keys-border: #333;
+$keys-active: #00ff00;
+
+* {
+  border: 0;
+  background-repeat: no-repeat;
+  border-collapse: collapse;
+  font-family: $font-main;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+/* ====================================
+   2. primary layout spaces
+==================================== */
+body {
+  background-color: $clr-bg;
+  padding: 5px;
+}
+
+.container {
+  background-color: $keys-bg;
+  background-image: url('../img/99882.gif');
+  background-repeat: repeat;
+  border: 1px solid $clr-border;
+  border-radius: 5px;
+  min-height: 420px;
+  margin: 0 auto;
+  max-width: 502px;
+  overflow: hidden;
+  padding: 0 !important;
+}
+
+header {
+  height: 50px;
+  padding: 0 0 0 10px;
+  width: 100%;
+}
+
+#main {
+  min-height: 320px;
+  margin: 0 auto;
+  max-width: 360px;
+}
+
+footer {
+  height: 50px;
+  left: 0;
+  padding: 0 0 0 10px;
+  position: relative;
+  top: 0;
+  width: 100%;
+}
+
+/* ====================================
+   3. info / game rules
+==================================== */
+#rules {
+  background-color: $keys-bg;
+  border: solid 1px $clr-main-font;
+  border-radius: 5px;
+  display: none;
+  margin: 6px 15px 0 10px;
+  max-width: 480px;
+  opacity: .8;
+  padding: 10px;
+  position: absolute;
+  top: 6px;
+  z-index: 999;
+}
+
+#info-exit {
+  color: $keys-active;
+  cursor: pointer;
+  float: right;
+  font-size: 28px;
+  height: 32px;
+  line-height: 28px;
+  text-align: center;
+  width: 32px;
+}
+
+/* ====================================
+   4. reveal the solution
+==================================== */
+#reveal-solution {
+  background-color: $keys-bg;
+  border-top: solid 1px $clr-main-font;
+  border-bottom: solid 1px $clr-main-font;
+  border-right: solid 1px $clr-main-font;
+  border-radius: 5px;
+  display: none;
+  height: 75px;
+  margin: 0;
+  opacity: .8;
+  padding: 5px 0 0 15px;
+  position: absolute;
+  top: 50px;
+  width: 200px;
+  z-index: 999;
+}
+
+#reveal-solution-exit {
+  color: $keys-active;
+  cursor: pointer;
+  float: right;
+  font-size: 28px;
+  height: 32px;
+  line-height: 12px;
+  text-align: center;
+  width: 32px;
+}
+
+/* ====================================
+   5. keypad
+==================================== */
+#keypad {
+  height: 290px;
+  margin: 0 auto;
+  padding: 0 !important;
+  width: 180px;
+}
+
+#console-readout,
+#keypad-panel {
+  background-color: $keys-bg-con;
+  border: solid 1px $keys-border;
+  border-radius: 3px;
+  height: 290px;
+  margin: 0 auto;
+  width: 180px;
+}
+
+#keys-readout {
+  height: 42px;
+  margin: 5px auto 0 auto;
+  position: relative;
+  top: 0;
+  width: 180px;
+}
+
+#player-input {
+  height: 242px;
+  margin: 0 auto;
+  position: relative;
+  top: 0;
+  width: 180px;
+
+  .key, #enter {
+    background-color: $keys-bg-con;
+    border-top: solid 1px $keys-border;
+    border-left: solid 1px $keys-border;
+    cursor: pointer;
+    height: 57px;
+    position: relative;
+    bottom: 8px;
+    width: 57px;
+  }
+
+  .side {
+    border-left: none;
+  }
+
+  input:focus {
+    display: none;
+  }
+
+}
+
+/* ====================================
+   6. console
+==================================== */
+#console {
+  height: 290px;
+  margin: 0 auto;
+  padding: 0;
+  width: 180px;
+}
+
+#console-guesses {
+  height: 260px;
+  padding-top: 15px;
+  width: 180px;
+}
+
+#console-messages {
+  height: 23px;
+  width: 180px;
+}
+
+#status {
+  left: 40px;
+  height: 260px;
+  width: 180;
+}
+
+/* ====================================
+   7. footer buttons
+==================================== */
+#info,
+#src,
+#new-game, #play-game {
+  background-color: $keys-bg;
+  border: 1px solid $keys-border;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  height: 30px;
+  margin: 10px 10px 0 0;
+  width: 70px;
+}
+
+#new-game {
+  visibility: hidden;
+}
+
+/* ====================================
+   8. scores page
+==================================== */
+#score-banner {
+  margin: 0 auto;
+  max-width: 360px;
+  padding-top: 80px;
+}
+
+#score-banner p,
+#score-banner ul li, {
+  color: $clr-main-font;
+  font: 32px/32px $font-main;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+#score-banner ul li, {
+  color: $keys-active;
+  font: 72px/72px $font-main;
+}
+
+
+/* ====================================
+   9. dynamic
+==================================== */
+.show {
+  visibility: visible;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+/* ====================================
+   10. typography
+==================================== */
+a, a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.title {
+  color: $clr-main-font;
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+
+.footer-text {
+  color: $clr-main-font;
+  font-size: 14px;
+  line-height: 26px;
+  text-align: center;
+}
+
+input {
+  color: $keys-con-clr;;
+  font: 24px/24px $font-main;
+}
+
+.console-txt {
+  color: $keys-con-clr;;
+  font: 32px/46px $font-main;
+  letter-spacing: 3px;
+  padding:0 15px 0 0;
+  text-align: right;
+}
+
+#status li {
+  color: $keys-con-clr;
+  font: 22px/22px $font-main;
+  letter-spacing: 3px;
+  padding-left: 35px;
+  text-align: left;
+}
+
+#console-messages {
+  color: $keys-active;
+  font: 22px/22px $keys-active;
+  text-align: center;
+}
+
+.key-act {
+  color: $keys-active;
+}
+
+#rules>p,
+#rules>ul>li {
+  color: $clr-main-font;
+}
+
+#reveal-solution>p {
+  color: $clr-main-font;
+  font: 18px/24px $font-main;
+  margin: 0 !important;
+}
