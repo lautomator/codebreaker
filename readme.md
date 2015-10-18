@@ -2,10 +2,10 @@ Codebreaker
 ===========
 <cite>version 1.1</cite>
 
-#Summary
+##Summary
 Codebreaker is a simple guessing game and can be run from a web browser. It is written in JavaScript.
 
-#Instructions
+##Instructions
 This game is based on the classic Atari 2600 game of the same
 title. The object of the game is for the player to guess 3
 numbers between 0 and 9 in the correct order. When the player
@@ -31,7 +31,7 @@ might look like this:
 The game ends when all of the numbers have been matched
 to their correct positions or 10 guesses have been taken.
 
-#Setup
+##Setup
 This version can be run from a web browser. Download the source and open the ```index.html``` page in a browser or you can play the game here: [codebreaker](http://automaton.host-ed.me/apps/cb/).
 
 ![codebreaker screenshot 1](https://dl.dropboxusercontent.com/u/54256847/cb-01.png)
