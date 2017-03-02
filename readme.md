@@ -3,7 +3,11 @@ Codebreaker
 version DEV
 
 ##Summary
+<<<<<<< HEAD
 Codebreaker is a simple guessing game and can be run from a web browser. It is written in JavaScript. This version is written as object-oriented JavaScript.
+=======
+Codebreaker is a simple guessing game and can be run from a web browser. It is written in JavaScript.
+>>>>>>> v_1.1
 
 ##Instructions
 This game is based on the classic Atari 2600 game of the same
@@ -32,12 +36,17 @@ The game ends when all of the numbers have been matched
 to their correct positions or 10 guesses have been taken.
 
 ##Setup
+<<<<<<< HEAD
 This version can be run from a web browser. Download the source and open the `index.html` page in a browser or you can play the game here: [codebreaker](http://automaton.host-ed.me/apps/cb/).
+=======
+This version can be run from a web browser. Download the source and open the ```index.html``` page in a browser or you can play the game here: [codebreaker](http://automaton.host-ed.me/apps/cb/).
+>>>>>>> v_1.1
 
-![codebreaker screenshot 1](https://dl.dropboxusercontent.com/u/54256847/cb-01.png)
+![codebreaker screenshot 1](https://www.dropbox.com/s/4g9cf6um0f5it7g/cb-01.png?dl=0)
 
-![codebreaker screenshot 2](https://dl.dropboxusercontent.com/u/54256847/cb-02.png)
+![codebreaker screenshot 2](https://www.dropbox.com/s/ophz6s5uqp5erb9/cb-02.png?dl=0)
 
+<<<<<<< HEAD
 ##Development
 There are two directories: `public` and `www` in the `codebreaker` root directory. The `public` directory is the working directory. It uses the [Harp](http://harpjs.com/) server environment.
 
@@ -47,3 +56,6 @@ When you are finished with development, run `harp compile`. This will create and
 
 ##Thanks
 Special thanks to [Sam Halperin](https://github.com/shalperin) for several code reviews and suggestions.
+=======
+Special thanks to [Sam Halperin](https://github.com/shalperin) for several code reviews and suggestions.
+>>>>>>> v_1.1
