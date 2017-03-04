@@ -42,9 +42,9 @@ This version can be run from a web browser. Download the source and open the `in
 This version can be run from a web browser. Download the source and open the ```index.html``` page in a browser or you can play the game here: [codebreaker](http://automaton.host-ed.me/apps/cb/).
 >>>>>>> v_1.1
 
-![codebreaker screenshot 1](https://www.dropbox.com/s/4g9cf6um0f5it7g/cb-01.png?dl=0)
+![codebreaker screenshot 1](http://www.johnmerigliano.com/assets/cb-01.png)
 
-![codebreaker screenshot 2](https://www.dropbox.com/s/ophz6s5uqp5erb9/cb-02.png?dl=0)
+![codebreaker screenshot 2](http://www.johnmerigliano.com/assets/cb-02.png)
 
 <<<<<<< HEAD
 ##Development
